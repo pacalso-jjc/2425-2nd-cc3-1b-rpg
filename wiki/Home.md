@@ -1,4 +1,4 @@
-Welcome to the 2425-2nd-cc3-1e-rpg wiki!
+Welcome to the 2425-2nd-cc3-1b-rpg wiki!
 
 # Tools
 
