@@ -25,4 +25,12 @@ classDiagram
         +bool is_wild
         +run()
     }
+     
+	class Armor {
+        +String name
+        +int defense
+        +int weight
+        +equip()
+        +unequip()
+    }	
 ```
