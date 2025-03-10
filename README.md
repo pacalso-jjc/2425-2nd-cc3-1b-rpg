@@ -1,5 +1,10 @@
 # 2425-2nd-cc3-1e-rpg
 
+# Directory tree
+
+ - wiki: Place for documentation about the game such as story details and class diagrams
+ - src: Place for code such as java files
+
 # Contributing to this repository
 
 ## Cloning the repository
