@@ -29,6 +29,7 @@ classDiagram
     class Game{
         - boolean isRunning
         + start()
+        + loadGame()
         + exitGame()
         + main(String[] args)
     }
