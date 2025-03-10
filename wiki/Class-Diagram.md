@@ -36,4 +36,9 @@ classDiagram
         + exitGame()
         + main(String[] args)
     }
+
+    class InputHandler{
+        - Scanner sc
+        + String getInput()
+    }
 ```
