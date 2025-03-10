@@ -37,4 +37,7 @@ classDiagram
         + exitGame()
         + main(String[] args)
     }
+
+    class MergeConflictTest{
+    }
 ```
