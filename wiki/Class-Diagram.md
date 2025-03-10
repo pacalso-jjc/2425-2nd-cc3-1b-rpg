@@ -136,4 +136,9 @@ direction TB
     Event --> FestivalEvent
     Event --> QuestEvent
 
+    class InputHandler{
+        - Scanner sc
+        + String getInput()
+    }
 ```
+
