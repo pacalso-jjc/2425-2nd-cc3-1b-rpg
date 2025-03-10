@@ -42,4 +42,3 @@ classDiagram
     class MergeConflictTest{
 
     }
-```
