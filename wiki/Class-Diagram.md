@@ -41,8 +41,5 @@ classDiagram
     class InputHandler{
         - Scanner sc
         + String getInput()
-
-    class MergeConflictTest{
-
     }
 ```
