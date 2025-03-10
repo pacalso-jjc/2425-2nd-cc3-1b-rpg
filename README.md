@@ -6,7 +6,7 @@
 
 You should already have Git installed. Install Git if you haven't already https://git-scm.com/
 
-1. Navigate to the link of the repository https://github.com/pacalso-jjc/2425-2nd-cc3-1e-rpg
+1. Navigate to the link of the repository https://github.com/pacalso-jjc/2425-2nd-cc3-1b-rpg
 1. Click on the green button labeled as Code, then copy the link provided.
 1. Open cmd or git-bash in your machine.
 1. Navigate to where you want to clone the repository.

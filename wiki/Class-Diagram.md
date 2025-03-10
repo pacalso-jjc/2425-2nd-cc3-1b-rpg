@@ -26,10 +26,19 @@ classDiagram
         - Menu menu
         - boolean isRunning
         - InputHandler inputHandler
+        - Player player
         + Game()
         + start()
         + loadGame()
         + exitGame()
         + main(String[] args)
+    }
+
+    class InputHandler{
+        - Scanner sc
+        + String getInput()
+
+    class MergeConflictTest{
+
     }
 ```
