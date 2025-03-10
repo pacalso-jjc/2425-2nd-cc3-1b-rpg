@@ -25,4 +25,8 @@ classDiagram
         +bool is_wild
         +run()
     }
+
+    class Game{
+        Game()
+    }
 ```
