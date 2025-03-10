@@ -1,0 +1,37 @@
+classDiagram
+    class Inventory {
+        +addItem(item: Item)
+        +removeItem(item: Item)
+        +viewItemsByType(type: String) : List
+    }
+
+    class Item {
+        +String name
+        +int quantity
+        +String rarity
+    }
+
+    class Weapon {
+        +int damage
+        +String weaponType
+    }
+
+    class Armor {
+        +int defense
+        +String armorType
+    }
+
+    class Equipment {
+        +String effect
+        +int durability
+    }
+
+    class Material {
+        +String materialType
+    }
+
+    Inventory --> Item
+    Item <|-- Weapon
+    Item <|-- Armor
+    Item <|-- Equipment
+    Item <|-- Material
