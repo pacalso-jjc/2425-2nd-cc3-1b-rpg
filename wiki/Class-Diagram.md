@@ -25,4 +25,14 @@ classDiagram
         +bool is_wild
         +run()
     }
+
+    class Game{
+        - boolean isRunning
+        - InputHandler inputHandler
+        + start()
+        + loadGame()
+        + exitGame()
+        + main(String[] args)
+    }
+
 ```
