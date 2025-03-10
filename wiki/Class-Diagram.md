@@ -27,12 +27,13 @@ classDiagram
     }
 
     class Game{
+        - Menu menu
         - boolean isRunning
         - InputHandler inputHandler
+        + Game()
         + start()
         + loadGame()
         + exitGame()
         + main(String[] args)
     }
-
 ```
