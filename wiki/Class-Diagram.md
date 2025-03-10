@@ -35,7 +35,7 @@ classDiagram
     }
 
     QuestManager "1" -- "*" Quest : manages
-    QuestManager ..|> IQuestHandler
+    QuestManager --|> IQuestHandler
     QuestManager --|> Manager
 ```
 
