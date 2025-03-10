@@ -38,6 +38,11 @@ classDiagram
         + main(String[] args)
     }
 
+    class InputHandler{
+        - Scanner sc
+        + String getInput()
+
     class MergeConflictTest{
+
     }
 ```
