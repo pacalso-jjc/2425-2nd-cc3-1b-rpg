@@ -1,54 +1,86 @@
 ```mermaid
 ---
-title: Animal example
+title: Mercenary Diagram
 ---
+
 classDiagram
-    note "From Duck till Zebra"
-    Animal <|-- Duck
-    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
-    Animal <|-- Fish
-    Animal <|-- Zebra
-    Animal : +int age
-    Animal : +String gender
-    Animal: +isMammal()
-    Animal: +mate()
-    class Duck{
-        +String beakColor
-        +swim()
-        +quack()
-    }
-    class Fish{
-        -int sizeInFeet
-        -canEat()
-    }
-    class Zebra{
-        +bool is_wild
-        +run()
-    }
-
-    class Item{
+    direction TB
+    class Mercenary {
         -String name
-        -String description
-        -int rarity
-        -int value
-        -int quantity
+        -int level
+        -int health
+        -int attackPower
+        -int defense
+        -int goldCost
+        -String status
+        +attack()
+        +defend()
+        +hire()
+        +fire()
+        +levelUp()
     }
 
-    class Game{
-        - Menu menu
-        - boolean isRunning
-        - InputHandler inputHandler
-        - Player player
-        + Game()
-        + start()
-        + loadGame()
-        + exitGame()
-        + main(String[] args)
+    class Fighter {
+        -int stamina
+        -List combatSkills
+        +shieldBash()
+        +counterAttack()
     }
 
-    class InputHandler{
-        - Scanner sc
-        + String getInput()
+    class Barbarian {
+        -String weaponType
+        -int furyLevel
+        +berserkStrike()
+        +warCry()
     }
+
+    class Rogue {
+        -int agility
+        -List stealthAbilities
+        +backstab()
+        +shadowStep()
+    }
+
+    class Employer {
+        -String name
+        -String faction
+        -requestMercenary
+        +payMercenary()
+        +dismissMercenary()
+    }
+
+    class Weapon {
+        -String name
+        -int damageBonus
+        -int durability
+        +equip()
+        +unequip()
+        +repair()
+    }
+
+    class Guild {
+        -String guildName
+        -List memberList
+        +addMember()
+        +removeMember()
+        +assignQuest()
+    }
+
+    class Quest {
+        -String typeOfQuest
+        -boolean isQuestAccepted
+        -boolean isQuestFailed
+        +pickQuest()
+        +getReward()
+    }
+
+    Mercenary --|> Fighter
+    Mercenary --|> Barbarian
+    Mercenary --|> Rogue
+    Mercenary --|> Guild
+    Guild --|> Employer
+    Employer --|> Quest
+    Fighter --> Weapon
+    Barbarian --> Weapon
+    Rogue --> Weapon
 ```
-
