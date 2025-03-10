@@ -1,54 +1,73 @@
 ```mermaid
 ---
-title: Animal example
+title: Skill Diagram
 ---
 classDiagram
-    note "From Duck till Zebra"
-    Animal <|-- Duck
-    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
-    Animal <|-- Fish
-    Animal <|-- Zebra
-    Animal : +int age
-    Animal : +String gender
-    Animal: +isMammal()
-    Animal: +mate()
-    class Duck{
-        +String beakColor
-        +swim()
-        +quack()
-    }
-    class Fish{
-        -int sizeInFeet
-        -canEat()
-    }
-    class Zebra{
-        +bool is_wild
-        +run()
-    }
-
-    class Item{
-        -String name
-        -String description
-        -int rarity
+direction TB
+    class SkillEffect {
+	    -String type  
         -int value
-        -int quantity
+        -int duration
+        +apply() void
+        +remove() void
+        +getType() String
+        +getValue() int
+        +getDuration() int
+    }
+    class CoolDown {
+	    -int duration
+        -int remainingTime
+        +reset() void
+        +update(time: int) void
+        +isReady() boolean
+        +getDuration() int
+        +getRemainingTime() int
+    }
+    class ManaCost {
+	    -int amount
+        +isEnough(int currentMana) boolean
+        +reduceMana(int &currentMana) void
+        +getAmount() int
+    }
+    class SkillType {
+	    -String typeName 
+        -String category 
+        +getTypeName() String
+        +getCategory() String
+    }
+    class Skill {
+	    - String Name
+	    - String description
+	    - String skillType
+	    - int coolDown
+	    - int manaCost
+	    -String effect
+        +use() void
+        +addEffect(effect: Effect) void
+        +getName() String
+        +getDescription() String
+        +getSkillType() SkillType
+    }
+    class ActiveSkill {
+        -int castTime
+        -int range
+        -int duration
+        +use() void
+        +calculateDamage() int
+        +getCastTime() int
+        +getRange() int
     }
 
-    class Game{
-        - Menu menu
-        - boolean isRunning
-        - InputHandler inputHandler
-        - Player player
-        + Game()
-        + start()
-        + loadGame()
-        + exitGame()
-        + main(String[] args)
+    class PassiveSkill {
+        -String triggerCondition
+        +applyEffect() void
+        +isTriggered(event: String) boolean
+        +getTriggerCondition() String
     }
-
-    class InputHandler{
-        - Scanner sc
-        + String getInput()
-    }
+    Skill --|> SkillEffect
+    Skill --|> CoolDown
+    Skill --|> ManaCost
+    Skill --|> SkillType
+    SkillType --|> ActiveSkill
+    SkillType --|> PassiveSkill
 ```
-
