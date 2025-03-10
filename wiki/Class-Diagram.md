@@ -25,4 +25,11 @@ classDiagram
         +bool is_wild
         +run()
     }
+    class Item{
+        -String name
+        -String descriptio
+        -String rarity
+        -int value
+        -int quantity
+    }
 ```
