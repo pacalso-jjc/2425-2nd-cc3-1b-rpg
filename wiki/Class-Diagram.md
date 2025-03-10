@@ -28,8 +28,8 @@ classDiagram
 
     class Item{
         -String name
-        -String descriptio
-        -String rarity
+        -String description
+        -int rarity
         -int value
         -int quantity
     }
