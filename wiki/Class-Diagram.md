@@ -30,7 +30,7 @@ classDiagram
         - Menu menu
         - boolean isRunning
         - InputHandler inputHandler
-        Game()
+        + Game()
         + start()
         + loadGame()
         + exitGame()
