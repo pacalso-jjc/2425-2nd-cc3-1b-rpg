@@ -14,12 +14,12 @@ classDiagram
       - defense: int
       - stat: String
       - skills: String
-      - inventory: List<Item>
-      - equipments: List<Item>
-      + attack(Entity) void
-      + takeDamage(amountOfDamage) void
-      + isAlive ()boolean
-      + makeSound() void
+      - inventory: Inventory
+      - equipments: List~Item~
+      + attack(Entity e): void
+      + takeDamage(amountOfDamage: int): void
+      + isAlive (): boolean
+      + makeSound(): void
     }
 
     class Game{
@@ -37,6 +37,7 @@ classDiagram
     class InputHandler{
         - Scanner sc
         + String getInput()
+    }
 
     class MergeConflictTest{
 
