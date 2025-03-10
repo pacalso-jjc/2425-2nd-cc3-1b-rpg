@@ -28,6 +28,7 @@ classDiagram
 
     class Game{
         - boolean isRunning
+        - InputHandler inputHandler
         + start()
         + loadGame()
         + exitGame()
