@@ -53,8 +53,3 @@ classDiagram
         + giveQuest(character)
     }
 
-    class MergeConflictTest{
-
-    }
-
-```
