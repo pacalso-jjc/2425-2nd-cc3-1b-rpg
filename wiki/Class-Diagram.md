@@ -1,48 +1,139 @@
 ```mermaid
 ---
-title: Animal example
+title: World Diagram
 ---
 classDiagram
-    note "From Duck till Zebra"
-    Animal <|-- Duck
-    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
-    Animal <|-- Fish
-    Animal <|-- Zebra
-    Animal : +int age
-    Animal : +String gender
-    Animal: +isMammal()
-    Animal: +mate()
-    class Duck{
-        +String beakColor
-        +swim()
-        +quack()
+direction TB
+    class World {
+        - List locations
+        - List events
+        + addLocation(Location l)
+        + addEvent(Event e)
+        + displayWorldInfo()
     }
-    class Fish{
-        -int sizeInFeet
-        -canEat()
+    class MainContinent {
+        - String name
+        - String description
+        - List races
+        + loadTheWorld()
+        + explore()
+        + exitTheWorld()
     }
-    class Zebra{
-        +bool is_wild
-        +run()
+    class DemonContinent {
+        - String name
+        - String description
+        - List races
+        + loadTheWorld()
+        + explore()
+        + exitTheWorld()
+    }
+    class ForbiddenLand {
+        - String name
+        - String description
+        - List races
+        + loadTheWorld()
+        + explore()
+        + exitTheWorld()
+    }
+    class ElvenLand {
+        - String name
+        - String description
+        - List races
+        + loadTheWorld()
+        + explore()
+        + exitTheWorld()
+    }
+    class DwarvenLand {
+        - String name
+        - String description
+        - List races
+        + loadTheWorld()
+        + explore()
+        + exitTheWorld()
+    }
+    class NeutralZone {
+        - String name
+        - String description
+        - List races
+        + loadTheGame()
+        + explore()
+        + exitTheWorld()
+    }
+    class Event {
+        - String name
+        - String effect
+        - String type
+        - String location
+        - boolean isActive
+        - int duration
+        - List<String> participants
+        + trigger()
+        + startEvent()
+        + endEvent()
+        + getEventDetails()
+        + addParticipant(String participant)
+        + removeParticipant(String participant)
+    }
+    class BattleEvent {
+    - List<String> enemies
+    - String outcome
+    + startBattle()
+    + endBattle(String result)
     }
 
-    class Game{
-        - Menu menu
-        - boolean isRunning
-        - InputHandler inputHandler
-        - Player player
-        + Game()
-        + start()
-        + loadGame()
-        + exitGame()
-        + main(String[] args)
+    class NaturalDisasterEvent {
+    - String disasterType
+    - int severity
+    + warnPlayers()
+    + resolveDisaster()
     }
 
-    class InputHandler{
-        - Scanner sc
-        + String getInput()
-
-    class MergeConflictTest{
-
+    class FestivalEvent {
+    - String festivalType
+    - List<String> activities
+    + startFestival()
+    + endFestival()
     }
+
+    class QuestEvent {
+    - String questGiver
+    - String objective
+    - boolean isCompleted
+    + acceptQuest()
+    + completeQuest()
+    }
+
+    class Race {
+        - String name
+        - String traits
+        - String homeland
+        - String abilities
+        - int lifespan
+        - String alignment
+        + getRaceInfo()
+        + getHomeland()
+        + getAbilities()
+        + getLifespan()
+        + getAlignment()
+        + describeRace()
+    }
+
+    World --|> MainContinent
+    World --|> DemonContinent
+    World --|> ForbiddenLand
+    World --|> ElvenLand
+    World --|> DwarvenLand
+    World --|> Event
+    World --|> NeutralZone 
+    MainContinent --> Race
+    DemonContinent --> Race
+    ForbiddenLand --> Race
+    ElvenLand --> Race
+    DwarvenLand --> Race
+    NeutralZone --> Race
+    Event --> BattleEvent
+    Event --> NaturalDisasterEvent
+    Event --> FestivalEvent
+    Event --> QuestEvent
+
 ```
