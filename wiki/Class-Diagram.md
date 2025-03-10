@@ -26,7 +26,7 @@ classDiagram
         +run()
     }
      
-	class Armor {
+    class Armor {
         +String name
         +int defense
         +int weight
