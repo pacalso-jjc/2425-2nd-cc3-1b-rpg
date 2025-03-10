@@ -27,6 +27,7 @@ classDiagram
     }
 
     class Game{
+        - Menu menu
         Game()
     }
 ```
