@@ -1,7 +1,5 @@
 ```mermaid
 ---
-title: Animal example
----
 classDiagram  
     class Entity{
       - name: String
