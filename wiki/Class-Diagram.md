@@ -1,5 +1,7 @@
 ```mermaid
 ---
+title: Fantasy RPG
+---
 classDiagram  
     class Entity{
       - name: String
