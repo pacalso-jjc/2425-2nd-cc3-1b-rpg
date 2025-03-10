@@ -66,3 +66,9 @@ By this point you are now done with your change in your personal branch and is r
 1. Assign the pull request to your instructor for review.
 1. Set the task in the github project to In Review
 
+
+# Tools
+
+ - Class Diagram: Mermaid syntax
+ - Programming Language: Java
+ - UI: CLI and Java Swing
