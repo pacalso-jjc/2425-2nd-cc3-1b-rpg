@@ -48,64 +48,65 @@ classDiagram
 
     }
 
-    class Alchemist {
-        +String className = "Alchemist"
-        +String skillBranch = "Truth Seeker"
-        +double increaseInt(double amount)
-        +double increaseLuck(double amount)
-    }
-    class Assassin {
-        +String className = "Assassin"
-        +String skillBranch = "Shadowed "
-        +double increaseDex(double amount)
-        +double increaseAgi(double amount)
-    }
-    class Healer {
-        +String className = "Healer"
-        +String skillBranch = "World's Grace"
-        +double increaseVit(double amount)
-        +double increaseHP(double amount)
-    }
-    class Knight {
-        +String className = "Knight"
-        +String skillBranch = "Sacred Oath"
-        +double increaseAtk(double amount)
-        +double increaseConst(double amount)
-    }
-    class Mage {
-        +String className = "Mage"
-        +String skillBranch = "Mana's Blessing"
-        +double increaseMana(double amount)
-        +double increaseAtk(double amount)
-    }
-    class Ranger {
-        +String className = "Ranger"
-        +String skillBranch = "Bird's Eye"
-        +double increaseAcc(double amount)
-        +double increaseStamina(double amount)
-    }
-    class Wizard {
-        +String className = "Wizard"
-        +String skillBranch = "Arcane's Blessing"
-        +double increaseMana(double amount)
-        +double increaseCrt(double amount)
-    }
-
-    Class --|> Alchemist
-    Class --|> Assassin
-    Class --|> Healer
-    Class --|> Knight
-    Class --|> Mage
-    Class --|> Ranger
-    Class --|> Wizard
-
-
-    class Class {
+    class Skill {
         <<Abstract>>
-        -String className
-        -String skillBranch
-        +void baseStats()
-        +void apply
-	    +(Name)
+        +String skillName
+        +String description
+        +int requiredLevel
+        +List~Skill~ prerequisites
+        +void unlock()
     }
+
+    class SkillTree {
+        +String className
+        +List~Skill~ availableSkills
+        +List~Skill~ unlockedSkills
+        +int skillPoints
+        +void unlockSkill(Skill skill)
+        +void spendSkillPoint()
+    }
+
+    class PassiveSkill {
+        +double statBoost
+    }
+    
+    class ActiveSkill {
+        +void cast()
+        +double manaCost
+    }
+
+    Skill <|-- PassiveSkill
+    Skill <|-- ActiveSkill
+
+    SkillTree *-- Skill : contains
+
+    class AlchemistTree {
+        +void unlockSkill(Skill skill)
+    }
+    class AssassinTree {
+        +void unlockSkill(Skill skill)
+    }
+    class HealerTree {
+        +void unlockSkill(Skill skill)
+    }
+    class KnightTree {
+        +void unlockSkill(Skill skill)
+    }
+    class MageTree {
+        +void unlockSkill(Skill skill)
+    }
+    class RangerTree {
+        +void unlockSkill(Skill skill)
+    }
+    class WizardTree {
+        +void unlockSkill(Skill skill)
+    }
+
+    SkillTree <|-- AlchemistTree
+    SkillTree <|-- AssassinTree
+    SkillTree <|-- HealerTree
+    SkillTree <|-- KnightTree
+    SkillTree <|-- MageTree
+    SkillTree <|-- RangerTree
+    SkillTree <|-- WizardTree
 ```
