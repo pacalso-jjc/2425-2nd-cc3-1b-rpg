@@ -11,6 +11,14 @@ classDiagram
         - source: String
     }
 
+    class Item{
+        -String name
+        -String description
+        -int rarity
+        -int value
+        -int quantity
+    }
+
     class Game{
         - Menu menu
         - boolean isRunning
