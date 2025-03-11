@@ -1,54 +1,25 @@
 ```mermaid
 ---
-title: Animal example
+title: Mercenary Diagram
 ---
+
 classDiagram
-    note "From Duck till Zebra"
-    Animal <|-- Duck
-    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
-    Animal <|-- Fish
-    Animal <|-- Zebra
-    Animal : +int age
-    Animal : +String gender
-    Animal: +isMammal()
-    Animal: +mate()
-    class Duck{
-        +String beakColor
-        +swim()
-        +quack()
-    }
-    class Fish{
-        -int sizeInFeet
-        -canEat()
-    }
-    class Zebra{
-        +bool is_wild
-        +run()
+direction TB
+    class Mercenary {
+	    -String name
+	    -int level
+	    -int health
+	    -int attackPower
+	    -int defense
+	    -int goldCost
+	    -String status
+	    +attack()
+	    +defend()
+	    +hire()
+	    +fire()
+	    +levelUp()
     }
 
-    class Item{
-        -String name
-        -String description
-        -int rarity
-        -int value
-        -int quantity
-    }
+    Mercenary --|> Character
 
-    class Game{
-        - Menu menu
-        - boolean isRunning
-        - InputHandler inputHandler
-        - Player player
-        + Game()
-        + start()
-        + loadGame()
-        + exitGame()
-        + main(String[] args)
-    }
-
-    class InputHandler{
-        - Scanner sc
-        + String getInput()
-    }
 ```
-
