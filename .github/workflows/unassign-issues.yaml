@@ -17,7 +17,7 @@ jobs:
 
       - name: Unassign stale issues and move to Backlog
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_CLASSIC }}
           PROJECT_ID: "PVT_kwHOCK-t8M4AznJc"  # Replace with your actual Project ID
           READY_FIELD_ID: "61e4505c"  # Replace with "Ready" status field ID
           READY_OPTION_ID: "61e4505c"  # ID for "Ready" status
