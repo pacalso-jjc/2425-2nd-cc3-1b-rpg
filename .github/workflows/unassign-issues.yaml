@@ -1,0 +1,103 @@
+name: Unassign Stale Issues & Move to Backlog
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Runs daily at midnight UTC
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  unassign-stale-issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      repository-projects: write  # Required for Projects V2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Unassign stale issues and move to Backlog
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_CLASSIC }}  # Use a Personal Access Token (PAT)
+          PROJECT_ID: "PVT_kwHOCK-t8M4AznJc"  # Replace with actual Project ID
+          READY_FIELD_ID: "61e4505c"  # ID for "Ready" status field
+          READY_OPTION_ID: "61e4505c"  # ID for "Ready" status
+          BACKLOG_OPTION_ID: "f75ad846"  # ID for "Backlog" status
+        run: |
+          DAYS_THRESHOLD=2
+          CUTOFF_DATE=$(date -u -d "$DAYS_THRESHOLD days ago" +"%Y-%m-%dT%H:%M:%SZ")
+
+          echo "Fetching issues from project..."
+
+          # Get issues in "Ready" column that have not been updated for 2+ days
+          ISSUES=$(gh api graphql -f query='
+          query($projectId: ID!) {
+            node(id: $projectId) {
+              ... on ProjectV2 {
+                items(first: 50) {
+                  nodes {
+                    content {
+                      ... on Issue {
+                        id
+                        number
+                        updatedAt
+                        assignees(first: 10) {
+                          nodes { login }
+                        }
+                      }
+                    }
+                    fieldValues(first: 10) {
+                      nodes {
+                        ... on ProjectV2ItemFieldSingleSelectValue {
+                          field {
+                            ... on ProjectV2SingleSelectField {
+                              id
+                            }
+                          }
+                          optionId
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }' -F projectId=$PROJECT_ID --jq \
+          '.data.node.items.nodes |
+            map(select(.content.updatedAt < "'$CUTOFF_DATE'") |
+                select(.fieldValues.nodes[].optionId == "'$READY_OPTION_ID'")) |
+            map(.content.number) | @sh')
+
+          for ISSUE in $ISSUES; do
+            echo "Processing issue #$ISSUE"
+
+            # Add comment before unassigning
+            gh api repos/{owner}/{repo}/issues/$ISSUE/comments -X POST -f body="No update for 2 days. Moving to Backlog."
+
+            # Unassign all users
+            gh api repos/{owner}/{repo}/issues/$ISSUE/assignees -X DELETE -f assignees='[]'
+
+            # Get Project Item ID for the issue
+            ITEM_ID=$(gh api graphql -F issue_number=$ISSUE -F owner={owner} -F repo={repo} -f query='
+            query($owner: String!, $repo: String!, $issue_number: Int!) {
+              repository(owner: $owner, name: $repo) {
+                issue(number: $issue_number) {
+                  id
+                }
+              }
+            }' --jq '.data.repository.issue.id')
+
+            # Move issue to "Backlog" column (Fixed type mismatch error)
+            gh api graphql -F projectId=$PROJECT_ID -F itemId=$ITEM_ID -F fieldId=$READY_FIELD_ID -F backlogOptionId=$BACKLOG_OPTION_ID -f query='
+            mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $backlogOptionId: ID!) {
+              updateProjectV2ItemFieldValue(input: { 
+                projectId: $projectId, 
+                itemId: $itemId, 
+                fieldId: $fieldId, 
+                value: { singleSelectOptionId: $backlogOptionId: ID! }
+              }) {
+                projectV2Item {
+                  id
+                }
+              }
+            }'
+          done
