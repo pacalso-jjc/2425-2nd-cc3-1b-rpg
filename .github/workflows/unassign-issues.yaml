@@ -1,0 +1,64 @@
+name: Unassign Stale Issues and Move to Backlog
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Runs daily at midnight UTC
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  unassign-stale-issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      project: write  # Required for moving issues in a project
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Unassign stale issues, comment, and move to Backlog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROJECT_ID: "PVT_kwHOCK-t8M4AznJc"  # Replace with your GitHub Project ID
+          BACKLOG_COLUMN_ID: "f75ad846"  # Replace with the Backlog column ID
+        run: |
+          DAYS_THRESHOLD=2
+          CUTOFF_DATE=$(date -u -d "$DAYS_THRESHOLD days ago" +"%Y-%m-%dT%H:%M:%SZ")
+
+          # Get assigned issues (excluding PRs)
+          ISSUES=$(gh api repos/pacalso-jjc/2425-2nd-cc3-1b-rpg/issues --paginate --jq \
+            '.[] | select(.assignees | length > 0) | select(.pull_request == null) | select(.updated_at < "'$CUTOFF_DATE'") | .number')
+
+          for ISSUE in $ISSUES; do
+            # Check if the issue is linked to a PR
+            LINKED_PR=$(gh api repos/pacalso-jjc/2425-2nd-cc3-1b-rpg/issues/$ISSUE/timeline --paginate --jq \
+              '.[] | select(.event == "connected") | length')
+
+            if [[ $LINKED_PR -gt 0 ]]; then
+              echo "Skipping issue #$ISSUE (linked to PR)"
+            else
+              echo "Commenting on issue #$ISSUE"
+              gh api repos/pacalso-jjc/2425-2nd-cc3-1b-rpg/issues/$ISSUE/comments -X POST -f body="No update for 2 days. Unassigning the issue."
+
+              echo "Unassigning issue #$ISSUE"
+              gh api repos/pacalso-jjc/2425-2nd-cc3-1b-rpg/issues/$ISSUE/assignees -X DELETE -f assignees='[]'
+
+              # Move issue to Backlog in the project
+              ITEM_ID=$(gh api graphql -F issue_number=$ISSUE -F owner=pacalso-jjc -F repo=2425-2nd-cc3-1b-rpg -f query='
+              query($owner: String!, $repo: String!, $issue_number: Int!) {
+                repository(owner: $owner, name: $repo) {
+                  issue(number: $issue_number) {
+                    id
+                  }
+                }
+              }' --jq '.data.repository.issue.id')
+
+              echo "Moving issue #$ISSUE to Backlog"
+              gh api graphql -F projectId=$PROJECT_ID -F itemId=$ITEM_ID -F columnId=$BACKLOG_COLUMN_ID -f query='
+              mutation($projectId: ID!, $itemId: ID!, $columnId: ID!) {
+                moveProjectV2Item(input: {projectId: $projectId, itemId: $itemId, targetColumnId: $columnId}) {
+                  clientMutationId
+                }
+              }'
+            fi
+          done
