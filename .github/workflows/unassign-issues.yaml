@@ -28,7 +28,7 @@ jobs:
 
           # Get issues in "Ready" column that have not been updated for 2+ days
           ISSUES=$(gh api graphql -f query='
-          query($projectId: ID!, $fieldId: ID!, $optionId: ID!) {
+          query($projectId: ID!) {
             node(id: $projectId) {
               ... on ProjectV2 {
                 items(first: 50) {
@@ -55,7 +55,7 @@ jobs:
                 }
               }
             }
-          }' -F projectId=$PROJECT_ID -F fieldId=$READY_FIELD_ID -F optionId=$READY_OPTION_ID --jq \
+          }' -F projectId=$PROJECT_ID --jq \
           '.data.node.items.nodes |
             map(select(.content.updatedAt < "'$CUTOFF_DATE'") |
                 select(.fieldValues.nodes[].optionId == "'$READY_OPTION_ID'")) |
