@@ -25,4 +25,30 @@ classDiagram
         +bool is_wild
         +run()
     }
+
+    class Item{
+        -String name
+        -String description
+        -int rarity
+        -int value
+        -int quantity
+    }
+
+    class Game{
+        - Menu menu
+        - boolean isRunning
+        - InputHandler inputHandler
+        - Player player
+        + Game()
+        + start()
+        + loadGame()
+        + exitGame()
+        + main(String[] args)
+    }
+
+    class InputHandler{
+        - Scanner sc
+        + String getInput()
+    }
 ```
+
