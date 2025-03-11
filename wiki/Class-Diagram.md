@@ -35,4 +35,13 @@ classDiagram
         - Scanner sc
         + String getInput()
     }
+
+    class DialogueManager {
+        -currentDialogue: Dialogue
+        +startDialogue(dialogue: Dialogue): void
+        +getCurrentText(): String
+        +getOptions(): List~String~
+        +selectOption(index: int): void
+        +isDialogueActive(): boolean
+    }
 ```
