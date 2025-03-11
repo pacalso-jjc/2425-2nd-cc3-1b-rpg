@@ -1,0 +1,15 @@
+classDiagram
+direction TB
+    class Quest {
+	    -questName: string
+	    -questDescription: string
+	    -type: QuestType
+	    -rewards: List
+        -isCompleted: boolean
+	    + isQuestCompleted(): boolean
+        + getDescription() : String
+	    + getRewards() : List
+        + completeQuest(): void
+    }
+
+
