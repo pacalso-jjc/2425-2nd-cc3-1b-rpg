@@ -36,9 +36,6 @@ classDiagram
         + String getInput()
     }
 
-
-    }
-    
     class MergeConflictTest{
 
     }
