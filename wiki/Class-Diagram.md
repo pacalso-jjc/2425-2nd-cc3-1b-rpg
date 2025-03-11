@@ -4,14 +4,6 @@ title: Fantasy RPG
 ---
 classDiagram
     Item --|> Material
-    class Item{
-        - String name
-        - String description
-        - int rarity
-        - int value
-        - int quantity
-    }
-
     class Material {
         - isCraftingMaterial: boolean
         - craftingUsage: String
