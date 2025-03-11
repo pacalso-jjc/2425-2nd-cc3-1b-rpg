@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
-      project: write  # Required for moving issues in a project
+      repository-projects: write  # Required for moving issues in a project
 
     steps:
       - name: Checkout repository
