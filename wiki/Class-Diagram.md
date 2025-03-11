@@ -25,4 +25,23 @@ classDiagram
         +bool is_wild
         +run()
     }
+
+class Mage {
+    - name: String
+    - level: int
+    - mana: int
+    - inteligence: int
+    - wisdom: int
+    - health: int
+    - spellBook: List<Spell>
+    - staff: Weapon
+    + castSpell(spellName: String, target: Character)void
+    + regenerateMana(amount: int)void
+    + learnSpell(spell: Spell)void
+    + equipStaff(staff: Weapon)void
+    + takeDamage(amount: int)void
+    + increaseLevel()void
+    + meditate()void
+    +getStats(): String
+}
 ```
