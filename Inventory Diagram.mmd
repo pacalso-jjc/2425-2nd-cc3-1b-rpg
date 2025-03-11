@@ -3,6 +3,7 @@ classDiagram
         +addItem(item: Item)
         +removeItem(item: Item)
         +viewItemsByType(type: String) : List
+        +items: List<Item>
     }
 
     class Item {
@@ -11,27 +12,4 @@ classDiagram
         +String rarity
     }
 
-    class Weapon {
-        +int damage
-        +String weaponType
-    }
-
-    class Armor {
-        +int defense
-        +String armorType
-    }
-
-    class Equipment {
-        +String effect
-        +int durability
-    }
-
-    class Material {
-        +String materialType
-    }
-
     Inventory --> Item
-    Item <|-- Weapon
-    Item <|-- Armor
-    Item <|-- Equipment
-    Item <|-- Material
