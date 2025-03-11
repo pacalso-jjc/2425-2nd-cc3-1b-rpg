@@ -26,6 +26,8 @@ jobs:
           DAYS_THRESHOLD=2
           CUTOFF_DATE=$(date -u -d "$DAYS_THRESHOLD days ago" +"%Y-%m-%dT%H:%M:%SZ")
 
+          echo "Fetching issues from project..."
+
           # Get issues in "Ready" column that have not been updated for 2+ days
           ISSUES=$(gh api graphql -f query='
           query($projectId: ID!) {
@@ -70,7 +72,7 @@ jobs:
             # Unassign all users
             gh api repos/{owner}/{repo}/issues/$ISSUE/assignees -X DELETE -f assignees='[]'
 
-            # Move to "Backlog"
+            # Get Project Item ID for the issue
             ITEM_ID=$(gh api graphql -F issue_number=$ISSUE -F owner={owner} -F repo={repo} -f query='
             query($owner: String!, $repo: String!, $issue_number: Int!) {
               repository(owner: $owner, name: $repo) {
@@ -80,6 +82,7 @@ jobs:
               }
             }' --jq '.data.repository.issue.id')
 
+            # Move issue to "Backlog" column
             gh api graphql -F projectId=$PROJECT_ID -F itemId=$ITEM_ID -F fieldId=$READY_FIELD_ID -F backlogOptionId=$BACKLOG_OPTION_ID -f query='
             mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $backlogOptionId: ID!) {
               updateProjectV2ItemFieldValue(input: { 
