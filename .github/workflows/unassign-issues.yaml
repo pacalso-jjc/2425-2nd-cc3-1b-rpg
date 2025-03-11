@@ -48,7 +48,11 @@ jobs:
                     fieldValues(first: 10) {
                       nodes {
                         ... on ProjectV2ItemFieldSingleSelectValue {
-                          field { id }
+                          field {
+                            ... on ProjectV2SingleSelectField {  # Fix for union type
+                              id
+                            }
+                          }
                           optionId
                         }
                       }
