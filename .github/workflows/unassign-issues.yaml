@@ -93,7 +93,7 @@ jobs:
                 projectId: $projectId, 
                 itemId: $itemId, 
                 fieldId: $fieldId, 
-                value: { singleSelectOptionId: $backlogOptionId }
+                value: { singleSelectOptionId: $backlogOptionId: ID! }
               }) {
                 projectV2Item {
                   id
