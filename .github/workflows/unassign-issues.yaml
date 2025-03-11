@@ -71,13 +71,13 @@ jobs:
             echo "Processing issue #$ISSUE"
 
             # Add comment before unassigning
-            gh api repos/{owner}/{repo}/issues/$ISSUE/comments -X POST -f body="No update for 2 days. Moving to Backlog."
+            gh api repos/pacalso-jjc/2425-2nd-cc3-1b-rpg/issues/$ISSUE/comments -X POST -f body="No update for 2 days. Moving to Backlog."
 
             # Unassign all users
-            gh api repos/{owner}/{repo}/issues/$ISSUE/assignees -X DELETE -f assignees='[]'
+            gh api repos/pacalso-jjc/2425-2nd-cc3-1b-rpg/issues/$ISSUE/assignees -X DELETE -f assignees='[]'
 
             # Get Project Item ID for the issue
-            ITEM_ID=$(gh api graphql -F issue_number=$ISSUE -F owner={owner} -F repo={repo} -f query='
+            ITEM_ID=$(gh api graphql -F issue_number=$ISSUE -F owner=pacalso-jjc -F repo=2425-2nd-cc3-1b-rpg -f query='
             query($owner: String!, $repo: String!, $issue_number: Int!) {
               repository(owner: $owner, name: $repo) {
                 issue(number: $issue_number) {
