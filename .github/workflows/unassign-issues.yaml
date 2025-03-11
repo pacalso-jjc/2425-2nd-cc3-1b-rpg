@@ -17,9 +17,9 @@ jobs:
 
       - name: Unassign stale issues and move to Backlog
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_CLASSIC }}
-          PROJECT_ID: "PVT_kwHOCK-t8M4AznJc"  # Replace with your actual Project ID
-          READY_FIELD_ID: "61e4505c"  # Replace with "Ready" status field ID
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_CLASSIC }}  # Use a Personal Access Token (PAT)
+          PROJECT_ID: "PVT_kwHOCK-t8M4AznJc"  # Replace with actual Project ID
+          READY_FIELD_ID: "61e4505c"  # ID for "Ready" status field
           READY_OPTION_ID: "61e4505c"  # ID for "Ready" status
           BACKLOG_OPTION_ID: "f75ad846"  # ID for "Backlog" status
         run: |
@@ -49,7 +49,7 @@ jobs:
                       nodes {
                         ... on ProjectV2ItemFieldSingleSelectValue {
                           field {
-                            ... on ProjectV2SingleSelectField {  # Fix for union type
+                            ... on ProjectV2SingleSelectField {
                               id
                             }
                           }
@@ -71,13 +71,13 @@ jobs:
             echo "Processing issue #$ISSUE"
 
             # Add comment before unassigning
-            gh api repos/pacalso-jjc/2425-2nd-cc3-1b-rpg/issues/$ISSUE/comments -X POST -f body="No update for 2 days. Moving to Backlog."
+            gh api repos/{owner}/{repo}/issues/$ISSUE/comments -X POST -f body="No update for 2 days. Moving to Backlog."
 
             # Unassign all users
-            gh api repos/pacalso-jjc/2425-2nd-cc3-1b-rpg/issues/$ISSUE/assignees -X DELETE -f assignees='[]'
+            gh api repos/{owner}/{repo}/issues/$ISSUE/assignees -X DELETE -f assignees='[]'
 
             # Get Project Item ID for the issue
-            ITEM_ID=$(gh api graphql -F issue_number=$ISSUE -F owner=pacalso-jjc -F repo=2425-2nd-cc3-1b-rpg -f query='
+            ITEM_ID=$(gh api graphql -F issue_number=$ISSUE -F owner={owner} -F repo={repo} -f query='
             query($owner: String!, $repo: String!, $issue_number: Int!) {
               repository(owner: $owner, name: $repo) {
                 issue(number: $issue_number) {
@@ -86,7 +86,7 @@ jobs:
               }
             }' --jq '.data.repository.issue.id')
 
-            # Move issue to "Backlog" column
+            # Move issue to "Backlog" column (Fixed type mismatch error)
             gh api graphql -F projectId=$PROJECT_ID -F itemId=$ITEM_ID -F fieldId=$READY_FIELD_ID -F backlogOptionId=$BACKLOG_OPTION_ID -f query='
             mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $backlogOptionId: ID!) {
               updateProjectV2ItemFieldValue(input: { 
