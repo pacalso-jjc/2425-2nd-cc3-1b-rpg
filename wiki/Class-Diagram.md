@@ -1,4 +1,3 @@
-```mermaid
 ---
     title: Fantasy RPG
 ---

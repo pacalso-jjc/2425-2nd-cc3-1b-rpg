@@ -1,12 +1,17 @@
 # 2425-2nd-cc3-1e-rpg
 
+# Directory tree
+
+ - wiki: Place for documentation about the game such as story details and class diagrams
+ - src: Place for code such as java files
+
 # Contributing to this repository
 
 ## Cloning the repository
 
 You should already have Git installed. Install Git if you haven't already https://git-scm.com/
 
-1. Navigate to the link of the repository https://github.com/pacalso-jjc/2425-2nd-cc3-1e-rpg
+1. Navigate to the link of the repository https://github.com/pacalso-jjc/2425-2nd-cc3-1b-rpg
 1. Click on the green button labeled as Code, then copy the link provided.
 1. Open cmd or git-bash in your machine.
 1. Navigate to where you want to clone the repository.
@@ -32,6 +37,7 @@ You should already have installed git, cloned the project, and created a persona
 
 1. Open cmd or git-bash
 1. Navigate to where you cloned the project i.e `cd C:\dev\2425-2nd-cc3-1e-rpg`
+1. git fetch
 1. Checkout the branch you have created i.e `git checkout branch-name` where branch-name is the name of your created branch e.g `doc-1` or `feat-67`
 
 ## Modifying the files in your personal branch
@@ -60,3 +66,9 @@ By this point you are now done with your change in your personal branch and is r
 1. Assign the pull request to your instructor for review.
 1. Set the task in the github project to In Review
 
+
+# Tools
+
+ - Class Diagram: Mermaid syntax
+ - Programming Language: Java
+ - UI: CLI and Java Swing
