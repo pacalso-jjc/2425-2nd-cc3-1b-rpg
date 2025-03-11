@@ -19,5 +19,5 @@ classDiagram
         + simulateWorldProgression()
         + resetWorld()
     }
-
 ```
+
