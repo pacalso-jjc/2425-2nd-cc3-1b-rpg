@@ -42,6 +42,6 @@ class Mage {
     + takeDamage(amount: int)void
     + increaseLevel()void
     + meditate()void
-    +getStats(): String
+    +getStats()String
 }
 ```
