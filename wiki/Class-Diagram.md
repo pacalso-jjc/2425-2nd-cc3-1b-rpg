@@ -46,9 +46,4 @@ classDiagram
         - Scanner sc
         + String getInput()
     }
-
-    class MergeConflictTest{
-
-    }
-
 ```
