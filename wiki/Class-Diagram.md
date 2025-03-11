@@ -22,12 +22,20 @@ classDiagram
       + makeSound(): void
     }
 
+    Item --|> Material
     class Item{
         -String name
         -String description
         -int rarity
         -int value
         -int quantity
+    }
+
+    class Material {
+        - isCraftingMaterial: boolean
+        - craftingUsage: String
+        - materialType: String
+        - source: String
     }
 
     class Game{
