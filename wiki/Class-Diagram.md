@@ -44,4 +44,21 @@ classDiagram
         + specialFeature()
     }
 
+    class DialogueManager {
+        -currentDialogue: Dialogue
+        +startDialogue(dialogue: Dialogue): void
+        +getCurrentText(): String
+        +getOptions(): List~String~
+        +selectOption(index: int): void
+        +isDialogueActive(): boolean
+    } 
+
+    class Dialogue {
+        -text: String
+        -options: List~String~
+        -nextDialogues: List~Dialogue~
+        +getText(): String
+        +getOptions(): List~String~
+        +getNextDialogue(index: int): Dialogue
+    }
 ```
