@@ -35,4 +35,13 @@ classDiagram
         - Scanner sc
         + String getInput()
     }
+
+    class Location {
+        - String name
+        - String description
+        + enter()
+        + exit()
+        + specialFeature()
+    }
+
 ```
