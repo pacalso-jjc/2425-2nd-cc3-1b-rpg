@@ -48,7 +48,5 @@ classDiagram
     CombatManager "1" --> "1" Player : manages >
     CombatManager "1" --> "0..*" Enemy : manages >
     CombatManager "1" --> "1" CombatState : tracks >
-    Player "1" --> "0..*" Ability : has >
-    Enemy "1" --> "0..*" Ability : has >
     }
 ```
