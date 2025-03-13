@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Quest extends QuestManager{
+public class Quest {
     private String questName;
     private String questDescription;
     private String questType;
