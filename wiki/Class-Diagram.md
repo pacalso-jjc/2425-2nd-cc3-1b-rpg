@@ -18,6 +18,15 @@ classDiagram
         -int value
         -int quantity
     }
+    
+    class Stats{
+ 	-int Strength
+	-int Dexterity
+	-int Constitution
+	-int Intelligence
+	-int Wisdom
+	-int Charisma
+    }
 
     class Game{
         - Menu menu
@@ -60,4 +69,5 @@ classDiagram
         +Weapon(name: String, value: int, damage: int)
         +getDamage(): int
     }
+
 ```
