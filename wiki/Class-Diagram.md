@@ -60,4 +60,13 @@ classDiagram
         +Weapon(name: String, value: int, damage: int)
         +getDamage(): int
     }
+    
+    Item <|-- Equipment
+    class Equipment{
+        - durability: int
+        - leverRequirement: int
+        + equip(): void
+        + canEquip(): boolean
+    }
+
 ```
