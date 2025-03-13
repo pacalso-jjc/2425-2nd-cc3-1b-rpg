@@ -53,4 +53,11 @@ classDiagram
         +getOptions(): List~String~
         +getNextDialogue(index: int): Dialogue
     }
+
+    Equipment <|-- Weapon
+    class Weapon {
+        -damage: int
+        +Weapon(name: String, value: int, damage: int)
+        +getDamage(): int
+    }
 ```
