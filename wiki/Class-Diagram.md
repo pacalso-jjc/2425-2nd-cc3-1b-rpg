@@ -26,7 +26,8 @@ classDiagram
         +run()
     }
 
-    class Item{
+    
+     class Item{
         -String name
         -String description
         -int rarity
