@@ -30,7 +30,73 @@ Description: Paris, tormented by guilt, seeks a single red rose from [location T
 Rewards:  
 - "The Heelpiercer" – Paris' bow, which he used to kill Achilles  
 - Fire Resistant Condom  
+```mermaid
+  flowchart TD
+    0[Quest Dialogue Tree >>]
+    
+    A[Start: Speak to Paris] --> B["Paris: 'Helen… My love… My greatest joy, and my deepest regret.'"]
+    B --> C["Paris: 'I failed her. And now, I must make amends.'"]
+    C --> D["Paris: 'Will you help me?'"]
+    
+    D --> E["Accept Quest"]
+    D --> F["Decline Quest"]
+    
+    E --> G["Paris: 'A single red rose… from [location TBD].'"]
+    G --> H["Paris: 'When our hearts became one, we were surrounded by them.'"]
+    H --> I["Paris: 'Now, only ashes remain. I will place one on her grave, so that she is not alone.'"]
+    
+    I --> J["Speak to Paris again (without the rose)"]
+    I --> K["Speak to Paris again (with the rose in hand)"]
+    
+    J --> L["Paris: 'You have not found the rose yet?'"]
+    L --> M["Paris: 'It must be perfect. A single red rose, untainted.'"]
+    M --> N["Paris: 'You will find it in [location TBD]. Only there do the roses still bloom…'"]
+    N --> I["Paris: 'Please… return when you have it.'"]
+    
+    K --> O["Paris: 'You have done what I could not.'"]
+    O --> P["Paris: 'For that, you deserve a gift.'"]
+    P --> Q["Paris: 'It is all I have left of her.'"]
+    
+    Q --> R["Paris: 'This is the bow I used to slay Achilles.'"]
+    R --> S["Paris: 'The weapon I wielded to strike down warriors… to protect her.'"]
+    S --> T["Paris: 'But in the end… no blade, no arrow, no cold enemy took her last breath.'"]
+    T --> U["Paris: 'It was the fire of my own hands.'"]
+    
+    U --> V["[ +The Heelpiercer (Bow) ]"]
+    
+    V --> W["Inquire: 'How did your wife perish?'"]
+    V --> X["Leave"]
+    
+    W --> Y["Paris: (Sighs) 'The gods are cruel.'"]
+    Y --> Z["Paris: 'They let me taste paradise, only to snatch it away in the flames of my own doing.'"]
+    
+    Z --> AA["Paris: 'It was not war. It was not fate.'"]
+    AA --> AB["Paris: 'It was me.'"]
+    
+    AB --> AC["Paris: 'We were together, as lovers are…'"]
+    AC --> AD["Paris: 'She whispered my name, and I held her close.'"]
+    AD --> AE["Paris: 'And then… flames.'"]
+    
+    AE --> AF["Paris: 'She screamed. I thought it was passion.'"]
+    AF --> AG["Paris: 'But no, it was pain.'"]
+    AG --> AH["Paris: 'The heat—I didn't realize—my love, my curse…'"]
+    
+    AH --> AI["Paris: 'I had it all along… this damned thing.'"]
+    AI --> AJ["Paris: 'If only I had worn it that night…'"]
+    
+    AJ --> AK["(He shoves a small red packet into your hands.)"]
+    
+    AK --> AL["[ +Fire Resistant Condom ]"]
+    
+    AL --> AM[QUEST COMPLETE]
+    X --> AM[QUEST COMPLETE]
+    
+    F --> AN["Paris: 'I understand… Some wounds cannot be mended.'"]
+    AN --> AO["Paris: 'But… the guilt is still burning inside me. I must try.'"]
+    
+    AO --> AP[Quest remains available]
 
+```
 ---
 
 4. "The Pope’s Sin"
