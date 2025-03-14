@@ -4,8 +4,7 @@ title: Fantasy RPG
 ---
 classDiagram
     Item --|> Material
-    Inventory --> Item  // Inventory has a list of Items
-
+    Inventory --> Item 
     class Material {
         - isCraftingMaterial: boolean
         - craftingUsage: String
