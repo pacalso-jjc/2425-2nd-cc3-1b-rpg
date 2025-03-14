@@ -1,4 +1,4 @@
-public class Monster extends Entity {
+public class Monster extends Character {
     private String type;
 
     public Monster(String name, int hp, int level, String type) {
