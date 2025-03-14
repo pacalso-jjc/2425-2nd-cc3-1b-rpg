@@ -48,7 +48,7 @@ Rewards:
       S --> X["Baelin: 'Adventurer this is the last place where I remember having my hammer, we have to keep looking for it.'"] --> T
 
       W --> Y["Baelin: 'OH ADVENTURER! You found it, my grandfather's hammer. At long last I have once again been reunited with family. I will keep a closer eye now on this hammer. Thank you adventurer. Mornin, it's a nice day for fishin ain't it HUH HA!' (+2 Raw Pike)"]
-      O --> Z1["Baelin: 'Well guess it will remain lost forever Adventurer'"]
+      O --> Z1["Baelin: 'Well guess it will remain lost forever Adventurer'"] --> Z
       Y --> Z[QUEST COMPLETE]
 ```
 
