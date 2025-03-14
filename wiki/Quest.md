@@ -21,6 +21,38 @@ Rewards:
   > Where silver mist entwined the oar’s lament.  
   > Beyond the isles where dawn’s first embers shone,  
   > To lands where gods and mortals never went."  
+```mermaid
+flowchart TD
+    0[Quest Dialogue Tree >>]
+    A[Quest Start]
+    A --> B["Homer: 'Ah, traveler! I am Homer, and I've... misplaced the ending of one of my epics. The verses slip through my mind like water. Could you recite a tale of heroism? Perhaps it will stir my memory.'"]
+    B --> C["Player: 'Of course! I'll help.'"]
+    B --> D["Player: 'What's in it for me?'"]
+    C --> E["Homer: 'The gods bless you! Any tale of bravery or daring--let the muses guide your words.'"]
+    D --> F["Homer (sighs): 'Very well. For your aid, I'll part with two blank parchments from my satchel... and perhaps a fragment of verse, if inspiration strikes. Now, the tale!'"]
+    E --> G[Recite the Tale]
+    F --> G
+    G --> H["Homer: 'Speak, then. Let your words paint heroes!'"]
+    H --> I["Option A: 'A warrior's triumph in battle: clashing shields, a fallen tyrant, and a city saved.'"]
+    H --> J["Option B: 'A cunning thief's deception: outwitting a god to steal fire for mortals.'"]
+    H --> K["Option C: 'A perilous voyage across the sea: a lone hero battling storms and sirens.'"]
+    K -- Correct Choice --> L["Homer (eyes widen): 'YES! The wine-dark sea... the mist... the oars... The memory returns! Here, take these as thanks.' Rewards: 2 Parchments + Poem Fragment. Quest Complete."]
+    I -- Incorrect --> M["Homer (frowns): 'A fine tale, but not the one. Wait... I think it involved the sea. Something about a lone journey...'"]
+    J -- Incorrect --> X["Homer (raises an eyebrow): 'A clever tale of thievery indeed, but where is the salt and storm? Your words lack the brine of the sea.'"]
+    M --> N["Homer: 'Let's try again. Which tale speaks of the sea?'"]
+    X --> N
+    N --> O["Option A: 'A warrior's triumph in battle...'"]
+    N --> P["Option B: 'A cunning thief's deception...'"]
+    N --> Q["Option C: 'A perilous voyage across the wine-dark sea...'"]
+    Q -- Correct Choice --> R["Homer (nods vigorously): 'Yes! The wine-dark sea... silver mist... the isles where dawn's embers shone! The verses flood back! Take these, friend.' Rewards: 2 Parchments + Poem Fragment. Quest Complete."]
+    O -- Incorrect --> S["Homer (groans): 'No, no--it's the sea! Let me... Ah! The ending comes to me now. Here, your reward.' Rewards: 2 Parchments + Poem Fragment. Quest Complete."]
+    P -- Incorrect --> S
+    L --> Z
+    R --> Z
+    S --> Z
+    Z[Quest Complete]
+
+```
 
 ---
 
