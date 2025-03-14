@@ -8,11 +8,11 @@ public class Character extends Entity{
 		
 	}
 	
-	public void sellItems(Item item){
+	public void sellItem(Item item){
 		
 	}
 	
-	public void equipItems(Item item){
+	public void equipItem(Item item){
 		
 	}
 	
