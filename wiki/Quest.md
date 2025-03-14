@@ -14,7 +14,7 @@ Rewards:
       0[Quest Dialogue Tree >>]
       A[Start: Speak to Baelin the Fisherman] --> B["Baelin: Mornin nice day for fishin ain't it HUH HA! Adventurer I've lost my grandfather's hammer around here, you see he used it to slay the Dragon of Shmargenrok, I've no clue where I put it. Help me retrace my steps to find my grandfather's hammer and I shall reward you."]
       B --> C["Answer 1: 'Accept'"]
-      B --> D["Answer 2: 'Skip'"]
+      B --> D["Answer 2: 'Skip'"] --> Z
       
       C --> E["Baelin: 'I know I passed by this pond a while ago, let's take a look around Adventurer.'"]
       E --> F["Answer 1: Look Around for the hammer"]
