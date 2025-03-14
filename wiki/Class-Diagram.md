@@ -63,8 +63,7 @@ classDiagram
     
     Item <|-- Equipment
     class Equipment{
-        - durability: int
-        - leverRequirement: int
+        - leveRequirement: int
         + equip(): void
         + canEquip(): boolean
     }
