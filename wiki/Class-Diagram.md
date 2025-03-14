@@ -62,8 +62,8 @@ classDiagram
     }
     
     Item <|-- Equipment
-    class Equipment{
-        - leveRequirement: int
+    class Equipment {
+        - levelRequirement: int
         + equip(): void
         + canEquip(): boolean
     }
