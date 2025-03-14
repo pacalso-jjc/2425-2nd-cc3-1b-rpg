@@ -1,4 +1,4 @@
-public class Character{
+public class Character extends Entity{
 	private String sex;
 	private String race;
 	private int exp;
