@@ -29,7 +29,7 @@ Rewards:
       J --> L["You stand over these seemingly symmetrical bushes looking for a hammer. You don't find a hammer but you find a small sphere with a red top, white bottom, and a black horizontal band with a central white button, your not sure what it is but you take it anyway. (+1 MonBall?)"] --> I
 
       K --> M["Baelin: 'This is the last place I remember being with that hammer. This is the village well, let's look for that hammer!'"]
-      M --> N["Answer 1: Look Around for the hammer']
+      M --> N["Answer 1: Look Around for the hammer"]
       M --> O["Answer 2: Stop Looking"]
 
       N --> P["You look inside the well, you see there's an object on the bottom of the well that might be a hammer. You take a look around to see what can help you reach the object down the well. On a table nearby you find 50 ft of rope, a ladder, a hammer, nails, and a hook."]
