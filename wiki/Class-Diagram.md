@@ -4,6 +4,8 @@ title: Fantasy RPG
 ---
 classDiagram
     Item --|> Material
+    Inventory --> Item  // Inventory has a list of Items
+
     class Material {
         - isCraftingMaterial: boolean
         - craftingUsage: String
@@ -66,6 +68,13 @@ classDiagram
         - levelRequirement: int
         + equip(): void
         + canEquip(): boolean
+    }
+
+    class Inventory {
+        +items: List<Item>
+        +addItem(item: Item)
+        +removeItem(item: Item)
+        +viewItemsByType(type: String) List
     }
 
 ```
