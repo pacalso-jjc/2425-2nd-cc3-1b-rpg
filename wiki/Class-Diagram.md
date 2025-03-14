@@ -28,8 +28,12 @@ classDiagram
 
     
      class Item{
-           
-     }
+        -String name
+        -String description
+        -int rarity
+        -int value
+        -int quantity   
+    }
     
      Item <| -- Armor
      class Armor {
