@@ -10,7 +10,7 @@ Rewards:
 - +2 Pike Fish (Raw)  
 
 ```mermaid
-  flowchart TD
+    flowchart TD
       0[Quest Dialogue Tree >>]
       A[Start: Speak to Baelin the Fisherman] --> B["Baelin: Mornin nice day for fishin ain't it HUH HA! Adventurer I've lost my grandfather's hammer around here, you see he used it to slay the Dragon of Shmargenrok, I've no clue where I put it. Help me retrace my steps to find my grandfather's hammer and I shall reward you."]
       B --> C["Answer 1: 'Accept'"]
@@ -37,8 +37,7 @@ Rewards:
       P --> Q["Interaction: Take the rope and hook"]
       P --> R["Interaction: Take the hammer"]
 
-      Q --> T["You take the rope and hook to fish the object out of the well. As you finally lift the object, you realize its an old fishing rod with very intriquite designs.
-      Baelin: 'I'm impressed Adventurer, you found the legendary fishing rod of Väinämöinen, which was said to have been the rod he used to catch ole MobyCock the whale from the depths of the Abyss. Keep it Adventurder you deserve it, now let's keep looking for the hammer' (+1 Väinämöinen’s Fishing Rod)"]
+      Q --> T["You take the rope and hook to fish the object out of the well. As you finally lift the object, you realize its an old fishing rod with very intriquite designs. Baelin: 'I'm impressed Adventurer, you found the legendary fishing rod of Väinämöinen, which was said to have been the rod he used to catch ole MobyCock the whale from the depths of the Abyss. Keep it Adventurder you deserve it, now let's keep looking for the hammer' +1 Väinämöinen’s Fishing Rod"]
 
       T --> U["Interaction: Take the hammer"] --> W
       T --> S["Interaction: Talk to Baelin"]
@@ -49,8 +48,8 @@ Rewards:
       S --> X["Baelin: 'Adventurer this is the last place where I remember having my hammer, we have to keep looking for it.'"] --> T
 
       W --> Y["Baelin: 'OH ADVENTURER! You found it, my grandfather's hammer. At long last I have once again been reunited with family. I will keep a closer eye now on this hammer. Thank you adventurer. Mornin, it's a nice day for fishin ain't it HUH HA!' (+2 Raw Pike)"]
+      O --> Z1["Baelin: 'Well guess it will remain lost forever Adventurer'"]
       Y --> Z[QUEST COMPLETE]
-
 ```
 
 ---
