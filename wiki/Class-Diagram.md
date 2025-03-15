@@ -1,8 +1,8 @@
-```mermaid
 ---
-title: Fantasy RPG
+    title: Fantasy RPG
 ---
 classDiagram
+    NPC <|-- Charater
     Item --|> Material
     Inventory --> Item 
     class Material {
@@ -11,7 +11,12 @@ classDiagram
         - materialType: String
         - source: String
     }
-
+    
+    class NPC{
+        - quest:List<Quest>
+        + giveQuest(character)
+    }
+    
     class Item{
         -String name
         -String description
