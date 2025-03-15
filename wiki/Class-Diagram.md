@@ -30,7 +30,8 @@ classDiagram
     class Zebra {
         +bool is_wild
         +run()
-
+    }
+    
     Item --|> Material
     Inventory --> Item 
     class Material {
@@ -89,6 +90,15 @@ classDiagram
         +getText(): String
         +getOptions(): List~String~
         +getNextDialogue(index: int): Dialogue
+    }
+
+    class DialogueOption {
+        -optionText: String
+        -nextDialogue: Dialogue
+        +DialogueOption(optionText: String, nextDialogue: Dialogue)
+        +getOptionText(): String
+        +getNextDialogue(): Dialogue
+        +setNextDialogue(nextDialogue: Dialogue): void
     }
 
     Equipment <|-- Weapon
