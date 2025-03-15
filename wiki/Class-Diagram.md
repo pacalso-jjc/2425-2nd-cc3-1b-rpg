@@ -3,6 +3,34 @@
 title: Fantasy RPG
 ---
 classDiagram
+
+    note "From Duck till Zebra"
+    
+    Animal <|-- Duck
+    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
+    Animal <|-- Fish
+    Animal <|-- Zebra
+    
+    Animal : +int age
+    Animal : +String gender
+    Animal : +isMammal()
+    Animal : +mate()
+
+    class Duck {
+        +String beakColor
+        +swim()
+        +quack()
+    }
+
+    class Fish {
+        -int sizeInFeet
+        -canEat()
+    }
+
+    class Zebra {
+        +bool is_wild
+        +run()
+
     Item --|> Material
     Inventory --> Item 
     class Material {
@@ -10,17 +38,23 @@ classDiagram
         - craftingUsage: String
         - materialType: String
         - source: String
+
     }
 
-    class Item{
+    class Item {
         -String name
         -String description
         -int rarity
         -int value
-        -int quantity
+        -int quantity   
     }
 
-    class Game{
+    Item <|-- Armor
+    class Armor {
+        +int defense
+    }
+
+    class Game {
         - Menu menu
         - boolean isRunning
         - InputHandler inputHandler
@@ -32,10 +66,12 @@ classDiagram
         + main(String[] args)
     }
 
-    class InputHandler{
+    class InputHandler {
         - Scanner sc
         + String getInput()
     }
+
+
 
     class DialogueManager {
         -currentDialogue: Dialogue
@@ -75,5 +111,6 @@ classDiagram
         +removeItem(item: Item)
         +viewItemsByType(type: String) List
     }
+
 
 ```
