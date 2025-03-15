@@ -82,8 +82,8 @@ Rewards:
 ```mermaid
 flowchart TD
 0[Quest Type: Collect]
-1st[Quest Start] --> 2nd["'Sun Tzu:
-"War claims many lives, but wisdom endures beyond the battlefield. A warrior of mine fell here long ago, his blade lost to the ages. Retrieve it, and you will understand the true cost of war.'"]
+1st[Quest Start] --> 2nd["Sun Tzu:
+'War claims many lives, but wisdom endures beyond the battlefield. A warrior of mine fell here long ago, his blade lost to the ages. Retrieve it, and you will understand the true cost of war.'"]
 2nd --> 3rd["Accept"] --> 4th["'I will find this blade and bring it back to you.'"]
 2nd --> 11th["Question"] --> 12th["'Why is this blade so important?'"]
 2nd --> 16th["Decline"] --> 6th["' I am not interested in relics of war.'"] 
