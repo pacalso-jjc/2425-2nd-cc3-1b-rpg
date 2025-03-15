@@ -1,9 +1,9 @@
 # Setting
 # Locations
-class Locations {
-    private String location;
+class Location {
+    public String location;
     
-    public Locations(String location) {
+    public Location(String location) {
         this.location = location;
     }
 }
