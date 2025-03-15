@@ -1,0 +1,179 @@
+[33mcommit 32da9a98d4a9fcf6bc8eafe8d1c22a1a20496637[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mClass-Diagram-for-Skilltree[m[33m)[m
+Author: mendozatg <tgm2916@students.uc-bcf.edu.ph>
+Date:   Tue Mar 11 20:44:07 2025 +0800
+
+    Newer Skill Tree
+
+[33mcommit 4cb026f47aac7907aee01e3804a9cfde1bb59c37[m[33m ([m[1;31morigin/Class-Diagram-for-Skilltree[m[33m)[m
+Author: mendozatg <tgm2916@students.uc-bcf.edu.ph>
+Date:   Tue Mar 11 17:18:08 2025 +0800
+
+    Added Skill Tree
+
+[33mcommit a40e941da768c708759f3ae44051a82811a8fd8b[m[33m ([m[1;31morigin/doc-10[m[33m)[m
+Merge: e4d0a9d 6bbdab5
+Author: pacalso-jjc <145731056+pacalso-jjc@users.noreply.github.com>
+Date:   Mon Mar 10 08:45:28 2025 +0800
+
+    Merge pull request #36 from pacalso-jjc/doc-35
+    
+    Add class for InputHandler
+
+[33mcommit 6bbdab5bedc1c61624772956ff15050351aa154b[m[33m ([m[1;31morigin/doc-35[m[33m)[m
+Merge: e0977b1 e4d0a9d
+Author: pacalso-jjc <145731056+pacalso-jjc@users.noreply.github.com>
+Date:   Mon Mar 10 08:45:09 2025 +0800
+
+    Merge branch 'main' into doc-35
+
+[33mcommit e4d0a9dfa6267824d7a02a4bfdf12c6800b62945[m
+Merge: 19f15d9 b491876
+Author: pacalso-jjc <145731056+pacalso-jjc@users.noreply.github.com>
+Date:   Mon Mar 10 08:44:13 2025 +0800
+
+    Merge pull request #40 from pacalso-jjc/doc-39
+    
+    Add commit to test merge conflict
+
+[33mcommit b491876da9cf27c0b00197b86f3f3ef3c5e6e9e8[m[33m ([m[1;31morigin/doc-39[m[33m)[m
+Author: pacalso-jjc <jjcpacalso@uc-bcf.edu.ph>
+Date:   Mon Mar 10 08:44:27 2025 +0800
+
+    Add commit to test merge conflict
+
+[33mcommit 19f15d963d1a05272a182b68d181f6d89c4d7856[m
+Merge: 4c938b0 c69fa4f
+Author: pacalso-jjc <145731056+pacalso-jjc@users.noreply.github.com>
+Date:   Mon Mar 10 08:41:32 2025 +0800
+
+    Merge pull request #38 from pacalso-jjc/doc-37
+    
+    Update Game class
+
+[33mcommit c69fa4f18c52be40cc4520ad6fa737ac11edae44[m[33m ([m[1;31morigin/doc-37[m[33m)[m
+Author: pacalso-jjc <jjcpacalso@uc-bcf.edu.ph>
+Date:   Mon Mar 10 08:41:30 2025 +0800
+
+    Update Game class
+
+[33mcommit e0977b19032282de30fed431443134cf6b0437cc[m
+Author: pacalso-jjc <jjcpacalso@uc-bcf.edu.ph>
+Date:   Mon Mar 10 08:36:48 2025 +0800
+
+    Add class for InputHandler
+
+[33mcommit 4c938b0ebef4cf2206e5e9caadc33f5f51211761[m
+Merge: 4bd845f e5f0e37
+Author: pacalso-jjc <145731056+pacalso-jjc@users.noreply.github.com>
+Date:   Mon Mar 10 08:28:44 2025 +0800
+
+    Merge pull request #34 from pacalso-jjc/doc-33
+    
+    Add Game class to class diagram
+
+[33mcommit e5f0e37b19ae2750076566f0112b4c8b5a73d01e[m[33m ([m[1;31morigin/doc-33[m[33m)[m
+Author: pacalso-jjc <jjcpacalso@uc-bcf.edu.ph>
+Date:   Mon Mar 10 08:28:36 2025 +0800
+
+    Add access modifier to Game constructor
+
+[33mcommit 19a2bf5a839ee5da5cee970b0a36e01e435b8917[m
+Merge: 68dbd9a a2f7a75
+Author: pacalso-jjc <jjcpacalso@uc-bcf.edu.ph>
+Date:   Mon Mar 10 08:26:43 2025 +0800
+
+    Resolve merge conflict
+
+[33mcommit 68dbd9aa023b1cca6186a797d4876aab066ba563[m
+Author: pacalso-jjc <jjcpacalso@uc-bcf.edu.ph>
+Date:   Mon Mar 10 08:24:12 2025 +0800
+
+    Add menu attribute to game in class diagram
+
+[33mcommit a2f7a75214df2b989141beb0cb5075f2d19462b4[m
+Merge: e274fdd 4bd845f
+Author: pacalso-jjc <145731056+pacalso-jjc@users.noreply.github.com>
+Date:   Mon Mar 10 08:20:16 2025 +0800
+
+    Merge branch 'main' into doc-33
+
+[33mcommit 4bd845f52b8a24a133764aaf8a27d630f202f726[m
+Merge: 278cd5a fca6b67
+Author: pacalso-jjc <145731056+pacalso-jjc@users.noreply.github.com>
+Date:   Mon Mar 10 08:17:33 2025 +0800
+
+    Merge pull request #32 from pacalso-jjc/doc-19
+    
+    Doc 19 - Add Game class to the class diagram
+
+[33mcommit e274fdd4b706779942e0dcaceef066f6559f2b12[m
+Author: pacalso-jjc <jjcpacalso@uc-bcf.edu.ph>
+Date:   Mon Mar 10 08:17:06 2025 +0800
+
+    Add Game class to class diagram
+
+[33mcommit fca6b67148c0712fb37e21a56160864e35059a73[m[33m ([m[1;31morigin/doc-19[m[33m)[m
+Author: pacalso-jjc <jjcpacalso@uc-bcf.edu.ph>
+Date:   Mon Mar 10 08:07:16 2025 +0800
+
+    Add input handler to Game class diagram
+
+[33mcommit 042029202a17bafc9fea6f9e2ad51ebcff4d74cf[m
+Author: pacalso-jjc <jjcpacalso@uc-bcf.edu.ph>
+Date:   Mon Mar 10 08:06:10 2025 +0800
+
+    Add load method to Game class diagram
+
+[33mcommit 2aeee67fb3dd8427f5afd899fc93765676b83ed2[m
+Author: pacalso-jjc <jjcpacalso@uc-bcf.edu.ph>
+Date:   Mon Mar 10 08:02:23 2025 +0800
+
+    Add Game class to class diagram
+
+[33mcommit 278cd5a0bbe382d8db0e8325ac2f9cca9d2ad246[m
+Author: pacalso-jjc <145731056+pacalso-jjc@users.noreply.github.com>
+Date:   Mon Mar 10 07:52:42 2025 +0800
+
+    Update README.md
+
+[33mcommit 93cabfc3feadf6117608f55bd612d5b080c4a43e[m[33m ([m[1;31morigin/doc-21[m[33m)[m
+Author: pacalso-jjc <jjcpacalso@uc-bcf.edu.ph>
+Date:   Fri Mar 7 13:10:16 2025 +0800
+
+    Add disclaimer to not edit directly in github wiki
+
+[33mcommit b02c844a6775871d93144f47f811234dc357fc08[m
+Author: pacalso-jjc <jjcpacalso@uc-bcf.edu.ph>
+Date:   Fri Mar 7 13:05:04 2025 +0800
+
+    Add collaboration instruction
+
+[33mcommit c4927232f62ba595fb0c3f0fcbe161fa6d352213[m
+Author: pacalso-jjc <jjcpacalso@uc-bcf.edu.ph>
+Date:   Fri Mar 7 13:03:47 2025 +0800
+
+    Move readme
+
+[33mcommit de9d65be76ef2e392d60b888d68e94f25dd9796c[m
+Author: pacalso-jjc <jjcpacalso@uc-bcf.edu.ph>
+Date:   Fri Mar 7 13:03:17 2025 +0800
+
+    Add collaboration instructions
+
+[33mcommit 108ea2c6ce48c50cfe013fc4dca39ab2845fb68b[m[33m ([m[1;31morigin/doc-4[m[33m, [m[1;31morigin/doc-29[m[33m)[m
+Author: JerryJuniorPacalso <pacalsojerry@gmail.com>
+Date:   Fri Mar 7 07:27:52 2025 +0800
+
+    Add templates
+
+[33mcommit 3613b6a0ad73d68a193507d750740e78987df41d[m
+Author: JerryJuniorPacalso <pacalsojerry@gmail.com>
+Date:   Fri Mar 7 07:25:57 2025 +0800
+
+    Add wiki folder with README
+
+[33mcommit 96db07ecec809e9a1236d1dae7149d35c7ca47e0[m
+Author: pacalso-jjc <145731056+pacalso-jjc@users.noreply.github.com>
+Date:   Fri Mar 7 07:23:54 2025 +0800
+
+    Create main.yml
