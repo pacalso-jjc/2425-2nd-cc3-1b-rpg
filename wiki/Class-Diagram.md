@@ -20,12 +20,12 @@ classDiagram
     }
     
     class Stats{
- 	-int Strength
-	-int Dexterity
-	-int Constitution
-	-int Intelligence
-	-int Wisdom
-	-int Charisma
+ 	-int strength
+	-int dexterity
+	-int constitution
+	-int intelligence
+	-int wisdom
+	-int charisma
     }
 
     class Game{
