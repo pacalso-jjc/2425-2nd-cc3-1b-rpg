@@ -2,7 +2,7 @@
 ---
 title: Combat Manager
 ---
-classDiagram
+classCombatManager
     Combat Manager <|-- Player
     Combat Manager <|-- Enemy
     Combat Manager <|-- Ability
