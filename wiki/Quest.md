@@ -169,6 +169,30 @@ Description: Marie Antoinette, wallowing in filth and regret, asks you to bring 
 Rewards:  
 - "Humble Crumb" – An item that restores HP when used, but only once per day.
 
+```mermaid
+  flowchart TD
+      0[Quest Dialogue Tree >>]
+      A[Start: Speak to Marie Antoinette] --> B["Marie: 'Oh deary... I've eaten so much cake '"]
+      B --> C["Answer 1: 'Grace'"]
+      B --> D["Answer 2: 'Gold'"]
+      B --> E["Answer 3: 'Stars'"]
+      
+      C --> F["Pope: 'Ah, you speak with wisdom. Grace is the light that banishes all shadows.' (The tomb rumbles, revealing a hidden passage. For a moment, Benedict IX lingers.)"]
+      
+      F --> I["Inquire: 'What led to your downfall?'"]
+      I --> K["Pope: 'My greed cost me my crown and soul, swallowed by glittering gold.' (His voice is heavy with regret.)"] --> J
+      
+      F --> J["Inquire: 'Explain the feast and the wine.'"]
+      J --> L["Pope: 'Take this humble feast. But beware, traveler: the secret passage beyond is treacherous, and its darkness tests all who enter.' [ +Wine, Basket of fish & bread ]"]
+      
+      L --> M[Secret Passage Unlocked]
+      M --> N[QUEST COMPLETE]
+      
+      D --> O["Pope: 'Gold? Foolish traveler! May your avarice be your undoing.' (Benedict IX flicks you on the forehead. You lose 1 HP.)"] --> B
+      E --> P["Pope: 'Stars? Mere flickers in the void! Seek the truth that burns within, not the distant glimmers above.' (The ground shakes in disapproval. Try again.)"] --> B
+
+```
+
 ---
 
 6. "Blood of the Battlefield"
