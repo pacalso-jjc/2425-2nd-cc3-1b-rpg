@@ -304,7 +304,23 @@ Quest Type: Listen
 Description: The philosopher Hypatia speaks of knowledge lost to time. Listen to her tale, and she will grant you insight into hidden truths.  
 Rewards:  
 - 5 minutes of wasted time, but you have now learned about [knowledge TBD]. Congratulations, you have new conversational topics!  
-
+```mermaid
+flowchart TD
+    0[Quest Dialogue Tree >>]
+    A[Start: Speak to Hypatia] --> B["Hypatia: 'Ah, traveler. Would you like to hear a tale of knowledge lost to time?'"]
+    B --> C["Player: 'Tell me your tale. I’m eager to learn.'"]
+    B --> D["Player: 'I don’t have time for stories.'"]
+    C --> E["Hypatia: 'Very well. Sit, and listen closely. The chains of ignorance are unseen, but they bind us all.'"]
+    D --> F["Hypatia: 'Then you are already bound by the unseen chains. Go, if you must, but know that wisdom waits for no one.'"]
+    E --> G[Listen to Hypatia’s Tale]
+    G --> H["Hypatia: 'Long ago, in the Library of Alexandria, there was a scroll that held the secrets of the cosmos...'"]
+    H --> I["Player: 'What happened to the scroll?'"]
+    I --> J["Hypatia: 'Some say it was stolen by those who feared its power. Others believe it was consumed by the flames...'"]
+    J --> K["Hypatia: 'Thank you for listening, traveler. Though I cannot give you gold or weapons, I offer you something far greater: the spark of curiosity.'"]
+    K --> L[Player gains new conversational topics about lost knowledge]
+    L --> M[QUEST COMPLETE]
+    F --> N[Quest remains available]
+```
 ---
 
 9. "A Flatterer’s Curse"
