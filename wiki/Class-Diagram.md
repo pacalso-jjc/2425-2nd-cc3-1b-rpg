@@ -3,25 +3,25 @@
 title: Combat Manager
 ---
 classDiagram
-    class CombatManager {
-        +Player player
-        +Enemy[] enemies
-        +CombatState currentState
-        +startCombat() void
-        +endCombat() void
-        +processTurn(Ability ability) void
-        +checkCombatEnd() bool
-    }
-
+    Combat Manager <|-- Player
+    Combat Manager <|-- Enemy
+    Combat Manager <|-- Ability
+    Combat Manager <|-- CombatState
+    Combat Manager : +Player player
+    Combat Manager : +Enemy[] enemies
+    Combat Manager: +CombatState currentState
+    Combat Manager: +startCombat() void
+    Combat Manager: +endCombat() void
+    Combat Manager: +processTurn(Ability ability) void
+    Combat Manager: +checkCombatEnd() bool
     class Player {
-        +String name
+    	+String name
         +int health
         +int attackPower
         +Ability[] abilities
         +useAbility(Ability ability) void
-        +takeDamage(int damage) void
+        +takeDamage(int damage) void 
     }
-
     class Enemy {
         +String name
         +int health
@@ -30,25 +30,16 @@ classDiagram
         +useAbility(Ability ability) void
         +takeDamage(int damage) void
     }
-
     class Ability {
         +String name
         +int damage
         +int cost
         +applyEffect() void
     }
-
     class CombatState {
-        <<enumeration>>
+       <<enumeration>>
         ONGOING
         WON
         LOST
-    }
-
-    CombatManager "1" --> "1" Player : manages >
-    CombatManager "1" --> "0..*" Enemy : manages >
-    CombatManager "1" --> "1" CombatState : tracks >
-    Player "1" --> "0..*" Ability : has >
-    Enemy "1" --> "0..*" Ability : has >
     }
 ```
