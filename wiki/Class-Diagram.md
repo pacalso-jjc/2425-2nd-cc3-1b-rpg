@@ -2,7 +2,7 @@
     title: Fantasy RPG
 ---
 classDiagram
-    NPC <|-- Entity
+    NPC <|-- Charater
     Item --|> Material
     class Material {
         - isCraftingMaterial: boolean
