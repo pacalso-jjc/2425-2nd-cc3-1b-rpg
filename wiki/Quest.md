@@ -9,6 +9,49 @@ Rewards:
 - Väinämöinen’s Fishing Rod  
 - +2 Pike Fish (Raw)  
 
+```mermaid
+    flowchart TD
+      0[Quest Dialogue Tree >>]
+      A[Start: Speak to Baelin the Fisherman] --> B["Baelin: Mornin nice day for fishin ain't it HUH HA! Adventurer I've lost my grandfather's hammer around here, you see he used it to slay the Dragon of Shmargenrok, I've no clue where I put it. Help me retrace my steps to find my grandfather's hammer and I shall reward you."]
+      B --> C["Answer 1: 'Accept'"]
+      B --> D["Answer 2: 'Skip'"] --> Z
+      
+      C --> E["Baelin: 'I know I passed by this pond a while ago, let's take a look around Adventurer.'"]
+      E --> F["Answer 1: Look Around for the hammer"]
+      E --> G["Answer 2: Stop Looking"]
+
+      F --> H["You pace around the pond and there's nothing here"] --> E
+
+      G --> I["Baelin: Ok adventurer I know I stood over these bushes for a good 5 minutes a while ago, maybe it's here!"]
+      I --> J["Answer 1: Look Around for the hammer'"]
+      I --> K["Answer 2: Stop Looking"]
+
+      J --> L["You stand over these seemingly symmetrical bushes looking for a hammer. You don't find a hammer but you find a small sphere with a red top, white bottom, and a black horizontal band with a central white button, your not sure what it is but you take it anyway. (+1 MonBall?)"] --> I
+
+      K --> M["Baelin: 'This is the last place I remember being with that hammer. This is the village well, let's look for that hammer!'"]
+      M --> N["Answer 1: Look Around for the hammer"]
+      M --> O["Answer 2: Stop Looking"]
+
+      N --> P["You look inside the well, you see there's an object on the bottom of the well that might be a hammer. You take a look around to see what can help you reach the object down the well. On a table nearby you find 50 ft of rope, a ladder, a hammer, nails, and a hook."]
+
+      P --> Q["Interaction: Take the rope and hook"]
+      P --> R["Interaction: Take the hammer"]
+
+      Q --> T["You take the rope and hook to fish the object out of the well. As you finally lift the object, you realize its an old fishing rod with very intriquite designs. Baelin: 'I'm impressed Adventurer, you found the legendary fishing rod of Väinämöinen, which was said to have been the rod he used to catch ole MobyCock the whale from the depths of the Abyss. Keep it Adventurder you deserve it, now let's keep looking for the hammer' +1 Väinämöinen’s Fishing Rod"]
+
+      T --> U["Interaction: Take the hammer"] --> W
+      T --> S["Interaction: Talk to Baelin"]
+
+      R --> V["Interaction: Take the rope and hook"] --> Q
+      R --> W["Interaction: Talk to Baelin"]
+
+      S --> X["Baelin: 'Adventurer this is the last place where I remember having my hammer, we have to keep looking for it.'"] --> T
+
+      W --> Y["Baelin: 'OH ADVENTURER! You found it, my grandfather's hammer. At long last I have once again been reunited with family. I will keep a closer eye now on this hammer. Thank you adventurer. Mornin, it's a nice day for fishin ain't it HUH HA!' (+2 Raw Pike)"]
+      O --> Z1["Baelin: 'Well guess it will remain lost forever Adventurer'"] --> Z
+      Y --> Z[QUEST COMPLETE]
+```
+
 ---
 
 2. "The Lost Epic"
