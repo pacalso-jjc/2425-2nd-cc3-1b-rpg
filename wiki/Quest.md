@@ -209,7 +209,23 @@ Quest Type: Kill
 Description: Frederick II, imprisoned in [location TBD] for heresy, demands you slay a demonic inquisitor who betrayed him.  
 Rewards:  
 - "The Atheist’s Dagger" – A dagger that represents Frederick II's defiance of religious authority (Deals extra damage to Holy Warriors)  
-
+```mermaid
+flowchart TD
+    0[Quest Dialogue Tree >>]
+    A[Start: Speak to Frederick II] --> B["Frederick II: 'You there! I am Frederick II, imprisoned for heresy. A demonic inquisitor betrayed me. Slay them, and I will reward you.'"]
+    B --> C["Player: 'I’ll help you. Where can I find this inquisitor?'"]
+    B --> D["Player: 'I have no interest in your problems.'"]
+    C --> E["Frederick II: 'They reside in the Cathedral of Shadows, east of here. Be warned—they are no mere mortal.'"]
+    D --> F["Frederick II: 'Then leave, coward. Your soul is as weak as your resolve.'"]
+    E --> G[Travel to Cathedral of Shadows]
+    G --> H[Confront Demonic Inquisitor]
+    H --> I["Demonic Inquisitor: 'Who dares challenge the will of the Church? Ah, Frederick sent you. Prepare to die!'"]
+    I --> J[Combat with Demonic Inquisitor]
+    J --> K{Player defeats Demonic Inquisitor}
+    K -->|Return to Frederick II| L["Frederick II: 'You’ve done it! Here, take this dagger—it is a symbol of my defiance.'"]
+    L --> M[Player receives The Atheist’s Dagger]
+    K -->|Do not return| N[Quest remains incomplete]
+```
 ---
 
 8. "The Unseen Chains"
