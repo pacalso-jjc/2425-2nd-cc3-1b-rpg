@@ -1,8 +1,9 @@
 ```mermaid
 ---
-title: Animal example
+title: Fantasy RPG
 ---
 classDiagram
+
     note "From Duck till Zebra"
     
     Animal <|-- Duck
@@ -29,6 +30,15 @@ classDiagram
     class Zebra {
         +bool is_wild
         +run()
+
+    Item --|> Material
+    Inventory --> Item 
+    class Material {
+        - isCraftingMaterial: boolean
+        - craftingUsage: String
+        - materialType: String
+        - source: String
+
     }
 
     class Item {
@@ -60,4 +70,47 @@ classDiagram
         - Scanner sc
         + String getInput()
     }
+
+
+
+    class DialogueManager {
+        -currentDialogue: Dialogue
+        +startDialogue(dialogue: Dialogue): void
+        +getCurrentText(): String
+        +getOptions(): List~String~
+        +selectOption(index: int): void
+        +isDialogueActive(): boolean
+    } 
+
+    class Dialogue {
+        -text: String
+        -options: List~String~
+        -nextDialogues: List~Dialogue~
+        +getText(): String
+        +getOptions(): List~String~
+        +getNextDialogue(index: int): Dialogue
+    }
+
+    Equipment <|-- Weapon
+    class Weapon {
+        -damage: int
+        +Weapon(name: String, value: int, damage: int)
+        +getDamage(): int
+    }
+    
+    Item <|-- Equipment
+    class Equipment {
+        - levelRequirement: int
+        + equip(): void
+        + canEquip(): boolean
+    }
+
+    class Inventory {
+        +items: List<Item>
+        +addItem(item: Item)
+        +removeItem(item: Item)
+        +viewItemsByType(type: String) List
+    }
+
+
 ```
