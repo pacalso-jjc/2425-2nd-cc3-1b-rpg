@@ -122,5 +122,16 @@ classDiagram
         +viewItemsByType(type: String) List
     }
 
+    class RunAction {
+        -actionName: String
+        -status: String
+        -startTime: Date
+        -endTime: Date
+        +execute(): void
+        +getStatus(): String
+        +setStatus(status: String): void
+        +getDuration(): long
+    }
+
 
 ```
