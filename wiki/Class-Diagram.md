@@ -76,57 +76,46 @@ classDiagram
     }
 
     class Skill {
-        <<Abstract>>
-        +String skillName
-        +String description
-        +int requiredLevel
-        +List~Skill~ prerequisites
-        +void unlock()
+        - String skillName
+        - String description
+        - int requiredLevel
+        + String getSkillName()
+        + String getDescription()
+        + int getRequiredLevel()
     }
 
     class SkillTree {
-        +String className
-        +List~Skill~ availableSkills
-        +List~Skill~ unlockedSkills
-        +int skillPoints
-        +void unlockSkill(Skill skill)
-        +void spendSkillPoint()
+        - String className
+        - List<Skill> availableSkills
+        - List<Skill> unlockedSkills
+        - int skillPoints
+        + void addSkill(Skill skill)
+        + void unlockSkill(Skill skill)
+        + void spendSkillPoint()
     }
-
-    class PassiveSkill {
-        +double statBoost
-    }
-    
-    class ActiveSkill {
-        +void cast()
-        +double manaCost
-    }
-
-    Skill <|-- PassiveSkill
-    Skill <|-- ActiveSkill
 
     SkillTree *-- Skill : contains
-
+    
     class AlchemistTree {
-        +void unlockSkill(Skill skill)
+        + void unlockSkill(Skill skill)
     }
     class AssassinTree {
-        +void unlockSkill(Skill skill)
+        + void unlockSkill(Skill skill)
     }
     class HealerTree {
-        +void unlockSkill(Skill skill)
+        + void unlockSkill(Skill skill)
     }
     class KnightTree {
-        +void unlockSkill(Skill skill)
+        + void unlockSkill(Skill skill)
     }
     class MageTree {
-        +void unlockSkill(Skill skill)
+        + void unlockSkill(Skill skill)
     }
     class RangerTree {
-        +void unlockSkill(Skill skill)
+        + void unlockSkill(Skill skill)
     }
     class WizardTree {
-        +void unlockSkill(Skill skill)
+        + void unlockSkill(Skill skill)
     }
 
     SkillTree <|-- AlchemistTree
@@ -136,6 +125,7 @@ classDiagram
     SkillTree <|-- MageTree
     SkillTree <|-- RangerTree
     SkillTree <|-- WizardTree
+
     
     class DialogueManager {
         -currentDialogue: Dialogue
