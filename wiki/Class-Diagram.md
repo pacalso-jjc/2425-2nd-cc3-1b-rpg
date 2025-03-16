@@ -116,8 +116,6 @@ classDiagram
         +Weapon(name: String, value: int, damage: int)
         +getDamage(): int
     }
-<<<<<<< HEAD
-=======
     
     Item <|-- Equipment
     class Equipment {
@@ -132,7 +130,5 @@ classDiagram
         +removeItem(item: Item)
         +viewItemsByType(type: String) List
     }
-
->>>>>>> main
 
 ```
