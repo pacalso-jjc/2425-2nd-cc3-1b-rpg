@@ -30,7 +30,8 @@ classDiagram
     class Zebra {
         +bool is_wild
         +run()
-
+    }
+    
     Item --|> Material
     Inventory --> Item 
     class Material {
@@ -91,7 +92,6 @@ classDiagram
         +getNextDialogue(index: int): Dialogue
     }
 
-
     class Character{
      -String sex
      -String race
@@ -103,6 +103,15 @@ classDiagram
      +equipItems(Item item)
      +regenerate(amountToRegenarate regenerate)
      }
+
+    class DialogueOption {
+        -optionText: String
+        -nextDialogue: Dialogue
+        +DialogueOption(optionText: String, nextDialogue: Dialogue)
+        +getOptionText(): String
+        +getNextDialogue(): Dialogue
+        +setNextDialogue(nextDialogue: Dialogue): void
+    }
 
     Equipment <|-- Weapon
     class Weapon {
