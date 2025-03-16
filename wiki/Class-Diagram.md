@@ -30,6 +30,7 @@ classDiagram
     class Zebra {
         +bool is_wild
         +run()
+    }
 
     Item --|> Material
     Inventory --> Item 
@@ -38,7 +39,6 @@ classDiagram
         - craftingUsage: String
         - materialType: String
         - source: String
-
     }
 
     class Item {
