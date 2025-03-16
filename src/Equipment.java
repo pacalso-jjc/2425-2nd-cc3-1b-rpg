@@ -1,7 +1,9 @@
-class Equipment extends Item{
+class Equipment extends Item {
     private int levelRequirement;
 
-    public void equip(){}
-
-    public boolean canEquip(){}
+    public void equip() {
     }
+
+    public boolean canEquip() {
+    }
+}
