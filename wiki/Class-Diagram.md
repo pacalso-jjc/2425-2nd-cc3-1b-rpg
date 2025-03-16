@@ -112,5 +112,21 @@ classDiagram
         +viewItemsByType(type: String) List
     }
 
+      class Action {
+        -actionName: String
+        -actionType: String
+        -requiredLevel: int
+        -manaCost: int
+        +execute(): void
+        +getActionName(): String
+        +getActionType(): String
+        +getRequiredLevel(): int
+        +getManaCost(): int
+        +setActionName(name: String): void
+        +setActionType(type: String): void
+        +setRequiredLevel(level: int): void
+        +setManaCost(cost: int): void
+    }
+
 
 ```
