@@ -1,5 +1,33 @@
 # Main Quest
-
+Chapter 1: The Beginning	
+- You are tasked to fetch an heirloom for Baelin from his home town. He needs it for a great day of fishing. "Hold on, that man didn't give me on where specifically the ship was docked... He just gave me the name" 
+ 
+Chapter 2: Into The Unknown 	
+- After boarding the ship and passing through the storm, you end up somewhere you have never heard of before. Luckily, there seems to be civilization nearby 
+ 
+Chapter 3: Descent 	
+- You push forward and go down to follow the current of the river further. You then hear... singing? Hold on that sounds melodic. Should you check that out? 
+ 
+Chapter 4: Doubts 	
+- As you keep pushing on, you begin to feel uncertain. You get the urge to hoard things, maybe potions. 
+ 
+Chapter 5: Powerless 	
+- It's become apparent that this is more than you signed up for. The urge grows stronger, get it. Get it all but... there's something wrong with these things(Mimics) 
+ 
+Chapter 6: Brimstone and Ash 	
+- This path that you've treaded upon has grown more perilous and keeps growing so the more you travel down the river. Now, there's two factions at war with no end to it in sight. 
+ 
+Chapter 7: Charlatans 	
+- After passing through lands filled with war, you come across people who seem to be and act righteous. They claim that their words are from the gods themselves. Then why do they pillage? 
+ 
+Chapter 8: Avernus 	
+- The moon haunts you as the hordes of the undead and demons surround you. Survive until dawn
+ 
+Chapter 9: Twenty-One Silver Pieces 	
+- You come across a frail old man, he asks you to escort him back home which is close by. As soon as you get there, some things are amiss. You then discover the horrors the man is capable of.
+ 
+Chapter 10: This is it 	
+- Escaping from the deceit of the old man and defeating him, you learn of the way out but it is not without it's own tribulations. The exit is guarded by this one being, Ifrit. Will our hero of the story beat/slip through him or will this be their demise?
 
 # Sub Quest
 1. "Grandfather's Hammer"
