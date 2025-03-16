@@ -29,17 +29,23 @@ classDiagram
         - craftingUsage: String
         - materialType: String
         - source: String
+
     }
 
-    class Item{
+    class Item {
         -String name
         -String description
         -int rarity
         -int value
-        -int quantity
+        -int quantity   
     }
 
-    class Game{
+    Item <|-- Armor
+    class Armor {
+        +int defense
+    }
+
+    class Game {
         - Menu menu
         - boolean isRunning
         - InputHandler inputHandler
@@ -51,10 +57,12 @@ classDiagram
         + main(String[] args)
     }
 
-    class InputHandler{
+    class InputHandler {
         - Scanner sc
         + String getInput()
     }
+
+
 
     class DialogueManager {
         -currentDialogue: Dialogue
@@ -72,6 +80,15 @@ classDiagram
         +getText(): String
         +getOptions(): List~String~
         +getNextDialogue(index: int): Dialogue
+    }
+
+    class DialogueOption {
+        -optionText: String
+        -nextDialogue: Dialogue
+        +DialogueOption(optionText: String, nextDialogue: Dialogue)
+        +getOptionText(): String
+        +getNextDialogue(): Dialogue
+        +setNextDialogue(nextDialogue: Dialogue): void
     }
 
     Equipment <|-- Weapon
@@ -94,5 +111,6 @@ classDiagram
         +removeItem(item: Item)
         +viewItemsByType(type: String) List
     }
+
 
 ```
