@@ -50,10 +50,9 @@ classDiagram
         -int quantity   
     }
 
-    Item <|-- Consumables
-    class Consumables {
+    Item <|-- Consumable
+    class Consumable {
         -String effect
-        -int duration
         -int amountToRegenerate 
     }
 
