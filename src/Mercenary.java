@@ -1,17 +1,15 @@
-// Mercenary class
-public class Mercenary {
-
+public class Character {
     // Attributes
-    private String name;
-    private int level;
-    private int health;
-    private int attackPower;
-    private int defense;
-    private int goldCost;
-    private String status;
+    protected String name;
+    protected int level;
+    protected int health;
+    protected int attackPower;
+    protected int defense;
+    protected int goldCost;
+    protected String status;
 
     // Constructor
-    public Mercenary(String name, int level, int health, int attackPower, int defense, int goldCost, String status) {
+    public Character(String name, int level, int health, int attackPower, int defense, int goldCost, String status) {
         this.name = name;
         this.level = level;
         this.health = health;
@@ -49,5 +47,13 @@ public class Mercenary {
         attackPower += 10;
         defense += 5;
         System.out.println(name + " leveled up to level " + level);
+    }
+}
+
+// Mercenary class inheriting from Character
+public class Mercenary extends Character {
+    // Constructor
+    public Mercenary(String name, int level, int health, int attackPower, int defense, int goldCost, String status) {
+        super(name, level, health, attackPower, defense, goldCost, status); // Call superclass constructor
     }
 }
