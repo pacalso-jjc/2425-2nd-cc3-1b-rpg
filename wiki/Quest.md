@@ -215,24 +215,52 @@ Rewards:
 ```mermaid
   flowchart TD
       0[Quest Dialogue Tree >>]
-      A[Start: Speak to Marie Antoinette] --> B["Marie: 'Oh deary... I've eaten so much cake '"]
-      B --> C["Answer 1: 'Grace'"]
-      B --> D["Answer 2: 'Gold'"]
-      B --> E["Answer 3: 'Stars'"]
+      A[Start: Speak to Marie Antoinette] --> B["Marie: 'Oh deary... I've eaten so much cake. Young man can you perhaps give me a real piece of bread. Freshly baked by the most high of bakerists. I will reward you greatly if you do this for me.'"]
+      B --> C["Answer 1: Why of course, I can get you your bread."]
+      B --> D["Answer 2: I do not wish to help you."]
       
-      C --> F["Pope: 'Ah, you speak with wisdom. Grace is the light that banishes all shadows.' (The tomb rumbles, revealing a hidden passage. For a moment, Benedict IX lingers.)"]
+      C --> E["Marie: 'Oh, what a kind soul you are! I shall await your return young man.'"]
+      D --> F["Marie: 'Oh... how disappointing. Leave me be then.'"] --> Z1
+
+      E --> G["You travel into the marketplace of (Location Here) in search of fresh bread from the best bakerist in town."]
+      G --> H["You hear a baker and they go... Baker: 'A fine loaf, fresh from the oven, golden and crisp. Come and get your bread only 10 silver here! It has magical healing properties. Come one come all, buy some fresh bread!'"]
+
+      H --> I["Answer 1: Pay the 10 silver and take the bread."] --> T
+      H --> J["Answer 2: '10 silver? That's robbery!' (Attempt to haggle)"]
+      H --> K["Answer 3: (Steal the bread)"]
+
+      J --> L["Charisma Check Success: 'Alright, alright, 7 silver and it's yours.' (-7 silver, +Fresh Bread)"] --> T
+      J --> M["Charisma Check Fail: 'Hah! No discounts. Pay up or move along.'"]
+
+      M --> I["Answer 1: Pay the 10 silver and take the bread."] --> T
+      M --> K["Answer 3: (Steal the bread)"]
+
+      K --> N["Sleight of Hand Check Success: (You quietly swipe the bread and slip away unnoticed.) (+Fresh Bread)"] --> T
+      K --> O["Sleight of Hand Check Fail: (The baker grabs your wrist.) 'A thief?! Pay up double for it, or I'll get the guards to handle you!'"]
+
+      O --> P["Answer 1: Pay 20 silver for the bread and leave."] --> T
+      O --> Q["Answer 2: LET THEM COME! (Begin Combat with 1 Town Guard)"]
+
+      Q --> R["Win Combat"]
+      Q --> S["Lose Combat"] --> Z1
+
+      R --> T["You take the bread and start heading back to the Queen. On your way to the Queen you are stopped by a poor peasant. Peasant: 'Please traveler, spare some bread. I have a wife and child at home uhu UHU uhu uhu.'"]
+
+      T --> U["Answer 1: 'Here, take it. You need it more than she does.' (-Bread)"]
+      T --> V["Answer 2: 'I’m sorry, but this bread isn’t for you.'"]
       
-      F --> I["Inquire: 'What led to your downfall?'"]
-      I --> K["Pope: 'My greed cost me my crown and soul, swallowed by glittering gold.' (His voice is heavy with regret.)"] --> J
-      
-      F --> J["Inquire: 'Explain the feast and the wine.'"]
-      J --> L["Pope: 'Take this humble feast. But beware, traveler: the secret passage beyond is treacherous, and its darkness tests all who enter.' [ +Wine, Basket of fish & bread ]"]
-      
-      L --> M[Secret Passage Unlocked]
-      M --> N[QUEST COMPLETE]
-      
-      D --> O["Pope: 'Gold? Foolish traveler! May your avarice be your undoing.' (Benedict IX flicks you on the forehead. You lose 1 HP.)"] --> B
-      E --> P["Pope: 'Stars? Mere flickers in the void! Seek the truth that burns within, not the distant glimmers above.' (The ground shakes in disapproval. Try again.)"] --> B
+      U --> W1["Peasant: 'Thank you traveler, may God bless you on your journey.' The peasant walks away as he takes a few bites before putting it in his sack. A small but humble crumb falls, you take the crumb (+1 Humble Crumb). You return to Marie empty handed."]
+
+      W1 --> X1["Marie: 'Young man where is the bread.' You: 'I gave it to a starving peasant.' Marie: 'You gave it away? Hmm… perhaps I was asking out of selfishness. Maybe… it is my turn to go without bread. Thank you for this lesson traveler, here is for your troubles.' She hands a small pouch of coins (+20 Silver)"] --> Y
+
+      V --> W2["You leave the peasant and his family to their fates, you wonder if you made the right choice. You return to Marie."]
+      W2 --> X2["Marie: 'Young man, thank you for this fine bread I shall savor it and enjoy it. Finally a taste of real bread.' As she eats the bread a large yet humble piece of crumb falls out. You pick it up and put it in your pocket(+1 Humble Crumb). Marie: 'Maybe I should feed the people and give them some bread too, it would be ashame to let magnificent loaves like this be put out of production due to my own selfishness. Take this young man for your troubles.' (+5 Gold)"] --> Y
+
+      Y["Marie: 'You have really opened up my eyes young man. May you be safe in your travels and God bless your soul. 'Till we meet again.'"]
+      Y --> Z["QUEST COMPLETE"]
+      Z1["Quest Failed"]
+
+
 
 ```
 

@@ -4,34 +4,6 @@ title: Fantasy RPG
 ---
 classDiagram
 
-    note "From Duck till Zebra"
-    
-    Animal <|-- Duck
-    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
-    Animal <|-- Fish
-    Animal <|-- Zebra
-    
-    Animal : +int age
-    Animal : +String gender
-    Animal : +isMammal()
-    Animal : +mate()
-
-    class Duck {
-        +String beakColor
-        +swim()
-        +quack()
-    }
-
-    class Fish {
-        -int sizeInFeet
-        -canEat()
-    }
-
-    class Zebra {
-        +bool is_wild
-        +run()
-    }
-    
     Item --|> Material
     Inventory --> Item 
     class Material {
@@ -47,6 +19,21 @@ classDiagram
         -int rarity
         -int value
         -int quantity   
+    }
+    
+    class Statistic{
+ 	-int strength
+	-int dexterity
+	-int constitution
+	-int intelligence
+	-int wisdom
+	-int charisma
+    }
+
+    Item <|-- Consumable
+    class Consumable {
+        -String effect
+        -int amountToRegenerate 
     }
 
     Item <|-- Armor
@@ -94,7 +81,6 @@ classDiagram
 
     SkillTree *-- Skill : contains
 
-    
     class DialogueManager {
         -currentDialogue: Dialogue
         +startDialogue(dialogue: Dialogue): void
@@ -104,6 +90,13 @@ classDiagram
         +isDialogueActive(): boolean
     } 
 
+    Dialogue *-- DialogueTree 
+    class DialogueTree{
+        -dialogue: Dialogue
+        +start(): void
+    }
+
+    DialogueOption *-- Dialogue
     class Dialogue {
         -text: String
         -options: List~String~
@@ -142,6 +135,5 @@ classDiagram
         +removeItem(item: Item)
         +viewItemsByType(type: String) List
     }
-
 
 ```
