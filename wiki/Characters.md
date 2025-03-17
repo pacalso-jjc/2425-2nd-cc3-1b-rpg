@@ -1,5 +1,16 @@
 # Player
-
+- **Background:**
+  - Good Background: Sage (+Charisma, +Wisdom, -Dexterity)
+  - Neutral Background: Sailor (+Intelligence, +Constitution)
+  - Bad Background: Criminal (+Strength, +Dexterity, -Charisma)
+- **Backstory:**
+  - Sage: They were born into a wealthy family. They were loved by most everyone because of their helpful
+   and kind personality. They decided embark on adventures to help those who may be in need.
+  - Sailor: They were born into a decently wealthy family. They were educated and taught how to be a sailor.
+   They regularly embark on sea voyages. 
+  - Criminal: They were born into a poor family. Since the early days of their childhood they've had trouble 
+   with authority. Growing up they turned to crime in order to support their family. They decided to go on 
+   adventures in search for treasure. 
 # NPC
 
 ## Sample NPC
