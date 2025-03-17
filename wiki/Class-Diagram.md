@@ -5,21 +5,19 @@ title: Mercenary Diagram
 
 classDiagram
 direction TB
+    class Character {
+        -String name
+        -int level
+        -int health
+        -int attackPower
+        -int defense
+        -String status
+        +attack()
+        +defend()
+    }
+    
     class Mercenary {
-	    -String name
-	    -int level
-	    -int health
-	    -int attackPower
-	    -int defense
-	    -int goldCost
-	    -String status
-	    +attack()
-	    +defend()
-	    +hire()
-	    +fire()
-	    +levelUp()
+        -int goldCost
     }
 
     Mercenary --|> Character
-
-```
