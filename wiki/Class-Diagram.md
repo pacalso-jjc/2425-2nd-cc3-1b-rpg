@@ -94,5 +94,14 @@ classDiagram
         +viewItemsByType(type: String) List
     }
 
+    Entity <|-- Monster
+    class Monster {
+        +type: String
+        +damage: damage
+        +attack(Entity target): void
+    }
+
+    
+
 
 ```
