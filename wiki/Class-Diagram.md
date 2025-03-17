@@ -21,6 +21,15 @@ classDiagram
         -int value
         -int quantity   
     }
+    
+    class Statistic{
+ 	-int strength
+	-int dexterity
+	-int constitution
+	-int intelligence
+	-int wisdom
+	-int charisma
+    }
 
     Item <|-- Armor
     class Armor {
@@ -93,6 +102,5 @@ classDiagram
         +removeItem(item: Item)
         +viewItemsByType(type: String) List
     }
-
 
 ```
