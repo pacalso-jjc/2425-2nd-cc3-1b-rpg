@@ -94,5 +94,10 @@ classDiagram
         +viewItemsByType(type: String) List
     }
 
+    class Defend Action {
+        -defender: character
+        +perform(): void
+        
+    }
 
 ```
