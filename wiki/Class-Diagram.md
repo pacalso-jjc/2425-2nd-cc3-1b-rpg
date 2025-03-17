@@ -44,8 +44,6 @@ classDiagram
         + String getInput()
     }
 
-
-
     class DialogueManager {
         -currentDialogue: Dialogue
         +startDialogue(dialogue: Dialogue): void
@@ -55,6 +53,13 @@ classDiagram
         +isDialogueActive(): boolean
     } 
 
+    Dialogue *-- DialogueTree 
+    class DialogueTree{
+        -dialogue: Dialogue
+        +start(): void
+    }
+
+    DialogueOption *-- Dialogue
     class Dialogue {
         -text: String
         -options: List~String~
