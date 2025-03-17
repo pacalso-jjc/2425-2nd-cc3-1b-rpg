@@ -1,5 +1,5 @@
 public class runAction extends Action{
-	    private CombatMamager();
+    private CombatManager();
     
     public void perform (){
     }	
