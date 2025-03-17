@@ -1,4 +1,4 @@
-public class Enemy extends Entity {
+public class Enemy extends Character {
     private int level;
     private String type;
 
