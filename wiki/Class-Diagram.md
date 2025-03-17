@@ -9,15 +9,12 @@ classDiagram
       - hp: int
       - mana: int
       - stamina: int
-      - constitution: int
-      - strength: int
-      - defense: int
-      - stat: String
+      - stats: Statistic
       - skills: String
       - inventory: Inventory
       - equipments: List~Item~
       + attack(Entity e): void
-      + takeDamage(amountOfDamage: int): void
+      + takeDamage(int amountOfDamage): void
       + isAlive (): boolean
       + makeSound(): void
     }
@@ -29,7 +26,6 @@ classDiagram
         - craftingUsage: String
         - materialType: String
         - source: String
-
     }
 
     class Item {
