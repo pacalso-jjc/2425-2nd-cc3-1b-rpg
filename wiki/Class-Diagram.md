@@ -31,6 +31,12 @@ classDiagram
 	-int charisma
     }
 
+    Item <|-- Consumable
+    class Consumable {
+        -String effect
+        -int amountToRegenerate 
+    }
+
     Item <|-- Armor
     class Armor {
         +int defense
