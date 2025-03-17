@@ -76,55 +76,23 @@ classDiagram
     }
 
     class Skill {
-        - String skillName
-        - String description
+        - String name
         - int requiredLevel
-        + String getSkillName()
-        + String getDescription()
-        + int getRequiredLevel()
     }
 
     class SkillTree {
-        - String className
-        - List<Skill> availableSkills
-        - List<Skill> unlockedSkills
+        - int level
+        - int experience
+        - int experienceToNextLevel
         - int skillPoints
+        - Map<String, Skill> skills
+        + void gainExperience(int exp)
+        + void levelUp()
+        + boolean unlockSkill(String skillName)
         + void addSkill(Skill skill)
-        + void unlockSkill(Skill skill)
-        + void spendSkillPoint()
     }
 
     SkillTree *-- Skill : contains
-    
-    class AlchemistTree {
-        + void unlockSkill(Skill skill)
-    }
-    class AssassinTree {
-        + void unlockSkill(Skill skill)
-    }
-    class HealerTree {
-        + void unlockSkill(Skill skill)
-    }
-    class KnightTree {
-        + void unlockSkill(Skill skill)
-    }
-    class MageTree {
-        + void unlockSkill(Skill skill)
-    }
-    class RangerTree {
-        + void unlockSkill(Skill skill)
-    }
-    class WizardTree {
-        + void unlockSkill(Skill skill)
-    }
-
-    SkillTree <|-- AlchemistTree
-    SkillTree <|-- AssassinTree
-    SkillTree <|-- HealerTree
-    SkillTree <|-- KnightTree
-    SkillTree <|-- MageTree
-    SkillTree <|-- RangerTree
-    SkillTree <|-- WizardTree
 
     
     class DialogueManager {
