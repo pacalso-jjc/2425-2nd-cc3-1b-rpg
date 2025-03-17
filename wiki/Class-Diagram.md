@@ -20,16 +20,11 @@ direction TB
         -int goldCost
     }
 
-<<<<<<< HEAD
-    Mercenary --|> Character
-=======
     Mercenary --|> Character
 
 ---
 title: Fantasy RPG
 ---
-classDiagram
-
     Item --|> Material
     Inventory --> Item 
     class Material {
@@ -46,6 +41,21 @@ classDiagram
         -int rarity
         -int value
         -int quantity   
+    }
+    
+    class Statistic{
+ 	-int strength
+	-int dexterity
+	-int constitution
+	-int intelligence
+	-int wisdom
+	-int charisma
+    }
+
+    Item <|-- Consumable
+    class Consumable {
+        -String effect
+        -int amountToRegenerate 
     }
 
     Item <|-- Armor
@@ -70,8 +80,6 @@ classDiagram
         + String getInput()
     }
 
-
-
     class DialogueManager {
         -currentDialogue: Dialogue
         +startDialogue(dialogue: Dialogue): void
@@ -81,6 +89,13 @@ classDiagram
         +isDialogueActive(): boolean
     } 
 
+    Dialogue *-- DialogueTree 
+    class DialogueTree{
+        -dialogue: Dialogue
+        +start(): void
+    }
+
+    DialogueOption *-- Dialogue
     class Dialogue {
         -text: String
         -options: List~String~
@@ -120,4 +135,3 @@ classDiagram
         +viewItemsByType(type: String) List
     }
 ```
->>>>>>> b0f697d7b0ff294cb92e90d712cb22733ea7d48a
