@@ -50,7 +50,7 @@ classDiagram
         -int quantity   
     }
     
-    class Stats{
+    class Statistic{
  	-int strength
 	-int dexterity
 	-int constitution
