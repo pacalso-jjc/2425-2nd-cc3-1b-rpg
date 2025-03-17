@@ -1,9 +1,9 @@
 class Weapon extends Equipment {
     private int damage;
 
-    // Constructor for Weapon
+     
     public Weapon(String name, int value, int damage) {
-        super(name, value); // Call the superclass (Equipment) constructor
+        super(name, value);  
         this.damage = damage;
     }
 
