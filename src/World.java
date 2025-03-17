@@ -1,24 +1,17 @@
-/** Tangonan, Kent Alfred T.
-* Date: March 14, 2025
-* Time: 22:30
-* Title: World Class Enhancement
-*/
 import java.util.ArrayList;
 import java.util.List;
 
-// Represents a World with locations, name, age, and description
+// Represents a World with locations, name, and description
 public class World {
 
     // Attributes
-    private List<String> locations;
+    private List<Locations> locations;
     private String worldName;
-    private int worldAge;
     private String description;
 
     // Constructor
-    public World(String name, int age, String description) {
+    public World(String name, String description) {
         this.worldName = name;
-        this.worldAge = age;
         this.description = description;
         this.locations = new ArrayList<>();
     }
@@ -48,32 +41,10 @@ public class World {
         return worldName;
     }
 
-    // Sets the world age
-    public void setWorldAge(int age) {
-        this.worldAge = age;
-    }
-
-    // Returns the world age
-    public int getWorldAge() {
-        return worldAge;
-    }
-
     // Displays world information
     public void displayWorldInfo() {
         System.out.println("World Name: " + worldName);
-        System.out.println("World Age: " + worldAge);
         System.out.println("Description: " + description);
         System.out.println("Locations: " + locations);
-    }
-
-    // Simulates world progression by increasing the age
-    public void simulateWorldProgression() {
-        worldAge++;
-    }
-
-    // Resets the world to its initial state
-    public void resetWorld() {
-        worldAge = 0;
-        locations.clear();
     }
 }
