@@ -114,6 +114,7 @@ classDiagram
         +viewItemsByType(type: String) List
     }
 
+
     NPC <|-- Character
     class NPC{
         - quest:List<Quest>
