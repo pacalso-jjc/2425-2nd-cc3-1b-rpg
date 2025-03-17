@@ -10,7 +10,7 @@ classDiagram
       - mana: int
       - stamina: int
       - stats: Statistic
-      - skills: String
+      - skills: List~Skill~
       - inventory: Inventory
       - equipments: List~Item~
       + attack(Entity e): void
