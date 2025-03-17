@@ -2,8 +2,8 @@
 ---
 title: Fantasy RPG
 ---
-classDiagram  
-    class Entity{
+classDiagram
+   class Entity{
       - name: String
       - exp: int
       - hp: int
