@@ -128,4 +128,11 @@ classDiagram
         +viewItemsByType(type: String) List
     }
 
+    class GameObject{
+        -name: String
+        -desc: String
+        +getName(): String
+        +getDesc(): String
+    }
+
 ```
