@@ -1,9 +1,30 @@
 ```mermaid
 ---
+title: Mercenary Diagram
+---
+
+classDiagram
+direction TB
+    class Character {
+        -String name
+        -int level
+        -int health
+        -int attackPower
+        -int defense
+        -String status
+        +attack()
+        +defend()
+    }
+    
+    class Mercenary {
+        -int goldCost
+    }
+
+    Mercenary --|> Character
+
+---
 title: Fantasy RPG
 ---
-classDiagram
-
     Item --|> Material
     Inventory --> Item 
     class Material {
@@ -113,5 +134,4 @@ classDiagram
         +removeItem(item: Item)
         +viewItemsByType(type: String) List
     }
-
 ```
