@@ -59,6 +59,14 @@ classDiagram
         + String getInput()
     }
 
+    class Location {
+        - String name
+        - String description
+        + enter()
+        + exit()
+        + specialFeature()
+    }
+
     class DialogueManager {
         -currentDialogue: Dialogue
         +startDialogue(dialogue: Dialogue): void
