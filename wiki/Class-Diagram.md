@@ -3,6 +3,21 @@
 title: Fantasy RPG
 ---
 classDiagram
+   class Entity{
+      - name: String
+      - exp: int
+      - hp: int
+      - mana: int
+      - stamina: int
+      - stats: Statistic
+      - skills: List~Skill~
+      - inventory: Inventory
+      - equipments: List~Item~
+      + attack(Entity e): void
+      + takeDamage(int amountOfDamage): void
+      + isAlive (): boolean
+      + makeSound(): void
+    }
 
     Item --|> Material
     Inventory --> Item 
@@ -11,7 +26,6 @@ classDiagram
         - craftingUsage: String
         - materialType: String
         - source: String
-
     }
 
     class Item {
