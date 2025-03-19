@@ -1,12 +1,7 @@
 public abstract Action {
-  private String actionName;
-  private String actionType;
-  private int requiredLevel;
-  private int manaCost;
 
-public abstract void execute() {
+  public abstract void execute() {
 }
-
 
 public String getActionName() {
   return actionName;
