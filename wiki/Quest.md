@@ -364,6 +364,40 @@ Quest Type: Kill
 Description: Mordred, frozen in ice, begs you to shatter the sword that once struck down King Arthur.  
 Rewards:  
 - Nothing. He laughs at you, saying that he's a treacherous bastard and asks why you trusted him to give you a reward. He’s also still frozen in ice…
+
+```mermaid
+---
+title: Betrayer’s Blade Dialogue Tree
+---
+flowchart TD
+    A["Mordred (frozen in ice): Please... shatter the sword that struck down King Arthur. I beg you - free us from this curse."]
+    
+    A --> B1["Option 1: I will shatter the sword"]
+    A --> B2["Option 2: I don't trust you. You deserve to die!"]
+    A --> B3["Option 3: Explain yourself first. Why should I do this?"]
+    
+    B3 --> C["Mordred: I once wielded that sword in a misguided bid for glory. Its curse has frozen me - I'm trapped in eternal torment. Shattering it might end my misery."]
+    C --> D1["Option: Very well, I will shatter the sword"]
+    C --> D2["Option: Your words mean nothing. I'll kill you instead"]
+    
+    D1 --> E["Action: You shatter the sword. It cracks and crumbles in a burst of cursed energy"]
+    E --> F["Mordred laughs bitterly - You trusted me to offer a reward, yet I give you nothing. I'm nothing but a treacherous bastard"]
+    
+    D2 --> G["Combat: You engage Mordred in battle"]
+    G --> H["Outcome: Mordred is defeated; his final mocking laugh fades among the ice"]
+    
+    B1 --> I["Action: Without hesitation, you shatter the sword"]
+    I --> J["Result: The blade shatters with a resounding crack. Mordred smirks - I warned you: no reward awaits you here"]
+    
+    B2 --> K["Combat: You attack Mordred immediately"]
+    K --> L["Outcome: Mordred falls, his laughter echoing as the ice remains unbroken"]
+    
+    F --> M["Final Outcome: The cursed legacy is ended, leaving you with nothing but shattered remains and a bitter reminder of betrayal"]
+    J --> M
+    H --> M
+    L --> M
+
+```
 =======
 ## Sample quest
 
