@@ -1,42 +1,42 @@
-public class Action {
-private String actionName;
-private String actionType;
-private int requiredLevel;
-private int manaCost;
+public abstract Action {
+  private String actionName;
+  private String actionType;
+  private int requiredLevel;
+  private int manaCost;
 
-public void execute() {
+public abstract void execute() {
 }
 
 
 public String getActionName() {
-return actionName;
+  return actionName;
 }
 
 public void setActionName(String name) {
-this.actionName = name;
+    this.actionName = name;
 }
 
 public String getActionType() {
-return actionType;
+    return actionType;
 }
 
 public void setActionType(String type) {
-this.actionType = type;
+    this.actionType = type;
 }
 
 public int getRequiredLevel() {
-return requiredLevel;
+    return requiredLevel;
 }
 
 public void setRequiredLevel(int level) {
-this.requiredLevel = level;
+    this.requiredLevel = level;
 }
 
 public int getManaCost() {
-return manaCost;
+    return manaCost;
 }
 
 public void setManaCost(int cost) {
-this.manaCost = cost;
-}
+    this.manaCost = cost;
+  }
 }
