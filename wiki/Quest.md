@@ -1,4 +1,59 @@
 # Main Quest
+1. "The Hero's Call"
+Quest Type: Adventure/Story Progression
+Description: The kingdom is in peril, and the king seeks a brave soul to uncover the dark forces threatening the land. He summons you to his throne room to hear his plea.
+Rewards:
+- Royal Signet Ring
+- 500 Gold
+- 1 Bucket of Red Horse
+
+```mermaid
+flowchart TD
+  0[Quest Dialogue Tree >>]
+  A[Start: Speak to King Alden] --> B["King Alden: 'Brave adventurer, dark forces stir in the east. Shadows creep across our land, and my scouts whisper of an ancient evil reawakening. I have chosen you to seek the truth and stop this menace before it consumes our kingdom. Will you accept this sacred duty?'"]
+  
+  B --> C["Answer 1: 'I accept, Your Majesty.'"]
+  B --> D["Answer 2: 'I'm not ready for this.'"] --> Z1
+  
+  C --> E["King Alden: 'Then you shall have my blessing. Your first task is to seek out the Oracle of Eldoria. She alone can reveal what lies ahead. But beware, for the road to Eldoria is fraught with danger.'"]
+  
+  E --> F["Answer 1: 'Where can I find the Oracle?'"]
+  E --> G["Answer 2: 'I’ll leave immediately!'"]
+
+  F --> H["King Alden: 'Travel east beyond the Whispering Woods. There you shall find the ruins of an ancient temple—her sanctuary. But tread carefully, for the forest is home to bandits and worse things that lurk in the shadows.'"]
+  H --> G
+  
+  G --> I["You set off on your journey. The road ahead is long, and as you travel through the Whispering Woods, you hear rustling in the trees..."]
+  I --> J["Interaction: Investigate the noise."]
+  I --> K["Interaction: Ignore it and press on."]
+
+  J --> L["A group of bandits emerges from the underbrush! They demand your gold or your life."]  
+  L --> M["Answer 1: 'Fight the bandits!'"]  
+  L --> N["Answer 2: 'Try to negotiate.'"]  
+  L --> O["Answer 3: 'Hand over the gold.'"]
+
+  M --> P["You draw your weapon and fight the bandits. After a fierce battle, you emerge victorious, finding a strange emblem among their belongings. (+100 Gold, +Bandit Emblem)"]  
+  P --> Q["Continue toward the Oracle."]  
+
+  N --> R["You attempt to reason with the bandits. They smirk and demand you complete a task for them in exchange for your passage."]  
+  R --> S["Answer 1: Accept their task."]  
+  R --> T["Answer 2: Refuse and prepare for battle."]
+
+  S --> U["The bandits laugh. 'There's a merchant we don’t like. Bring us his coin purse, and we’ll let you pass.'"]  
+  U --> V["Interaction: Accept the deal and leave."]  
+  U --> W["Interaction: Trick them and escape."]  
+
+  T --> M  
+
+  K --> X["You ignore the noise and continue down the path, but a shadow moves in the trees, and you feel uneasy."]  
+  X --> Q  
+
+  Q --> Y["You reach the Oracle’s temple, an ancient ruin bathed in moonlight. The Oracle awaits within…"]  
+  Y --> Z[QUEST COMPLETE]  
+  Z1["King Alden: 'Then may fate guide you, traveler. But know this: dark times are upon us.'"] --> Z2["QUEST ABANDONED"]
+
+
+```
 
 
 # Sub Quest
