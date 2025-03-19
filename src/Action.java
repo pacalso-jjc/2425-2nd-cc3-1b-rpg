@@ -1,5 +1,4 @@
-public abstract Action {
-
+public abstract class Action {
   public abstract void execute() {
 }
 
@@ -8,30 +7,30 @@ public String getActionName() {
 }
 
 public void setActionName(String name) {
-    this.actionName = name;
+  this.actionName = name;
 }
 
 public String getActionType() {
-    return actionType;
+  return actionType;
 }
 
 public void setActionType(String type) {
-    this.actionType = type;
+  this.actionType = type;
 }
 
 public int getRequiredLevel() {
-    return requiredLevel;
+  return requiredLevel;
 }
 
 public void setRequiredLevel(int level) {
-    this.requiredLevel = level;
+  this.requiredLevel = level;
 }
 
 public int getManaCost() {
-    return manaCost;
+  return manaCost;
 }
 
 public void setManaCost(int cost) {
-    this.manaCost = cost;
+  this.manaCost = cost;
   }
 }
