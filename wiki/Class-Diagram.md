@@ -147,11 +147,12 @@ classDiagram
         +getName(): String
         +getDesc(): String
     }
-
+    
     Character <|-- NPC
     class NPC{
         - quest:List<Quest>
         + giveQuest(character: Character) : void
     }
+
 
 ```
