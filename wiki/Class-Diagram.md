@@ -3,6 +3,21 @@
 title: Fantasy RPG
 ---
 classDiagram
+   class Entity{
+      - name: String
+      - exp: int
+      - hp: int
+      - mana: int
+      - stamina: int
+      - stats: Statistic
+      - skills: List~Skill~
+      - inventory: Inventory
+      - equipments: List~Item~
+      + attack(Entity e): void
+      + takeDamage(int amountOfDamage): void
+      + isAlive (): boolean
+      + makeSound(): void
+    }
 
     Item --|> Material
     Inventory --> Item 
@@ -11,7 +26,6 @@ classDiagram
         - craftingUsage: String
         - materialType: String
         - source: String
-
     }
 
     class Item {
@@ -35,9 +49,13 @@ classDiagram
     class Consumable {
         -String effect
         -int amountToRegenerate 
+        +setEffect() void
+        +setAmountToRegenerate() void
+        +getEffect() String
+        +getAmountToRegenerate() int
     }
 
-    Item <|-- Armor
+    Equipment --|> Armor
     class Armor {
         +int defense
     }
@@ -93,14 +111,14 @@ classDiagram
         +setNextDialogue(nextDialogue: Dialogue): void
     }
 
-    Equipment <|-- Weapon
+    Equipment --|> Weapon
     class Weapon {
         -damage: int
         +Weapon(name: String, value: int, damage: int)
         +getDamage(): int
     }
     
-    Item <|-- Equipment
+    Item --|> Equipment
     class Equipment {
         - levelRequirement: int
         + equip(): void
@@ -114,11 +132,26 @@ classDiagram
         +viewItemsByType(type: String) List
     }
 
+    NPC <|-- Merchant
+    class Merchant {
+        - stock: List<Item>
+        + buyItem(buyer: Character, item: Item, quantity: int): boolean
+        + sellItem(seller: Character, item: Item, quantity: int): boolean
+        # setPrices(item: Item, newPrice: float): void
+        # restockItems(): void
+    }
+    
+    class GameObject{
+        -name: String
+        -desc: String
+        +getName(): String
+        +getDesc(): String
+    }
 
-    NPC <|-- Character
+    Character <|-- NPC
     class NPC{
         - quest:List<Quest>
-        + giveQuest(character)
+        + giveQuest(character: Character) : void
     }
 
 ```
