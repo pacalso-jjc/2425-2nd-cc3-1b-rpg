@@ -49,6 +49,10 @@ classDiagram
     class Consumable {
         -String effect
         -int amountToRegenerate 
+        +setEffect() void
+        +setAmountToRegenerate() void
+        +getEffect() String
+        +getAmountToRegenerate() int
     }
 
     Equipment --|> Armor
