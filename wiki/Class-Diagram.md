@@ -22,7 +22,7 @@ classDiagram
         -int quantity   
     }
 
-    Item <|-- Armor
+    Equipment --|> Armor
     class Armor {
         +int defense
     }
@@ -73,14 +73,14 @@ classDiagram
         +setNextDialogue(nextDialogue: Dialogue): void
     }
 
-    Equipment <|-- Weapon
+    Equipment --|> Weapon
     class Weapon {
         -damage: int
         +Weapon(name: String, value: int, damage: int)
         +getDamage(): int
     }
     
-    Item <|-- Equipment
+    Item --|> Equipment
     class Equipment {
         - levelRequirement: int
         + equip(): void
