@@ -9,7 +9,7 @@ public class InputHandler {
     }
 
     // Method to get user input as a String
-    public String getInput() {
+    public static String getInput() {
         return sc.nextLine();  // Reads and returns the user's input
     }
 }
