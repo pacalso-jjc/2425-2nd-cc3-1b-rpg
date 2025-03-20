@@ -38,12 +38,12 @@ classDiagram
     
     Entity o-- Statistic
     class Statistic{
- 	    -int strength
-	    -int dexterity
-	    -int constitution
-	    -int intelligence
-	    -int wisdom
-	    -int charisma
+	-int strength
+	-int dexterity
+	-int constitution
+	-int intelligence
+	-int wisdom
+	-int charisma
         +getStrength(): int
         +setStrength(int strength): void
         +getDexterity(): int
