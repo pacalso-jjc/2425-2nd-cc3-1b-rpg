@@ -5,7 +5,7 @@ import java.util.List;
 public class World {
 
     // Attributes
-    private List<Locations> locations;
+    private List<Location> locations;
     private String worldName;
     private String description;
 
