@@ -36,7 +36,7 @@ public class World {
         this.worldName = name;
     }
 
-    // Returns the world name
+    // Returns the worldname
     public String getWorldName() {
         return worldName;
     }
