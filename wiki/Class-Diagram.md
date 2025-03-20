@@ -1,12 +1,11 @@
 ```mermaid
 ---
-title: World Diagram
+title: Fantasy RPG
 ---
 classDiagram
     class World {
         - List locations
         - String worldName
-        - int worldAge
         - String description
         + addLocation(Location l)
         + removeLocation(Location l)
@@ -14,7 +13,6 @@ classDiagram
         + setWorldName(String name)
         + getWorldName() String
         + setWorldAge(int age)
-        + getWorldAge() int
         + displayWorldInfo()
         + simulateWorldProgression()
         + resetWorld()
