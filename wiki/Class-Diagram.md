@@ -37,25 +37,25 @@ classDiagram
     }
     
     Entity o-- Statistic
-    class Statistic {
-        - strength: int
-        - dexterity: int
-        - constitution: int
-        - intelligence: int
-        - wisdom: int
-        - charisma: int
-        + getStrength(): int
-        + setStrength(int strength): void
-        + getDexterity(): int
-        + setDexterity(int dexterity): void
-        + getConstitution(): int
-        + setConstitution(int constitution): void
-        + getIntelligence(): int
-        + setIntelligence(int intelligence): void
-        + getWisdom(): int
-        + setWisdom(int wisdom): void
-        + getCharisma(): int
-        + setCharisma(int charisma): void
+    class Statistic{
+ 	    -int strength
+	    -int dexterity
+	    -int constitution
+	    -int intelligence
+	    -int wisdom
+	    -int charisma
+        +getStrength(): int
+        +setStrength(int strength): void
+        +getDexterity(): int
+        +setDexterity(int dexterity): void
+        +getConstitution(): int
+        +setConstitution(int constitution): void
+        +getIntelligence(): int
+        +setIntelligence(int intelligence): void
+        +getWisdom(): int
+        +setWisdom(int wisdom): void
+        +getCharisma(): int
+        +setCharisma(int charisma): void
   }
 
     Item <|-- Consumable
