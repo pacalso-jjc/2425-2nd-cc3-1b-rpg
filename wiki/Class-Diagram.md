@@ -12,26 +12,9 @@ classDiagram
         + getLocations() List
         + setWorldName(String name)
         + getWorldName() String
-        + setWorldAge(int age)
         + displayWorldInfo()
         + simulateWorldProgression()
         + resetWorld()
-
-   class Entity{
-      - name: String
-      - exp: int
-      - hp: int
-      - mana: int
-      - stamina: int
-      - stats: Statistic
-      - skills: List~Skill~
-      - inventory: Inventory
-      - equipments: List~Item~
-      + attack(Entity e): void
-      + takeDamage(int amountOfDamage): void
-      + isAlive (): boolean
-      + makeSound(): void
-
     }
 
     class Material {
@@ -63,15 +46,6 @@ classDiagram
         - int amountToRegenerate 
     }
 
-        -String effect
-        -int amountToRegenerate 
-        +setEffect() void
-        +setAmountToRegenerate() void
-        +getEffect() String
-        +getAmountToRegenerate() int
-    }
-
-    Equipment --|> Armor
     class Armor {
         + int defense
     }
@@ -125,14 +99,6 @@ classDiagram
         + setNextDialogue(nextDialogue: Dialogue): void
     }
 
-    Equipment --|> Weapon
-    class Weapon {
-        -damage: int
-        +Weapon(name: String, value: int, damage: int)
-        +getDamage(): int
-    }
-    
-    Item --|> Equipment
     class Equipment {
         - int levelRequirement
         + equip(): void
@@ -160,26 +126,4 @@ classDiagram
     Item --|> Material
     Dialogue *-- DialogueTree 
     DialogueOption *-- Dialogue
-
-    NPC <|-- Merchant
-    class Merchant {
-        - stock: List<Item>
-        + buyItem(buyer: Character, item: Item, quantity: int): boolean
-        + sellItem(seller: Character, item: Item, quantity: int): boolean
-        # setPrices(item: Item, newPrice: float): void
-        # restockItems(): void
-    }
-    
-    class GameObject{
-        -name: String
-        -desc: String
-        +getName(): String
-        +getDesc(): String
-    }
-    
-    Character <|-- NPC
-    class NPC{
-        - quest:List<Quest>
-        + giveQuest(character: Character) : void
-    }
 ```
