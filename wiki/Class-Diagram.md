@@ -102,6 +102,18 @@ classDiagram
         +getNextDialogue(index: int): Dialogue
     }
 
+    class Character{
+     -String sex
+     -String race
+     -int exp
+     -int charisma
+     +addtoInventory(Item item)
+     +sellItems(Item item)
+     +move(Direction direction)
+     +equipItems(Item item)
+     +regenerate(amountToRegenarate regenerate)
+     }
+
     class DialogueOption {
         -optionText: String
         -nextDialogue: Dialogue
@@ -153,6 +165,7 @@ classDiagram
         - quest:List<Quest>
         + giveQuest(character: Character) : void
     }
+
 
 
 ```
