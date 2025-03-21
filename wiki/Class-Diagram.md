@@ -36,14 +36,27 @@ classDiagram
         -int quantity   
     }
     
+    Entity o-- Statistic
     class Statistic{
- 	-int strength
+	-int strength
 	-int dexterity
 	-int constitution
 	-int intelligence
 	-int wisdom
 	-int charisma
-    }
+        +getStrength(): int
+        +setStrength(int strength): void
+        +getDexterity(): int
+        +setDexterity(int dexterity): void
+        +getConstitution(): int
+        +setConstitution(int constitution): void
+        +getIntelligence(): int
+        +setIntelligence(int intelligence): void
+        +getWisdom(): int
+        +setWisdom(int wisdom): void
+        +getCharisma(): int
+        +setCharisma(int charisma): void
+  }
 
     Item <|-- Consumable
     class Consumable {
