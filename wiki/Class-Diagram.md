@@ -58,7 +58,7 @@ classDiagram
         +setCharisma(int charisma): void
   }
 
-    Item <|-- Consumable
+    Item --|> Consumable
     class Consumable {
         -String effect
         -int amountToRegenerate 
