@@ -6,7 +6,7 @@ public class InputService {
     private Scanner sc;
 
     // Constructor initializes the Scanner
-    public InputHandler() {
+    public InputService() {
         this.sc = new Scanner(System.in);
     }
 
