@@ -131,6 +131,13 @@ classDiagram
         +removeItem(item: Item)
         +viewItemsByType(type: String) List
     }
+    
+       class Action {
+        <<abstract>>
+        +perform(): void
+    }
+
+    GameObject <|-- Action
 
     NPC <|-- Merchant
     class Merchant {
