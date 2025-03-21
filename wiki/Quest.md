@@ -215,24 +215,52 @@ Rewards:
 ```mermaid
   flowchart TD
       0[Quest Dialogue Tree >>]
-      A[Start: Speak to Marie Antoinette] --> B["Marie: 'Oh deary... I've eaten so much cake '"]
-      B --> C["Answer 1: 'Grace'"]
-      B --> D["Answer 2: 'Gold'"]
-      B --> E["Answer 3: 'Stars'"]
+      A[Start: Speak to Marie Antoinette] --> B["Marie: 'Oh deary... I've eaten so much cake. Young man can you perhaps give me a real piece of bread. Freshly baked by the most high of bakerists. I will reward you greatly if you do this for me.'"]
+      B --> C["Answer 1: Why of course, I can get you your bread."]
+      B --> D["Answer 2: I do not wish to help you."]
       
-      C --> F["Pope: 'Ah, you speak with wisdom. Grace is the light that banishes all shadows.' (The tomb rumbles, revealing a hidden passage. For a moment, Benedict IX lingers.)"]
+      C --> E["Marie: 'Oh, what a kind soul you are! I shall await your return young man.'"]
+      D --> F["Marie: 'Oh... how disappointing. Leave me be then.'"] --> Z1
+
+      E --> G["You travel into the marketplace of (Location Here) in search of fresh bread from the best bakerist in town."]
+      G --> H["You hear a baker and they go... Baker: 'A fine loaf, fresh from the oven, golden and crisp. Come and get your bread only 10 silver here! It has magical healing properties. Come one come all, buy some fresh bread!'"]
+
+      H --> I["Answer 1: Pay the 10 silver and take the bread."] --> T
+      H --> J["Answer 2: '10 silver? That's robbery!' (Attempt to haggle)"]
+      H --> K["Answer 3: (Steal the bread)"]
+
+      J --> L["Charisma Check Success: 'Alright, alright, 7 silver and it's yours.' (-7 silver, +Fresh Bread)"] --> T
+      J --> M["Charisma Check Fail: 'Hah! No discounts. Pay up or move along.'"]
+
+      M --> I["Answer 1: Pay the 10 silver and take the bread."] --> T
+      M --> K["Answer 3: (Steal the bread)"]
+
+      K --> N["Sleight of Hand Check Success: (You quietly swipe the bread and slip away unnoticed.) (+Fresh Bread)"] --> T
+      K --> O["Sleight of Hand Check Fail: (The baker grabs your wrist.) 'A thief?! Pay up double for it, or I'll get the guards to handle you!'"]
+
+      O --> P["Answer 1: Pay 20 silver for the bread and leave."] --> T
+      O --> Q["Answer 2: LET THEM COME! (Begin Combat with 1 Town Guard)"]
+
+      Q --> R["Win Combat"]
+      Q --> S["Lose Combat"] --> Z1
+
+      R --> T["You take the bread and start heading back to the Queen. On your way to the Queen you are stopped by a poor peasant. Peasant: 'Please traveler, spare some bread. I have a wife and child at home uhu UHU uhu uhu.'"]
+
+      T --> U["Answer 1: 'Here, take it. You need it more than she does.' (-Bread)"]
+      T --> V["Answer 2: 'I’m sorry, but this bread isn’t for you.'"]
       
-      F --> I["Inquire: 'What led to your downfall?'"]
-      I --> K["Pope: 'My greed cost me my crown and soul, swallowed by glittering gold.' (His voice is heavy with regret.)"] --> J
-      
-      F --> J["Inquire: 'Explain the feast and the wine.'"]
-      J --> L["Pope: 'Take this humble feast. But beware, traveler: the secret passage beyond is treacherous, and its darkness tests all who enter.' [ +Wine, Basket of fish & bread ]"]
-      
-      L --> M[Secret Passage Unlocked]
-      M --> N[QUEST COMPLETE]
-      
-      D --> O["Pope: 'Gold? Foolish traveler! May your avarice be your undoing.' (Benedict IX flicks you on the forehead. You lose 1 HP.)"] --> B
-      E --> P["Pope: 'Stars? Mere flickers in the void! Seek the truth that burns within, not the distant glimmers above.' (The ground shakes in disapproval. Try again.)"] --> B
+      U --> W1["Peasant: 'Thank you traveler, may God bless you on your journey.' The peasant walks away as he takes a few bites before putting it in his sack. A small but humble crumb falls, you take the crumb (+1 Humble Crumb). You return to Marie empty handed."]
+
+      W1 --> X1["Marie: 'Young man where is the bread.' You: 'I gave it to a starving peasant.' Marie: 'You gave it away? Hmm… perhaps I was asking out of selfishness. Maybe… it is my turn to go without bread. Thank you for this lesson traveler, here is for your troubles.' She hands a small pouch of coins (+20 Silver)"] --> Y
+
+      V --> W2["You leave the peasant and his family to their fates, you wonder if you made the right choice. You return to Marie."]
+      W2 --> X2["Marie: 'Young man, thank you for this fine bread I shall savor it and enjoy it. Finally a taste of real bread.' As she eats the bread a large yet humble piece of crumb falls out. You pick it up and put it in your pocket(+1 Humble Crumb). Marie: 'Maybe I should feed the people and give them some bread too, it would be ashame to let magnificent loaves like this be put out of production due to my own selfishness. Take this young man for your troubles.' (+5 Gold)"] --> Y
+
+      Y["Marie: 'You have really opened up my eyes young man. May you be safe in your travels and God bless your soul. 'Till we meet again.'"]
+      Y --> Z["QUEST COMPLETE"]
+      Z1["Quest Failed"]
+
+
 
 ```
 
@@ -327,7 +355,117 @@ flowchart TD
 Quest Type: Collect  
 Description: Thais, condemned for flattery, needs you to bring her a mirror so she can see the filth she’s covered in.  
 Rewards:  
-- "Magic Mirror" – You don't know how it's magical, but on the back, it's engraved with "Made by Re-Logic."  
+- "Magic Mirror" – You don't know how it's magical, but on the back, it's engraved with "Made by Re-Logic."
+```mermaid
+flowchart TD
+  0[Quest Dialogue Tree >>]
+
+  A[Start: Speak to Thais] --> B["Thais: 'Ah, a kind and intelligent traveler approaches! Your aura is simply magnificent—almost as magnificent as mine, of course.'"]
+  B --> C["Thais: 'Alas, even a goddess such as myself has suffered injustice!'"]
+  C --> D["Thais: 'I have been cursed, doomed to wallow in filth for my… ahem… unparalleled talents in flattery.'"]
+  D --> E["Thais: 'Only a mirror can restore balance! I must gaze upon my own perfection, for I fear my beauty has been tarnished by this wretched grime.'"]
+  E --> F["Thais: 'Will you retrieve one for me, dear champion of elegance?'"]
+
+  F --> G["OPTION 3 - Player: 'Of course, O radiant one.'"] 
+  F --> H["OPTION 2 - Player: 'Get your own mirror, you self-absorbed grease stain.'"]
+  F --> I["OPTION 1 - Player: 'Actually, I think my beauty outshines yours. Maybe I should be the one with a mirror.'"]
+
+  G --> J["Thais: 'Ah! A fellow appreciator of true beauty! I knew you had taste!'"]
+  H --> K["Thais: 'Hmph! Jealousy is so unbecoming. Not everyone can handle basking in my presence.'"]
+  K --> L["Thais: 'Go on, scurry away like the peasants who shunned me!'"]
+  L --> M[QUEST DECLINED]
+
+  I --> N["Thais: 'Oh? Oh! A challenger! How bold!'"]
+  N --> O["Thais: 'But alas, you are *tragically* mistaken. Very well, bring me a mirror, and we shall settle this once and for all!'"]
+  O --> P["Thais: 'Prepare to witness your own defeat… in dazzling reflection!'"]
+  
+  J --> Q["QUEST ACCEPTED"]
+  P --> Q
+
+  Q --> R["(There's a lingering question inside your mind.)"]
+  R --> S["OPTION 3 - Player: 'Where exactly am I supposed to find this mirror?'"]
+  R --> T["OPTION 2 - Player: 'Wouldn’t a puddle work just fine?'"]
+
+  S --> U["Thais: (Scoffs) 'Do I look like someone who *finds* things? No, no, no—that’s your job.'"]
+  U --> V["Thais: 'I am merely the dazzling beacon of grace in this arrangement.'"]
+  V --> W["Player: '...'"]
+  W --> X["(Ignoring her remarks, you decide to check with merchants. They hoard random junk, right?)"]
+
+  T --> Y["Thais: (GASPS) 'Are you seriously suggesting I admire myself in a *PUDDLE*?!'"]
+  Y --> Z["Thais: 'The *horror*! The *indignity*! The absolute *nerve* of you!'"]
+  Z --> AA["(She dramatically faints. You walk away while she recovers.)"]
+  AA --> X
+
+  R --> AB["OPTION 1 - Player: 'How did you even end up like this?'"]
+  AI --> AC["OPTION 1 - Player: 'Wait… is the wizard still around?'"]
+
+  AB --> AD["Thais: 'Ah, an inquisitive mind! A rare trait in one so... rugged.'"]
+  AD --> AE["Thais: 'You see, I once lavished praise upon a wizard’s mustache.'"]
+  AE --> AF["Thais: 'A mustache so grand, so powerful, so exquisitely groomed!'"]
+  AF --> AG["Thais: 'But alas! I praised it *one* too many times… and he cursed me for it.'"]
+  AG --> AH["Thais: 'Now, my magnificence is hidden beneath this *vile, wretched, unspeakable* filth!'"]
+  AH --> AI["Thais: 'So tragic… So cruel… So—'"]
+  AI --> AJ["OPTION 2 - Player: '...Yeah, I think I get it.'"]
+  AJ --> X
+
+  AC --> AK["Thais: 'H-Haha! Oh, don’t worry about that!'"]
+  AK --> AL["Thais: 'It’s not like he’d hold a grudge for *centuries* or anything… right? Haha… right?'"]
+  AL --> X
+
+  X --> AM["Speak to Thais again"]
+  AM --> AN["Without the mirror"]
+  AM --> AO["With the mirror in hand"]
+
+  AN --> AP["Thais: 'Ah, you return! With a mirror, I presume?'"]
+  AP --> AQ["OPTION 2 - Player: 'Not yet.'"]
+  AP --> AR["OPTION 1 - Player: 'These things take time, Princess Mudpile.'"]
+
+  AQ --> AS["Thais: 'Tragic. Devastating. A true betrayal of beauty itself.'"]
+  AR --> AT["Thais: (GASPS) 'HOW DARE YOU?!'"]
+  AS --> AU["Thais: 'Do not tarry too long, hero! Every moment without my reflection is agony!'"]
+  AT --> AU
+  AU --> X
+
+  AO --> AV["Thais: 'At last! The instrument of my redemption!'"]
+  AV --> AW["Thais: 'Quickly, hand it over! I must gaze upon my own splendor!'"]
+  AW --> AX["(She snatches the mirror and dramatically holds it up to her face.)"]
+
+  AX --> AY["Thais: (Gasp) 'Oh no… I’m beautiful!'"]
+  AY --> AZ["Thais: 'This whole time I thought I was doomed to be hideous!'"]
+  AZ --> BA["Thais: 'I was just covered in mud!'"]
+  BA --> BB["Thais: (Sniffles) 'It was so tragic. But also inspiring. The courage I showed… the resilience…'"]
+  BB --> BC["Thais: 'I truly am a marvel!'"]
+
+  BC --> BD["OPTION 1 - Player: 'I mean… yeah, I could’ve told you that.'"]
+  BC --> BE["OPTION 2 - Player: 'So, what now? Do you start a religion?'"]
+
+  BE --> BF["Thais: 'Hmm… The Church of Thais does have a *divine* ring to it.'"]
+  BF --> BG["Thais: 'But enough about that—your reward!'"]
+  BD --> BG
+
+  BG --> BH["Thais: 'As a reward, I grant you something far more valuable than gold—'"]
+  BH --> BI["Thais: 'My sincerest flattery.'"]
+
+  BI --> BJ["Player: '...That's it? No actual reward?'"]
+  BJ --> BK["Thais: 'Oh, darling, words from lips as divine as mine are worth more than any treasure.'"]
+  BK --> BL["(She tosses her hair dramatically—right as the mirror emits a dazzling light.)"]
+  BL --> BM["(In a sudden flash, she vanishes, leaving the mirror behind.)"]
+
+  BM --> BN["OPTION 1 - Player: 'Wait—what’s happening?!'"]
+  BM --> BO["OPTION 2 - Player: 'OH GOD IT’S A BOMB!'"]
+
+  BO --> BW["(...Silence.)"]
+  BW --> BV["(After a moment, you cautiously peek out.)"]
+  BV --> BQ
+
+  BN --> BX["(Seconds pass as you regain your eyesight.)"]
+  BX --> BQ["(You are left alone. Only the mirror remains where she once stood.)"]
+  BQ --> BR["(You picked it up and hesitate... but then flip the mirror over.)"]
+
+  BR --> BS["(There's something written on the back: 'Made by Re-Logic'.)"]
+  BS --> BT["Player: '...Huh.' (You pocket the mirror and walk away.)"]
+  BT --> BU[QUEST COMPLETE]
+```
 
 ---
 
@@ -336,6 +474,40 @@ Quest Type: Kill
 Description: Mordred, frozen in ice, begs you to shatter the sword that once struck down King Arthur.  
 Rewards:  
 - Nothing. He laughs at you, saying that he's a treacherous bastard and asks why you trusted him to give you a reward. He’s also still frozen in ice…
+
+```mermaid
+---
+title: Betrayer’s Blade Dialogue Tree
+---
+flowchart TD
+    A["Mordred (frozen in ice): Please... shatter the sword that struck down King Arthur. I beg you - free us from this curse."]
+    
+    A --> B1["Option 1: I will shatter the sword"]
+    A --> B2["Option 2: I don't trust you. You deserve to die!"]
+    A --> B3["Option 3: Explain yourself first. Why should I do this?"]
+    
+    B3 --> C["Mordred: I once wielded that sword in a misguided bid for glory. Its curse has frozen me - I'm trapped in eternal torment. Shattering it might end my misery."]
+    C --> D1["Option: Very well, I will shatter the sword"]
+    C --> D2["Option: Your words mean nothing. I'll kill you instead"]
+    
+    D1 --> E["Action: You shatter the sword. It cracks and crumbles in a burst of cursed energy"]
+    E --> F["Mordred laughs bitterly - You trusted me to offer a reward, yet I give you nothing. I'm nothing but a treacherous bastard"]
+    
+    D2 --> G["Combat: You engage Mordred in battle"]
+    G --> H["Outcome: Mordred is defeated; his final mocking laugh fades among the ice"]
+    
+    B1 --> I["Action: Without hesitation, you shatter the sword"]
+    I --> J["Result: The blade shatters with a resounding crack. Mordred smirks - I warned you: no reward awaits you here"]
+    
+    B2 --> K["Combat: You attack Mordred immediately"]
+    K --> L["Outcome: Mordred falls, his laughter echoing as the ice remains unbroken"]
+    
+    F --> M["Final Outcome: The cursed legacy is ended, leaving you with nothing but shattered remains and a bitter reminder of betrayal"]
+    J --> M
+    H --> M
+    L --> M
+
+```
 =======
 ## Sample quest
 

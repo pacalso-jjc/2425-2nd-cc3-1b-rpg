@@ -4,6 +4,15 @@
 
  - wiki: Place for documentation about the game such as story details and class diagrams
  - src: Place for code such as java files
+   - com/projectrpg
+     - factory
+     - manager
+     - model
+       - action
+       - dialogue
+       - item
+       - world
+       - entity
 
 # Contributing to this repository
 
