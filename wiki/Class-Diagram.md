@@ -119,7 +119,7 @@ class GameObject{
         +getDesc(): String
     }
 
-GameObject <|-- Action    
+GameObject --|> Action    
        class Action {
         <<abstract>>
         +perform(): void
