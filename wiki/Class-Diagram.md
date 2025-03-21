@@ -111,13 +111,21 @@ classDiagram
         +removeItem(item: Item)
         +viewItemsByType(type: String) List
     }
-    
+
+class GameObject{
+        -name: String
+        -desc: String
+        +getName(): String
+        +getDesc(): String
+    }
+
+GameObject <|-- Action    
        class Action {
         <<abstract>>
         +perform(): void
     }
 
-    GameObject <|-- Action
+    
 
 
 ```
