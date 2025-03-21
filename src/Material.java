@@ -1,5 +1,5 @@
 public class Material {
-  private boolean isCraftingMaterial {
+  private boolean isCraftingMaterial() {
     return true;
   }
   private String craftingUsage() {
