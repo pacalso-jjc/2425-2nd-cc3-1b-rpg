@@ -20,14 +20,13 @@ classDiagram
     }
 
     Item --|> Material
-    Inventory --> Item 
     class Material {
         - isCraftingMaterial: boolean
         - craftingUsage: String
         - materialType: String
         - source: String
     }
-
+    GameObject --|> Item
     class Item {
         -String name
         -String description
@@ -153,7 +152,7 @@ classDiagram
         # setPrices(item: Item, newPrice: float): void
         # restockItems(): void
     }
-    
+    GameObject --|> Entity
     class GameObject{
         -name: String
         -desc: String
