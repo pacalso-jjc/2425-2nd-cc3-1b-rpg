@@ -1,8 +1,29 @@
-```mermaid
+```
 ---
-title: Fantasy RPG
+title: DefendAction
 ---
 classDiagram
+DefendAction <|-- Dodge
+DefendAction <|-- Block
+DefendAction <|-- Parry
+DefendAction: +String dodge
+DefendAction: +String block
+DefendAction: +String parry
+class Dodge{
+-jump
+-roll
++evadedSuccessfully()
+}
+class Block{
+-raiseShield
+-endure
++damageReduced()
+}
+class Parry{
+-goodParry
+-badParry
++parryDamage()
+}
    class Entity{
       - name: String
       - exp: int
@@ -166,6 +187,5 @@ classDiagram
         - quest:List<Quest>
         + giveQuest(character: Character) : void
     }
-
 
 ```
