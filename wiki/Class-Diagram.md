@@ -3,16 +3,19 @@
 title: Fantasy RPG
 ---
 classDiagram
+   Entity --|> GameObject
    class Entity{
-      - name: String
       - exp: int
-      - hp: int
-      - mana: int
-      - stamina: int
+      - maxHp: int
+      - maxMana: int
+      - maxStamina: int
+      - currentHp: int
+      - currentMana: int
+      - currentStamina: int
       - stats: Statistic
       - skills: List~Skill~
       - inventory: Inventory
-      - equipments: List~Item~
+      - equipment: List~Item~
       + attack(Entity e): void
       + takeDamage(int amountOfDamage): void
       + isAlive (): boolean
