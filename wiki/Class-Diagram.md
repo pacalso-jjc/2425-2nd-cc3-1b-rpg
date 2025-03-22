@@ -90,6 +90,29 @@ classDiagram
         + String getInput()
     }
 
+    class MergeConflictTest{
+
+    }
+
+    class Skill {
+        - String name
+        - int requiredLevel
+    }
+
+    class SkillTree {
+        - int level
+        - int experience
+        - int experienceToNextLevel
+        - int skillPoints
+        - Map<String, Skill> skills
+        + void gainExperience(int exp)
+        + void levelUp()
+        + boolean unlockSkill(String skillName)
+        + void addSkill(Skill skill)
+    }
+
+    SkillTree *-- Skill : contains
+
     class DialogueManager {
         -currentDialogue: Dialogue
         +startDialogue(dialogue: Dialogue): void
