@@ -5,5 +5,7 @@ class Equipment extends Item {
     }
 
     public boolean canEquip() {
+		return false;
     }
 }
+
