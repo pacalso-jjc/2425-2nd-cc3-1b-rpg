@@ -4,7 +4,7 @@ public class InputHandler {
     private Scanner sc;
 
     // Constructor initializes the Scanner
-    public InputHandler() {
+    public InputManager() {
         this.sc = new Scanner(System.in);
     }
 
