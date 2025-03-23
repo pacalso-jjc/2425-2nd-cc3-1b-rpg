@@ -60,10 +60,11 @@ classDiagram
      -int exp
      -int charisma
      +addtoInventory(Item item)
+     +removeFromInventory(Item item)
      +sellItems(Item item)
      +move(Direction direction)
      +equipItems(Item item)
      +regenerate(amountToRegenarate regenerate)
-     }
+    }
 
 ```
