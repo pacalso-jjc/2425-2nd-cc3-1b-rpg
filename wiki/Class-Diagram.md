@@ -1,16 +1,13 @@
----
-title QuestDiagram
----
-classDiagram
+
     class QuestManager {
-        - List<Quest> activeQuests
-        - List<Quest> completedQuests
-        - List<Quest> availableQuests
+        - activeQuests: List
+        - completedQuests: List
+        - availableQuests: List
         + addQuest(quest: Quest): void
         + completeQuest(quest: Quest): void
-        + getActiveQuests(): List<Quest>
-        + getCompletedQuests(): List<Quest>
-        + getAvailableQuests(): List<Quest>
+        + getActiveQuests(): List
+        + getCompletedQuests(): List
+        + getAvailableQuests(): List
         + findQuestById(id: int): Quest
     }
 
@@ -21,11 +18,11 @@ classDiagram
         - mana: int
         - stamina: int
         - stats: Statistic
-        - skills: List<Skill>
+        - skills: List
         - inventory: Inventory
-        - equipments: List<Item>
+        - equipments: List
         + attack(e: Entity): void
-        + takeDamage(amountOfDamage: int): void
+        + takeDamage(amount: int): void
         + isAlive(): boolean
         + makeSound(): void
     }
@@ -90,6 +87,7 @@ classDiagram
         - isRunning: boolean
         - inputHandler: InputHandler
         - player: Player
+        + newGame()
         + start(): void
         + loadGame(): void
         + exitGame(): void
@@ -105,24 +103,24 @@ classDiagram
         - currentDialogue: Dialogue
         + startDialogue(dialogue: Dialogue): void
         + getCurrentText(): String
-        + getOptions(): List<String>
+        + getOptions(): List
         + selectOption(index: int): void
         + isDialogueActive(): boolean
     } 
 
-    DialogueTree *-- Dialogue 
+    Dialogue *-- DialogueTree 
     class DialogueTree {
         - dialogue: Dialogue
         + start(): void
     }
 
-    Dialogue *-- DialogueOption
+    DialogueOption *-- Dialogue
     class Dialogue {
         - text: String
-        - options: List<String>
-        - nextDialogues: List<Dialogue>
+        - options: List
+        - nextDialogues: List
         + getText(): String
-        + getOptions(): List<String>
+        + getOptions(): List
         + getNextDialogue(index: int): Dialogue
     }
 
@@ -136,12 +134,13 @@ classDiagram
         + sellItems(item: Item): void
         + move(direction: Direction): void
         + equipItems(item: Item): void
-        + regenerate(amountToRegenerate: int): void
+        + regenerate(amount: int): void
     }
 
     class DialogueOption {
         - optionText: String
         - nextDialogue: Dialogue
+        + newDialogueOption(optionText: String, nextDialogue: Dialogue)
         + getOptionText(): String
         + getNextDialogue(): Dialogue
         + setNextDialogue(nextDialogue: Dialogue): void
@@ -150,6 +149,7 @@ classDiagram
     Equipment --|> Weapon
     class Weapon {
         - damage: int
+        + newWeapon(name: String, value: int, damage: int)
         + getDamage(): int
     }
     
@@ -161,15 +161,15 @@ classDiagram
     }
 
     class Inventory {
-        - items: List<Item>
+        - items: List
         + addItem(item: Item): void
         + removeItem(item: Item): void
-        + viewItemsByType(type: String): List<Item>
+        + viewItemsByType(type: String): List
     }
 
     NPC <|-- Merchant
     class Merchant {
-        - stock: List<Item>
+        - stock: List
         + buyItem(buyer: Character, item: Item, quantity: int): boolean
         + sellItem(seller: Character, item: Item, quantity: int): boolean
         # setPrices(item: Item, newPrice: float): void
@@ -185,6 +185,6 @@ classDiagram
     
     Character <|-- NPC
     class NPC {
-        - quests: List<Quest>
+        - quests: List
         + giveQuest(character: Character): void
     }
