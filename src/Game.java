@@ -68,6 +68,26 @@ class QuestManager {
     }
 }
 
+// Game class from the 'main' branch
+class Game {
+    private boolean isRunning;
+    private Menu menu;
+    private InputService inputService;
+    private Player player;
+
+    public Game() {
+        // Initialize game components
+    }
+
+    public void loadGame() {
+        // Game loading logic
+    }
+
+    public void exitGame() {
+        // Game exit logic
+    }
+}
+
 // Main class to test the QuestManager
 public class Main {
     public static void main(String[] args) {
@@ -83,5 +103,7 @@ public class Main {
         for (Quest q : questManager.getAvailableQuests()) {
             System.out.println(q.getName());
         }
+
+        System.out.println("Hello World!");
     }
 }
