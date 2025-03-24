@@ -90,6 +90,17 @@ classDiagram
         + String getInput()
     }
 
+    class Location {
+        - String name
+        - String description
+        -availableNPCs: List<NPC> 
+        -availableItems: List<Item> 
+        -avaialbleQuests: List<Quest>
+        + enter()
+        + exit()
+        + specialFeature()
+    }
+
     class DialogueManager {
         -currentDialogue: Dialogue
         +startDialogue(dialogue: Dialogue): void
