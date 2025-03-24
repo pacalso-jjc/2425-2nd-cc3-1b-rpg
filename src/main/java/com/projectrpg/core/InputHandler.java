@@ -1,4 +1,3 @@
-package main.java.com.projectrpg.core;
 import java.util.Scanner;
 
 public class InputHandler {
