@@ -157,6 +157,15 @@ classDiagram
         +removeItem(item: Item)
         +viewItemsByType(type: String) List
     }
+    Action --|> AttackAction
+    class Action {
+        + perform()void
+}
+    class AttackAction {
+        - player: Character
+        - enemy: Character
+        + perform() void
+}
 
     NPC <|-- Merchant
     class Merchant {
