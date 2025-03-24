@@ -1,6 +1,4 @@
----
-title: QuestDiagram
----
+title QuestDiagram
 
 classDiagram
     class QuestManager {
@@ -91,7 +89,6 @@ classDiagram
         - isRunning: boolean
         - inputHandler: InputHandler
         - player: Player
-        + Game()
         + start(): void
         + loadGame(): void
         + exitGame(): void
@@ -112,13 +109,13 @@ classDiagram
         + isDialogueActive(): boolean
     } 
 
-    Dialogue *-- DialogueTree 
+    DialogueTree *-- Dialogue 
     class DialogueTree {
         - dialogue: Dialogue
         + start(): void
     }
 
-    DialogueOption *-- Dialogue
+    Dialogue *-- DialogueOption
     class Dialogue {
         - text: String
         - options: List<String>
@@ -144,7 +141,6 @@ classDiagram
     class DialogueOption {
         - optionText: String
         - nextDialogue: Dialogue
-        + DialogueOption(optionText: String, nextDialogue: Dialogue)
         + getOptionText(): String
         + getNextDialogue(): Dialogue
         + setNextDialogue(nextDialogue: Dialogue): void
@@ -153,7 +149,6 @@ classDiagram
     Equipment --|> Weapon
     class Weapon {
         - damage: int
-        + Weapon(name: String, value: int, damage: int)
         + getDamage(): int
     }
     
