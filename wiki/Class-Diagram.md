@@ -3,12 +3,15 @@
 title: Fantasy RPG
 ---
 classDiagram
+   Entity --|> GameObject
    class Entity{
-      - name: String
       - exp: int
-      - hp: int
-      - mana: int
-      - stamina: int
+      - maxHp: int
+      - maxMana: int
+      - maxStamina: int
+      - currentHp: int
+      - currentMana: int
+      - currentStamina: int
       - stats: Statistic
       - skills: List~Skill~
       - inventory: Inventory
@@ -17,6 +20,28 @@ classDiagram
       + takeDamage(int amountOfDamage): void
       + isAlive (): boolean
       + makeSound(): void
+      + getExp() : int
+      + setExp(int exp): void
+      + getMaxHp(): int
+      + setMaxHp(int maxHp): void
+      + getMaxMana(): int
+      + setMaxMana(int maxMana): void
+      + getMaxStamina(): int
+      + setMaxStamina(int maxStamina): void
+      + getCurrentHp(): int
+      + setCurrentHp(int currentHp): void
+      + getCurrentMana(): int
+      + setCurrentMana(int currentMana): void
+      + getCurrentStamina(): int
+      + setCurrentStamina(int currentStamina): void
+      + getStats(): Statistic
+      + setStats(Statistic stats): void
+      + getSkills(): List~Skill~
+      + setSkills(List~Skill~ skills): void
+      + getInventory(): Inventory
+      + setInventory(Inventory inventory): void
+      + getEquipments(): List~Item~
+      + setEquipments(List~Item~ equipments): void
     }
 
     Item --|> Material
