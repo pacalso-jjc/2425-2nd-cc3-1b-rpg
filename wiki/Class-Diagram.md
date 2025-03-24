@@ -3,8 +3,8 @@
 title: Fantasy RPG
 ---
 classDiagram
+GameObject --|> Entity
    class Entity{
-      - name: String
       - exp: int
       - hp: int
       - mana: int
@@ -26,10 +26,8 @@ classDiagram
         - materialType: String
         - source: String
     }
-    
+    GameObject --|> Item
     class Item {
-        -String name
-        -String description
         -int rarity
         -int value
         -int quantity   
