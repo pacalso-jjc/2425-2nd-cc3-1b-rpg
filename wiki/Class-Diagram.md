@@ -15,11 +15,33 @@ classDiagram
       - stats: Statistic
       - skills: List~Skill~
       - inventory: Inventory
-      - equipment: List~Item~
+      - equipments: List~Item~
       + attack(Entity e): void
       + takeDamage(int amountOfDamage): void
       + isAlive (): boolean
       + makeSound(): void
+      + getExp() : int
+      + setExp(int exp): void
+      + getMaxHp(): int
+      + setMaxHp(int maxHp): void
+      + getMaxMana(): int
+      + setMaxMana(int maxMana): void
+      + getMaxStamina(): int
+      + setMaxStamina(int maxStamina): void
+      + getCurrentHp(): int
+      + setCurrentHp(int currentHp): void
+      + getCurrentMana(): int
+      + setCurrentMana(int currentMana): void
+      + getCurrentStamina(): int
+      + setCurrentStamina(int currentStamina): void
+      + getStats(): Statistic
+      + setStats(Statistic stats): void
+      + getSkills(): List~Skill~
+      + setSkills(List~Skill~ skills): void
+      + getInventory(): Inventory
+      + setInventory(Inventory inventory): void
+      + getEquipments(): List~Item~
+      + setEquipments(List~Item~ equipments): void
     }
 
     Item --|> Material
