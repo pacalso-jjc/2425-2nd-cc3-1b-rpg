@@ -1,4 +1,4 @@
-class Equipment extends Item {
+public class Equipment extends Item {
     private int levelRequirement;
 
     public void equip() {
