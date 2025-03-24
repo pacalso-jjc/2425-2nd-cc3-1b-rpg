@@ -1,5 +1,6 @@
+---
 title QuestDiagram
-
+---
 classDiagram
     class QuestManager {
         - List<Quest> activeQuests
