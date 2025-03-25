@@ -1,14 +1,14 @@
 class Weapon extends Equipment {
-    private int damage;
+    private int bonusDamage;
 
      
-    public Weapon(String name, int value, int damage) {
+    public Weapon(String name, int value, int bonusDamage) {
         super(name, value);  
-        this.damage = damage;
+        this.bonusDamage = bonusDamage;
     }
 
     // Getter for damage
     public int getDamage() {
-        return damage;
+        return bonusDamage;
     }
 }
