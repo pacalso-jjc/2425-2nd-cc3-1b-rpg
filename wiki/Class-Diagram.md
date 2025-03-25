@@ -1,35 +1,23 @@
-```
+```mermaid
 ---
-title: DefendAction
+title: Fantasy RPG
 ---
 classDiagram
-DefendAction <|-- Dodge
-DefendAction <|-- Block
-DefendAction <|-- Parry
-DefendAction: +String dodge
-DefendAction: +String block
-DefendAction: +String parry
-class Dodge{
--jump
--roll
-+evadedSuccessfully()
-}
-class Block{
--raiseShield
--endure
-+damageReduced()
-}
-class Parry{
--goodParry
--badParry
-+parryDamage()
-}
+
+  class DefendAction {
+    DefendAction: +String dodge
+    DefendAction: +String block
+    DefendAction: +String parry
+    }
+   Entity --|> GameObject
    class Entity{
-      - name: String
       - exp: int
-      - hp: int
-      - mana: int
-      - stamina: int
+      - maxHp: int
+      - maxMana: int
+      - maxStamina: int
+      - currentHp: int
+      - currentMana: int
+      - currentStamina: int
       - stats: Statistic
       - skills: List~Skill~
       - inventory: Inventory
@@ -38,6 +26,28 @@ class Parry{
       + takeDamage(int amountOfDamage): void
       + isAlive (): boolean
       + makeSound(): void
+      + getExp() : int
+      + setExp(int exp): void
+      + getMaxHp(): int
+      + setMaxHp(int maxHp): void
+      + getMaxMana(): int
+      + setMaxMana(int maxMana): void
+      + getMaxStamina(): int
+      + setMaxStamina(int maxStamina): void
+      + getCurrentHp(): int
+      + setCurrentHp(int currentHp): void
+      + getCurrentMana(): int
+      + setCurrentMana(int currentMana): void
+      + getCurrentStamina(): int
+      + setCurrentStamina(int currentStamina): void
+      + getStats(): Statistic
+      + setStats(Statistic stats): void
+      + getSkills(): List~Skill~
+      + setSkills(List~Skill~ skills): void
+      + getInventory(): Inventory
+      + setInventory(Inventory inventory): void
+      + getEquipments(): List~Item~
+      + setEquipments(List~Item~ equipments): void
     }
 
     Item --|> Material
