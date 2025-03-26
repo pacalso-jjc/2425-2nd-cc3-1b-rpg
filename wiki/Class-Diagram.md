@@ -115,6 +115,12 @@ classDiagram
         + String getInput()
     }
 
+    class SkillTree {
+        - int skillPoints
+        + boolean unlockSkill(String skillName)
+        + void addSkill(Skill skill)
+    }
+
     class DialogueManager {
         -currentDialogue: Dialogue
         +startDialogue(dialogue: Dialogue): void
