@@ -58,10 +58,6 @@ classDiagram
         + String getInput()
     }
 
-    class MergeConflictTest{
-
-    }
-
     class SkillTree {
         - int skillPoints
         + boolean unlockSkill(String skillName)
