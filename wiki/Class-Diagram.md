@@ -3,11 +3,11 @@
 title: Fantasy RPG
 ---
 classDiagram
-
+   DefendAction --|> Action
   class DefendAction {
-    DefendAction: +String dodge
-    DefendAction: +String block
-    DefendAction: +String parry
+    +dodge: String
+    +block: String
+    +parry: String
     }
    Entity --|> GameObject
    class Entity{
