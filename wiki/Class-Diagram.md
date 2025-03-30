@@ -3,6 +3,12 @@
 title: Fantasy RPG
 ---
 classDiagram
+   DefendAction --|> Action
+  class DefendAction {
+    +dodge: String
+    +block: String
+    +parry: String
+    }
    Entity --|> GameObject
    class Entity{
       - exp: int
@@ -204,7 +210,5 @@ classDiagram
         - quest:List<Quest>
         + giveQuest(character: Character) : void
     }
-
-
 
 ```
