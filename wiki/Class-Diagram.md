@@ -3,6 +3,20 @@
 title: Fantasy RPG
 ---
 classDiagram
+    class World {
+        - List locations
+        - String worldName
+        - String description
+        + addLocation(Location l)
+        + removeLocation(Location l)
+        + getLocations() List
+        + setWorldName(String name)
+        + getWorldName() String
+        + displayWorldInfo()
+        + simulateWorldProgression()
+        + resetWorld()
+   }
+
    Entity --|> GameObject
    class Entity{
       - exp: int
@@ -42,10 +56,9 @@ classDiagram
       + setInventory(Inventory inventory): void
       + getEquipments(): List~Item~
       + setEquipments(List~Item~ equipments): void
+
     }
 
-    Item --|> Material
-    Inventory --> Item 
     class Material {
         - isCraftingMaterial: boolean
         - craftingUsage: String
@@ -54,13 +67,22 @@ classDiagram
     }
 
     class Item {
-        -String name
-        -String description
-        -int rarity
-        -int value
-        -int quantity   
+        - String name
+        - String description
+        - int rarity
+        - int value
+        - int quantity   
     }
-    
+
+    class Statistic {
+        - int strength
+        - int dexterity
+        - int constitution
+        - int intelligence
+        - int wisdom
+        - int charisma
+    }
+
     Entity o-- Statistic
     class Statistic{
 	-int strength
@@ -85,17 +107,12 @@ classDiagram
 
     Item --|> Consumable
     class Consumable {
-        -String effect
-        -int amountToRegenerate 
-        +setEffect() void
-        +setAmountToRegenerate() void
-        +getEffect() String
-        +getAmountToRegenerate() int
+        - String effect
+        - int amountToRegenerate 
     }
 
-    Equipment --|> Armor
     class Armor {
-        +int defense
+        + int defense
     }
 
     class Game {
@@ -116,28 +133,26 @@ classDiagram
     }
 
     class DialogueManager {
-        -currentDialogue: Dialogue
-        +startDialogue(dialogue: Dialogue): void
-        +getCurrentText(): String
-        +getOptions(): List~String~
-        +selectOption(index: int): void
-        +isDialogueActive(): boolean
+        - currentDialogue: Dialogue
+        + startDialogue(dialogue: Dialogue): void
+        + getCurrentText(): String
+        + getOptions(): List<String>
+        + selectOption(index: int): void
+        + isDialogueActive(): boolean
     } 
 
-    Dialogue *-- DialogueTree 
-    class DialogueTree{
-        -dialogue: Dialogue
-        +start(): void
+    class DialogueTree {
+        - Dialogue dialogue
+        + start(): void
     }
 
-    DialogueOption *-- Dialogue
     class Dialogue {
-        -text: String
-        -options: List~String~
-        -nextDialogues: List~Dialogue~
-        +getText(): String
-        +getOptions(): List~String~
-        +getNextDialogue(index: int): Dialogue
+        - String text
+        - List<String> options
+        - List<Dialogue> nextDialogues
+        + getText(): String
+        + getOptions(): List<String>
+        + getNextDialogue(index: int): Dialogue
     }
 
     class Character{
@@ -154,57 +169,40 @@ classDiagram
     }
 
     class DialogueOption {
-        -optionText: String
-        -nextDialogue: Dialogue
-        +DialogueOption(optionText: String, nextDialogue: Dialogue)
-        +getOptionText(): String
-        +getNextDialogue(): Dialogue
-        +setNextDialogue(nextDialogue: Dialogue): void
+        - String optionText
+        - Dialogue nextDialogue
+        + DialogueOption(optionText: String, nextDialogue: Dialogue)
+        + getOptionText(): String
+        + getNextDialogue(): Dialogue
+        + setNextDialogue(nextDialogue: Dialogue): void
     }
 
-    Equipment --|> Weapon
-    class Weapon {
-        -damage: int
-        +Weapon(name: String, value: int, damage: int)
-        +getDamage(): int
-    }
-    
-    Item --|> Equipment
     class Equipment {
-        - levelRequirement: int
+        - int levelRequirement
         + equip(): void
         + canEquip(): boolean
     }
 
+    class Weapon {
+        - int damage
+        + Weapon(name: String, value: int, damage: int)
+        + getDamage(): int
+    }
+
     class Inventory {
-        +items: List<Item>
-        +addItem(item: Item)
-        +removeItem(item: Item)
-        +viewItemsByType(type: String) List
-    }
+        + List<Item> items
+        + addItem(item: Item)
+        + removeItem(item: Item)
+        + viewItemsByType(type: String): List<Item>
+    } 
 
-    NPC <|-- Merchant
-    class Merchant {
-        - stock: List<Item>
-        + buyItem(buyer: Character, item: Item, quantity: int): boolean
-        + sellItem(seller: Character, item: Item, quantity: int): boolean
-        # setPrices(item: Item, newPrice: float): void
-        # restockItems(): void
-    }
-    
-    class GameObject{
-        -name: String
-        -desc: String
-        +getName(): String
-        +getDesc(): String
-    }
-    
-    Character <|-- NPC
-    class NPC{
-        - quest:List<Quest>
-        + giveQuest(character: Character) : void
-    }
-
-
-
+    Item <|-- Consumable
+    Item <|-- Armor
+    Item <|-- Equipment
+    Equipment <|-- Weapon
+    Inventory --> Item 
+    Item --|> Material
+    Dialogue *-- DialogueTree 
+    DialogueOption *-- Dialogue
 ```
+
