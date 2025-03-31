@@ -2,15 +2,11 @@ import java.util.List;
 
 public abstract class Entity {
     private String name;
-    private String stat;
-    private String skills;
+    private List<Skill> skills;
     private int exp;
     private int hp;
     private int mana;
     private int stamina;
-    private int constitution;
-    private int strength;
-    private int defense;
     private Inventory inventory;
     private List<Item> equipments;
 
