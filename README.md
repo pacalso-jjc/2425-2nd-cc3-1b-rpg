@@ -1,12 +1,29 @@
 # 2425-2nd-cc3-1e-rpg
 
+# Directory tree
+
+ - wiki: Place for documentation about the game such as story details and class diagrams
+ - src: Place for code such as java files
+   - main/java/com/projectrpg
+     - game
+     - factories
+     - services
+     - models
+       - action
+       - dialogue
+       - item
+       - world
+       - entity
+     - views
+     - viewmodels
+
 # Contributing to this repository
 
 ## Cloning the repository
 
 You should already have Git installed. Install Git if you haven't already https://git-scm.com/
 
-1. Navigate to the link of the repository https://github.com/pacalso-jjc/2425-2nd-cc3-1e-rpg
+1. Navigate to the link of the repository https://github.com/pacalso-jjc/2425-2nd-cc3-1b-rpg
 1. Click on the green button labeled as Code, then copy the link provided.
 1. Open cmd or git-bash in your machine.
 1. Navigate to where you want to clone the repository.
@@ -61,3 +78,27 @@ By this point you are now done with your change in your personal branch and is r
 1. Assign the pull request to your instructor for review.
 1. Set the task in the github project to In Review
 
+### Pull request information requirement
+
+Pull request should include the following
+
+- Title - following the format of \<branch name> - \<task title>
+- Description - Summary of changes in the following format
+  - Brief description of the change
+  - Purpose of change
+
+### Sample pull request information
+
+ - Title: Feat-999 - Create the code for the CombatService class
+ - The combat service class includes the logic behind the different actions that can be done when in combat
+ - It includes the following methods
+   - attack - dealing damage to the enemy
+   - defend - using turn to reduce incoming attack
+   - run - flee from battle
+
+
+# Tools
+
+ - Class Diagram: Mermaid syntax
+ - Programming Language: Java
+ - UI: CLI and Java Swing
