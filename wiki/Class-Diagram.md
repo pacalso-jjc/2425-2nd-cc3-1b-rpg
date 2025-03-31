@@ -54,8 +54,8 @@ classDiagram
     Item <|-- Armor
     class Armor {
         +int Bonusdefense
-	+getDefense(): int
-        +setDefense(defense: int): void
+	+getBonusdefense(): int
+        +setBonusdefense(defense: int): void
     }
 
     class Game {
