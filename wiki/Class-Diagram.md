@@ -1,5 +1,21 @@
+
 ```mermaid
+title: Fantasy RPG
 ---
+classCombatService
+    CombatService <|-- CombatState
+    CombatService: +CombatState currentState
+    CombatService: +startCombat() void
+    CombatService: +endCombat() void
+    CombatService: +checkCombatEnd() bool
+    class CombatState {
+       <<enumeration>>
+        ONGOING
+        WON
+        LOST
+    }
+
+=======
 title: Fantasy RPG
 ---
 classDiagram
@@ -208,3 +224,4 @@ classDiagram
 
 
 ```
+
