@@ -1,41 +1,13 @@
 
 ```mermaid
-title: Combat Manager
+title: Fantasy RPG
 ---
-classCombatManager
-    Combat Manager <|-- Player
-    Combat Manager <|-- Enemy
-    Combat Manager <|-- Ability
-    Combat Manager <|-- CombatState
-    Combat Manager : +Player player
-    Combat Manager : +Enemy[] enemies
-    Combat Manager: +CombatState currentState
-    Combat Manager: +startCombat() void
-    Combat Manager: +endCombat() void
-    Combat Manager: +processTurn(Ability ability) void
-    Combat Manager: +checkCombatEnd() bool
-    class Player {
-    	+String name
-        +int health
-        +int attackPower
-        +Ability[] abilities
-        +useAbility(Ability ability) void
-        +takeDamage(int damage) void 
-    }
-    class Enemy {
-        +String name
-        +int health
-        +int attackPower
-        +Ability[] abilities
-        +useAbility(Ability ability) void
-        +takeDamage(int damage) void
-    }
-    class Ability {
-        +String name
-        +int damage
-        +int cost
-        +applyEffect() void
-    }
+classCombatService
+    CombatService <|-- CombatState
+    CombatService: +CombatState currentState
+    CombatService: +startCombat() void
+    CombatService: +endCombat() void
+    CombatService: +checkCombatEnd() bool
     class CombatState {
        <<enumeration>>
         ONGOING
