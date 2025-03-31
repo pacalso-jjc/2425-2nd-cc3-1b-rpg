@@ -3,6 +3,46 @@
 title: Fantasy RPG
 ---
 classDiagram
+   Entity --|> GameObject
+   class Entity{
+      - exp: int
+      - maxHp: int
+      - maxMana: int
+      - maxStamina: int
+      - currentHp: int
+      - currentMana: int
+      - currentStamina: int
+      - stats: Statistic
+      - skills: List~Skill~
+      - inventory: Inventory
+      - equipments: List~Item~
+      + attack(Entity e): void
+      + takeDamage(int amountOfDamage): void
+      + isAlive (): boolean
+      + makeSound(): void
+      + getExp() : int
+      + setExp(int exp): void
+      + getMaxHp(): int
+      + setMaxHp(int maxHp): void
+      + getMaxMana(): int
+      + setMaxMana(int maxMana): void
+      + getMaxStamina(): int
+      + setMaxStamina(int maxStamina): void
+      + getCurrentHp(): int
+      + setCurrentHp(int currentHp): void
+      + getCurrentMana(): int
+      + setCurrentMana(int currentMana): void
+      + getCurrentStamina(): int
+      + setCurrentStamina(int currentStamina): void
+      + getStats(): Statistic
+      + setStats(Statistic stats): void
+      + getSkills(): List~Skill~
+      + setSkills(List~Skill~ skills): void
+      + getInventory(): Inventory
+      + setInventory(Inventory inventory): void
+      + getEquipments(): List~Item~
+      + setEquipments(List~Item~ equipments): void
+    }
 
     Item --|> Material
     Inventory --> Item 
@@ -11,7 +51,6 @@ classDiagram
         - craftingUsage: String
         - materialType: String
         - source: String
-
     }
 
     class Item {
@@ -22,22 +61,39 @@ classDiagram
         -int quantity   
     }
     
+    Entity o-- Statistic
     class Statistic{
- 	-int strength
+	-int strength
 	-int dexterity
 	-int constitution
 	-int intelligence
 	-int wisdom
 	-int charisma
-    }
+        +getStrength(): int
+        +setStrength(int strength): void
+        +getDexterity(): int
+        +setDexterity(int dexterity): void
+        +getConstitution(): int
+        +setConstitution(int constitution): void
+        +getIntelligence(): int
+        +setIntelligence(int intelligence): void
+        +getWisdom(): int
+        +setWisdom(int wisdom): void
+        +getCharisma(): int
+        +setCharisma(int charisma): void
+  }
 
-    Item <|-- Consumable
+    Item --|> Consumable
     class Consumable {
         -String effect
         -int amountToRegenerate 
+        +setEffect() void
+        +setAmountToRegenerate() void
+        +getEffect() String
+        +getAmountToRegenerate() int
     }
 
-    Item <|-- Armor
+    Equipment --|> Armor
     class Armor {
         +int defense
     }
@@ -84,6 +140,19 @@ classDiagram
         +getNextDialogue(index: int): Dialogue
     }
 
+    class Character{
+     -String sex
+     -String race
+     -int exp
+     -int charisma
+     +addtoInventory(Item item)
+     +removeFromInventory(Item item)
+     +sellItems(Item item)
+     +move(Direction direction)
+     +equipItems(Item item)
+     +regenerate(amountToRegenarate regenerate)
+    }
+
     class DialogueOption {
         -optionText: String
         -nextDialogue: Dialogue
@@ -93,14 +162,14 @@ classDiagram
         +setNextDialogue(nextDialogue: Dialogue): void
     }
 
-    Equipment <|-- Weapon
+    Equipment --|> Weapon
     class Weapon {
         -damage: int
         +Weapon(name: String, value: int, damage: int)
         +getDamage(): int
     }
     
-    Item <|-- Equipment
+    Item --|> Equipment
     class Equipment {
         - levelRequirement: int
         + equip(): void
@@ -114,9 +183,34 @@ classDiagram
         +viewItemsByType(type: String) List
     }
 
-    Entity <|-- Monster
+    NPC <|-- Merchant
+    class Merchant {
+        - stock: List<Item>
+        + buyItem(buyer: Character, item: Item, quantity: int): boolean
+        + sellItem(seller: Character, item: Item, quantity: int): boolean
+        # setPrices(item: Item, newPrice: float): void
+        # restockItems(): void
+    }
+    
+    class GameObject{
+        -name: String
+        -desc: String
+        +getName(): String
+        +getDesc(): String
+    }
+    
+    Character <|-- NPC
+    class NPC{
+        - quest:List<Quest>
+        + giveQuest(character: Character) : void
+    }
+
+    Monster <|-- Entity
     class Monster {
         +type: String
+        +damage: damage
     }
+
+
 
 ```
