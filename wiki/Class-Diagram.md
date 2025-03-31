@@ -35,18 +35,20 @@ classDiagram
         -int value
         -int quantity   
     }
+   
     class Quest {
    - questName: string
    - questDescription: string
    - type: QuestType
    - rewards: List
    - isCompleted: boolean
-   - itemRewards: ListItem and goldReward: int
+   - itemRewards: List(ListItem)
+   - goldRewards: goldReward : int
    + isQuestCompleted(): boolean
    + getDescription(): String
    + getRewards(): List
    + getQuestType(): QuestType
- }
+    }
     
     Entity o-- Statistic
     class Statistic{
