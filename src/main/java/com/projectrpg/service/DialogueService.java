@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class DialogueManager {
+public class DialogueService {
 
     private Dialogue currentDialogue;
 
