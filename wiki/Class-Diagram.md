@@ -148,4 +148,10 @@ classDiagram
         +getDesc(): String
     }
 
+    Action --|> RunAction
+    class RunAction{
+        -combatManager: CombatManager
+        +perform() void
+    }
+
 ```
