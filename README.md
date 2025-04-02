@@ -4,15 +4,18 @@
 
  - wiki: Place for documentation about the game such as story details and class diagrams
  - src: Place for code such as java files
-   - com/projectrpg
-     - factory
-     - manager
-     - model
+   - main/java/com/projectrpg
+     - game
+     - factories
+     - services
+     - models
        - action
        - dialogue
        - item
        - world
        - entity
+     - views
+     - viewmodels
 
 # Contributing to this repository
 
@@ -74,6 +77,24 @@ By this point you are now done with your change in your personal branch and is r
 1. Click Create.
 1. Assign the pull request to your instructor for review.
 1. Set the task in the github project to In Review
+
+### Pull request information requirement
+
+Pull request should include the following
+
+- Title - following the format of \<branch name> - \<task title>
+- Description - Summary of changes in the following format
+  - Brief description of the change
+  - Purpose of change
+
+### Sample pull request information
+
+ - Title: Feat-999 - Create the code for the CombatService class
+ - The combat service class includes the logic behind the different actions that can be done when in combat
+ - It includes the following methods
+   - attack - dealing damage to the enemy
+   - defend - using turn to reduce incoming attack
+   - run - flee from battle
 
 
 # Tools
