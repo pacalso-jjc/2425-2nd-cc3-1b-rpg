@@ -120,7 +120,7 @@ classDiagram
     class AttackAction {
         - player: Character
         - enemy: Character
-        + perform() void
+        + perform(): void
 }
 
 ```
