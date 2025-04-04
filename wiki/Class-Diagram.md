@@ -4,6 +4,15 @@ title: Fantasy RPG
 ---
 classDiagram
 
+class MainMenuConsoleView{
+-logo: String
+-title: String
+-start: String
+-settings: String
+-exit: String
+-volume: int
+-gameVersion: int
+}
 GameObject --|> Entity
    class Entity{
       - exp: int
