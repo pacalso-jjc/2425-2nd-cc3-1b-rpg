@@ -217,6 +217,10 @@ GameObject --|> Entity
         + giveQuest(character: Character) : void
     }
 
-
-
+    classDiagram
+    class GameSettings {
+        -textspeed: int
+        +setTextSpeed(speed: int):void
+        +getTextSpeed(): int
+    }
 ```
