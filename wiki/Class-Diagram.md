@@ -223,12 +223,4 @@ GameObject --|> Entity
         +setTextSpeed(speed: int):void
         +getTextSpeed(): int
     }
-
-    class TextDisplay {
-        -speed: int
-        +displayText(text: String): void
-    }
-
-    GameSettings --> TextDisplay
-
 ```
