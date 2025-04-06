@@ -1,222 +1,231 @@
-```mermaid
----
-title: Fantasy RPG
----
 classDiagram
 
-GameObject --|> Entity
-   class Entity{
-      - exp: int
-      - maxHp: int
-      - maxMana: int
-      - maxStamina: int
-      - currentHp: int
-      - currentMana: int
-      - currentStamina: int
-      - stats: Statistic
-      - skills: List~Skill~
-      - inventory: Inventory
-      - equipments: List~Item~
-      + attack(Entity e): void
-      + takeDamage(int amountOfDamage): void
-      + isAlive (): boolean
-      + makeSound(): void
-      + getExp() : int
-      + setExp(int exp): void
-      + getMaxHp(): int
-      + setMaxHp(int maxHp): void
-      + getMaxMana(): int
-      + setMaxMana(int maxMana): void
-      + getMaxStamina(): int
-      + setMaxStamina(int maxStamina): void
-      + getCurrentHp(): int
-      + setCurrentHp(int currentHp): void
-      + getCurrentMana(): int
-      + setCurrentMana(int currentMana): void
-      + getCurrentStamina(): int
-      + setCurrentStamina(int currentStamina): void
-      + getStats(): Statistic
-      + setStats(Statistic stats): void
-      + getSkills(): List~Skill~
-      + setSkills(List~Skill~ skills): void
-      + getInventory(): Inventory
-      + setInventory(Inventory inventory): void
-      + getEquipments(): List~Item~
-      + setEquipments(List~Item~ equipments): void
+    class QuestManager {
+        - activeQuests: List
+        - completedQuests: List
+        - availableQuests: List
+        + addQuest(quest: Quest): void
+        + completeQuest(quest: Quest): void
+        + getActiveQuests(): List
+        + getCompletedQuests(): List
+        + getAvailableQuests(): List
+        + findQuestById(id: int): Quest
     }
 
-    Item --|> Material
+    class GameObject {
+        - name: String
+        - desc: String
+        + getName(): String
+        + getDesc(): String
+    }
+
+    GameObject --|> Entity
+    class Entity {
+        - exp: int
+        - maxHp: int
+        - maxMana: int
+        - maxStamina: int
+        - currentHp: int
+        - currentMana: int
+        - currentStamina: int
+        - stats: Statistic
+        - skills: List~Skill~
+        - inventory: Inventory
+        - equipments: List~Item~
+        + attack(Entity e): void
+        + takeDamage(int amountOfDamage): void
+        + isAlive (): boolean
+        + makeSound(): void
+        + getExp() : int
+        + setExp(int exp): void
+        + getMaxHp(): int
+        + setMaxHp(int maxHp): void
+        + getMaxMana(): int
+        + setMaxMana(int maxMana): void
+        + getMaxStamina(): int
+        + setMaxStamina(int maxStamina): void
+        + getCurrentHp(): int
+        + setCurrentHp(int currentHp): void
+        + getCurrentMana(): int
+        + setCurrentMana(int currentMana): void
+        + getCurrentStamina(): int
+        + setCurrentStamina(int currentStamina): void
+        + getStats(): Statistic
+        + setStats(Statistic stats): void
+        + getSkills(): List~Skill~
+        + setSkills(List~Skill~ skills): void
+        + getInventory(): Inventory
+        + setInventory(Inventory inventory): void
+        + getEquipments(): List~Item~
+        + setEquipments(List~Item~ equipments): void
+    }
+
+    class Item {
+        - name: String
+        - description: String
+        - rarity: int
+        - value: int
+        - quantity: int  
+    }
+
     class Material {
         - isCraftingMaterial: boolean
         - craftingUsage: String
         - materialType: String
         - source: String
     }
-    GameObject --|> Item
-    class Item {
-        -int rarity
-        -int value
-        -int quantity   
-    }
-   
-    class Quest {
-   - questName: string
-   - questDescription: string
-   - type: QuestType
-   - rewards: List
-   - isCompleted: boolean
-   - itemRewards: List(ListItem)
-   - goldRewards: goldReward : int
-   + isQuestCompleted(): boolean
-   + getDescription(): String
-   + getRewards(): List
-   + getQuestType(): QuestType
-    }
-    
-    Entity o-- Statistic
-    class Statistic{
-	-int strength
-	-int dexterity
-	-int constitution
-	-int intelligence
-	-int wisdom
-	-int charisma
-        +getStrength(): int
-        +setStrength(int strength): void
-        +getDexterity(): int
-        +setDexterity(int dexterity): void
-        +getConstitution(): int
-        +setConstitution(int constitution): void
-        +getIntelligence(): int
-        +setIntelligence(int intelligence): void
-        +getWisdom(): int
-        +setWisdom(int wisdom): void
-        +getCharisma(): int
-        +setCharisma(int charisma): void
-  }
 
-    Item --|> Consumable
     class Consumable {
-        -String effect
-        -int amountToRegenerate 
-        +setEffect() void
-        +setAmountToRegenerate() void
-        +getEffect() String
-        +getAmountToRegenerate() int
+        - effect: String
+        - amountToRegenerate: int
+        + setEffect(effect: String): void
+        + setAmountToRegenerate(amount: int): void
+        + getEffect(): String
+        + getAmountToRegenerate(): int
     }
 
-    Equipment --|> Armor
-    class Armor {
-        +int defense
-    }
-
-    class Game {
-        - Menu menu
-        - boolean isRunning
-        - InputHandler inputHandler
-        - Player player
-        + Game()
-        + start()
-        + loadGame()
-        + exitGame()
-        + main(String[] args)
-    }
-
-    class InputHandler {
-        - Scanner sc
-        + String getInput()
-    }
-
-    class DialogueManager {
-        -currentDialogue: Dialogue
-        +startDialogue(dialogue: Dialogue): void
-        +getCurrentText(): String
-        +getOptions(): List~String~
-        +selectOption(index: int): void
-        +isDialogueActive(): boolean
-    } 
-
-    Dialogue *-- DialogueTree 
-    class DialogueTree{
-        -dialogue: Dialogue
-        +start(): void
-    }
-
-    DialogueOption *-- Dialogue
-    class Dialogue {
-        -text: String
-        -options: List~String~
-        -nextDialogues: List~Dialogue~
-        +getText(): String
-        +getOptions(): List~String~
-        +getNextDialogue(index: int): Dialogue
-    }
-
-    class Character{
-     -String sex
-     -String race
-     -int exp
-     -int charisma
-     +addtoInventory(Item item)
-     +removeFromInventory(Item item)
-     +sellItems(Item item)
-     +move(Direction direction)
-     +equipItems(Item item)
-     +regenerate(amountToRegenarate regenerate)
-    }
-
-    class DialogueOption {
-        -optionText: String
-        -nextDialogue: Dialogue
-        +DialogueOption(optionText: String, nextDialogue: Dialogue)
-        +getOptionText(): String
-        +getNextDialogue(): Dialogue
-        +setNextDialogue(nextDialogue: Dialogue): void
-    }
-
-    Equipment --|> Weapon
-    class Weapon {
-        -damage: int
-        +Weapon(name: String, value: int, damage: int)
-        +getDamage(): int
-    }
-    
-    Item --|> Equipment
     class Equipment {
         - levelRequirement: int
         + equip(): void
         + canEquip(): boolean
     }
 
-    class Inventory {
-        +items: List<Item>
-        +addItem(item: Item)
-        +removeItem(item: Item)
-        +viewItemsByType(type: String) List
+    class Armor {
+        - defense: int
     }
 
-    NPC <|-- Merchant
+    class Weapon {
+        - damage: int
+        + newWeapon(name: String, value: int, damage: int)
+        + getDamage(): int
+    }
+
+    class Statistic {
+        - strength: int
+        - dexterity: int
+        - constitution: int
+        - intelligence: int
+        - wisdom: int
+        - charisma: int
+        + getStrength(): int
+        + setStrength(strength: int): void
+        + getDexterity(): int
+        + setDexterity(dexterity: int): void
+        + getConstitution(): int
+        + setConstitution(constitution: int): void
+        + getIntelligence(): int
+        + setIntelligence(intelligence: int): void
+        + getWisdom(): int
+        + setWisdom(wisdom: int): void
+        + getCharisma(): int
+        + setCharisma(charisma: int): void
+    }
+
+    class Quest {
+        - questName: string
+        - questDescription: string
+        - type: QuestType
+        - rewards: List
+        - isCompleted: boolean
+        - itemRewards: List~Item~
+        - goldReward: int
+        + isQuestCompleted(): boolean
+        + getDescription(): String
+        + getRewards(): List
+        + getQuestType(): QuestType
+    }
+
+    class Inventory {
+        - items: List
+        + addItem(item: Item): void
+        + removeItem(item: Item): void
+        + viewItemsByType(type: String): List
+    }
+
+    class Game {
+        - menu: Menu
+        - isRunning: boolean
+        - inputHandler: InputHandler
+        - player: Player
+        + newGame()
+        + start(): void
+        + loadGame(): void
+        + exitGame(): void
+        + main(args: String[]): void
+    }
+
+    class InputHandler {
+        - sc: Scanner
+        + getInput(): String
+    }
+
+    class DialogueManager {
+        - currentDialogue: Dialogue
+        + startDialogue(dialogue: Dialogue): void
+        + getCurrentText(): String
+        + getOptions(): List
+        + selectOption(index: int): void
+        + isDialogueActive(): boolean
+    }
+
+    class DialogueTree {
+        - dialogue: Dialogue
+        + start(): void
+    }
+
+    class Dialogue {
+        - text: String
+        - options: List
+        - nextDialogues: List
+        + getText(): String
+        + getOptions(): List
+        + getNextDialogue(index: int): Dialogue
+    }
+
+    class DialogueOption {
+        - optionText: String
+        - nextDialogue: Dialogue
+        + newDialogueOption(optionText: String, nextDialogue: Dialogue)
+        + getOptionText(): String
+        + getNextDialogue(): Dialogue
+        + setNextDialogue(nextDialogue: Dialogue): void
+    }
+
+    class Character {
+        - sex: String
+        - race: String
+        - exp: int
+        - charisma: int
+        + addToInventory(item: Item): void
+        + removeFromInventory(item: Item): void
+        + sellItems(item: Item): void
+        + move(direction: Direction): void
+        + equipItems(item: Item): void
+        + regenerate(amount: int): void
+    }
+
+    class NPC {
+        - quests: List
+        + giveQuest(character: Character): void
+    }
+
     class Merchant {
-        - stock: List<Item>
+        - stock: List
         + buyItem(buyer: Character, item: Item, quantity: int): boolean
         + sellItem(seller: Character, item: Item, quantity: int): boolean
         # setPrices(item: Item, newPrice: float): void
         # restockItems(): void
     }
- 
-    class GameObject{
-        -name: String
-        -desc: String
-        +getName(): String
-        +getDesc(): String
-    }
-    
+
+    Item --|> Material
+    Item --|> Consumable
+    Item --|> Equipment
+    Equipment --|> Armor
+    Equipment --|> Weapon
+    GameObject --|> Item
+    Dialogue *-- DialogueTree
+    DialogueOption *-- Dialogue
+    Entity o-- Statistic
+    NPC <|-- Character
     Character <|-- NPC
-    class NPC{
-        - quest:List<Quest>
-        + giveQuest(character: Character) : void
-    }
-
-
-
-```
+    NPC <|-- Merchant
