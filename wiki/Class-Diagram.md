@@ -217,6 +217,15 @@ GameObject --|> Entity
         + giveQuest(character: Character) : void
     }
 
+    class SettingsConsoleView {
+        - settingsViewModel: SettingsViewModel
+        + SettingsConsoleView(settingsViewModel: SettingsViewModel)
+        + show(): void
+        + getInput(): int
+        + handleInput(input: int): void
+    }
+
+
 
 
 ```
