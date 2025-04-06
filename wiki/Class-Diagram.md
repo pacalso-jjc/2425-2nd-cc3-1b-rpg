@@ -229,8 +229,4 @@ GameObject --|> Entity
         + displayNoItemsMessage(): void
     }
 
-    ConsoleViewInventory --> Inventory
-    ConsoleViewInventory --> Item
-
-
 ```
