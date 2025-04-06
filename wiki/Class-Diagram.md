@@ -217,6 +217,21 @@ GameObject --|> Entity
         + giveQuest(character: Character) : void
     }
 
+    class CombatViewModel {
+        - player: Character
+        - enemy: Character
+        - actions: List<Action>
+        + CombatViewModel(player: Character, enemy: Character)
+        + displayCombatInfo(): void
+        + selectAction(action: Action): void
+        + executeAction(action: Action): void
+        + isCombatOver(): boolean
+    }
+
+    CombatViewModel --> Character
+    CombatViewModel --> Action
+    Action <|-- AttackAction
+    Action <|-- DefendAction
 
 
 ```
