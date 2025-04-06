@@ -217,7 +217,6 @@ GameObject --|> Entity
         + giveQuest(character: Character) : void
     }
 
-    classDiagram
     class ConsoleViewInventory {
         - inputScanner
         + displayInventory(inventory: Inventory): void
@@ -229,4 +228,6 @@ GameObject --|> Entity
         + displayNoItemsMessage(): void
     }
 
+    ConsoleViewInventory --> Inventory
+    ConsoleViewInventory --> Item
 ```
