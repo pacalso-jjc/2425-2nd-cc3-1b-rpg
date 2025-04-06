@@ -59,9 +59,10 @@ classDiagram
     }
 
     class SkillTree {
-        - int skillPoints
-        + boolean unlockSkill(String skillName)
-        + void addSkill(Skill skill)
+        -skillPoints: int
+        -skillList: List~Skill~
+        +unlockSkill(skillName: String): boolean
+        +addSkill(skill: Skill): void
     }
 
     class DialogueManager {
