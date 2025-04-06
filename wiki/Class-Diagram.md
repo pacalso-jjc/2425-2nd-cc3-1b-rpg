@@ -217,6 +217,17 @@ GameObject --|> Entity
         + giveQuest(character: Character) : void
     }
 
+    class ConsoleViewInventory {
+        - inputScanner
+        + displayInventory(inventory: Inventory): void
+        + displayItemDetails(item: Item): void
+        + promptItemSelection(inventory: Inventory): Item
+        + displayEquipSuccess(item: Item): void
+        + displayUseItemResult(item: Item, result: String): void
+        + promptEquipOrUse(): String
+        + displayNoItemsMessage(): void
+    }
 
-
+    ConsoleViewInventory --> Inventory
+    ConsoleViewInventory --> Item
 ```
