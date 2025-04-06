@@ -217,6 +217,15 @@ GameObject --|> Entity
         + giveQuest(character: Character) : void
     }
 
+    class ConsoleQuestView {
+        - questViewModel: QuestViewModel
+        - scanner: Scanner
+        + ConsoleQuestView(questViewModel: QuestViewModel)
+        + displayQuestList(): void
+        + displayCurrentQuest(): void
+        + promptUser ForAction(): void
+        + handleUser Input(input: String): void
+    }
 
 
 ```
