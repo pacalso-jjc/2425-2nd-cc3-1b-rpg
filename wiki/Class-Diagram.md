@@ -4,52 +4,108 @@ title: Fantasy RPG
 ---
 classDiagram
 
-    note "From Duck till Zebra"
-    
-    Animal <|-- Duck
-    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
-    Animal <|-- Fish
-    Animal <|-- Zebra
-    
-    Animal : +int age
-    Animal : +String gender
-    Animal : +isMammal()
-    Animal : +mate()
-
-    class Duck {
-        +String beakColor
-        +swim()
-        +quack()
+GameObject --|> Entity
+   class Entity{
+      - exp: int
+      - maxHp: int
+      - maxMana: int
+      - maxStamina: int
+      - currentHp: int
+      - currentMana: int
+      - currentStamina: int
+      - stats: Statistic
+      - skills: List~Skill~
+      - inventory: Inventory
+      - equipments: List~Item~
+      + attack(Entity e): void
+      + takeDamage(int amountOfDamage): void
+      + isAlive (): boolean
+      + makeSound(): void
+      + getExp() : int
+      + setExp(int exp): void
+      + getMaxHp(): int
+      + setMaxHp(int maxHp): void
+      + getMaxMana(): int
+      + setMaxMana(int maxMana): void
+      + getMaxStamina(): int
+      + setMaxStamina(int maxStamina): void
+      + getCurrentHp(): int
+      + setCurrentHp(int currentHp): void
+      + getCurrentMana(): int
+      + setCurrentMana(int currentMana): void
+      + getCurrentStamina(): int
+      + setCurrentStamina(int currentStamina): void
+      + getStats(): Statistic
+      + setStats(Statistic stats): void
+      + getSkills(): List~Skill~
+      + setSkills(List~Skill~ skills): void
+      + getInventory(): Inventory
+      + setInventory(Inventory inventory): void
+      + getEquipments(): List~Item~
+      + setEquipments(List~Item~ equipments): void
     }
-
-    class Fish {
-        -int sizeInFeet
-        -canEat()
-    }
-
-    class Zebra {
-        +bool is_wild
-        +run()
 
     Item --|> Material
-    Inventory --> Item 
     class Material {
         - isCraftingMaterial: boolean
         - craftingUsage: String
         - materialType: String
         - source: String
-
     }
-
+    GameObject --|> Item
     class Item {
-        -String name
-        -String description
         -int rarity
         -int value
         -int quantity   
     }
+   
+    class Quest {
+   - questName: string
+   - questDescription: string
+   - type: QuestType
+   - rewards: List
+   - isCompleted: boolean
+   - itemRewards: List(ListItem)
+   - goldRewards: goldReward : int
+   + isQuestCompleted(): boolean
+   + getDescription(): String
+   + getRewards(): List
+   + getQuestType(): QuestType
+    }
+    
+    Entity o-- Statistic
+    class Statistic{
+	-int strength
+	-int dexterity
+	-int constitution
+	-int intelligence
+	-int wisdom
+	-int charisma
+        +getStrength(): int
+        +setStrength(int strength): void
+        +getDexterity(): int
+        +setDexterity(int dexterity): void
+        +getConstitution(): int
+        +setConstitution(int constitution): void
+        +getIntelligence(): int
+        +setIntelligence(int intelligence): void
+        +getWisdom(): int
+        +setWisdom(int wisdom): void
+        +getCharisma(): int
+        +setCharisma(int charisma): void
+  }
 
-    Item <|-- Armor
+    Item --|> Consumable
+    class Consumable {
+        -String effect
+        -int amountToRegenerate 
+        +setEffect() void
+        +setAmountToRegenerate() void
+        +getEffect() String
+        +getAmountToRegenerate() int
+    }
+
+    Equipment --|> Armor
     class Armor {
         +int defense
     }
@@ -71,8 +127,6 @@ classDiagram
         + String getInput()
     }
 
-
-
     class DialogueManager {
         -currentDialogue: Dialogue
         +startDialogue(dialogue: Dialogue): void
@@ -82,6 +136,13 @@ classDiagram
         +isDialogueActive(): boolean
     } 
 
+    Dialogue *-- DialogueTree 
+    class DialogueTree{
+        -dialogue: Dialogue
+        +start(): void
+    }
+
+    DialogueOption *-- Dialogue
     class Dialogue {
         -text: String
         -options: List~String~
@@ -91,14 +152,36 @@ classDiagram
         +getNextDialogue(index: int): Dialogue
     }
 
-    Equipment <|-- Weapon
+    class Character{
+     -String sex
+     -String race
+     -int exp
+     -int charisma
+     +addtoInventory(Item item)
+     +removeFromInventory(Item item)
+     +sellItems(Item item)
+     +move(Direction direction)
+     +equipItems(Item item)
+     +regenerate(amountToRegenarate regenerate)
+    }
+
+    class DialogueOption {
+        -optionText: String
+        -nextDialogue: Dialogue
+        +DialogueOption(optionText: String, nextDialogue: Dialogue)
+        +getOptionText(): String
+        +getNextDialogue(): Dialogue
+        +setNextDialogue(nextDialogue: Dialogue): void
+    }
+
+    Equipment --|> Weapon
     class Weapon {
         -damage: int
         +Weapon(name: String, value: int, damage: int)
         +getDamage(): int
     }
     
-    Item <|-- Equipment
+    Item --|> Equipment
     class Equipment {
         - levelRequirement: int
         + equip(): void
@@ -112,20 +195,36 @@ classDiagram
         +viewItemsByType(type: String) List
     }
 
-class GameObject{
+    NPC <|-- Merchant
+    class Merchant {
+        - stock: List<Item>
+        + buyItem(buyer: Character, item: Item, quantity: int): boolean
+        + sellItem(seller: Character, item: Item, quantity: int): boolean
+        # setPrices(item: Item, newPrice: float): void
+        # restockItems(): void
+    }
+ 
+    class GameObject{
         -name: String
         -desc: String
         +getName(): String
         +getDesc(): String
     }
-
-GameObject --|> Action    
-       class Action {
-        <<abstract>>
-        +perform(): void
+    
+    Character <|-- NPC
+    class NPC{
+        - quest:List<Quest>
+        + giveQuest(character: Character) : void
     }
 
-    
+     class Action {
+        + Action(name: String, description: String)
+        + perform(target: Character): void
+    }
 
+    GameObject <|-- Action
+    Action <|-- AttackAction
+    Action <|-- DefendAction
+    Action --> Character
 
 ```
