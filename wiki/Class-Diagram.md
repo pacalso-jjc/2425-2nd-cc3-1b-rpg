@@ -217,6 +217,16 @@ GameObject --|> Entity
         + giveQuest(character: Character) : void
     }
 
-
+    class QuestViewModel {
+        - quests: List<Quest>
+        - currentQuest: Quest
+        + QuestViewModel()
+        + addQuest(quest: Quest): void
+        + removeQuest(quest: Quest): void
+        + startQuest(quest: Quest): void
+        + completeQuest(quest: Quest): void
+        + getCurrentQuest(): Quest
+        + getAllQuests(): List<Quest>
+    }
 
 ```
