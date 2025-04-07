@@ -217,6 +217,10 @@ GameObject --|> Entity
         + giveQuest(character: Character) : void
     }
 
-
+    Action --|> RunAction
+    class RunAction{
+        -combatManager: CombatManager
+        +perform() void
+    }
 
 ```
