@@ -217,6 +217,11 @@ GameObject --|> Entity
         + giveQuest(character: Character) : void
     }
 
-
+    class TradeConsoleView{
+        +displayTradeMenu() void
+        +displayItems(List<Item> items, String title) void
+        +getUserChoice() int
+        +getItemChoice(List<Item> items) int 
+    }
 
 ```
