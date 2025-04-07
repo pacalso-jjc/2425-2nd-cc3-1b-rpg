@@ -127,6 +127,13 @@ GameObject --|> Entity
         + String getInput()
     }
 
+    class SkillTree {
+        -skillPoints: int
+        -skillList: List~Skill~
+        +unlockSkill(skillName: String): boolean
+        +addSkill(skill: Skill): void
+    }
+
     class DialogueManager {
         -currentDialogue: Dialogue
         +startDialogue(dialogue: Dialogue): void
