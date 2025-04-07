@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class TradeConsoleView{
-
+    
     public void displayTradeMenu(){
 
     }
@@ -15,7 +15,7 @@ public class TradeConsoleView{
     }
 
     public int getItemChoice(List<Item> items) {
-        
+
     }
 
 }
