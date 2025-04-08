@@ -107,7 +107,9 @@ GameObject --|> Entity
 
     Equipment --|> Armor
     class Armor {
-        +int defense
+        +int Bonusdefense
+	+getBonusdefense(): int
+        +setBonusdefense(defense: int): void
     }
 
     class Game {
