@@ -223,4 +223,13 @@ GameObject --|> Entity
         +perform() void
     }
 
+    class TradeViewModel {
+        - items: List~Item~
+        - tradeConsoleView: TradeConsoleView
+        +TradeViewModel(TradeConsoleView tradeConsoleView)
+        +showTradeMenu(): void
+        +handleUserChoice(): void
+        +loadItems(): List~Item~
+        +executeTrade(Item item): void
+    }
 ```
