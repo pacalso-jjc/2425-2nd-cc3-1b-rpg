@@ -127,6 +127,19 @@ GameObject --|> Entity
         + String getInput()
     }
 
+    class MainMenuViewModel {
+        - menuOptions: List~String~
+        - selectedOptionIndex: int
+        - game: Game
+        + getMenuOptions(): List~String~
+        + selectOption(index: int): void
+        + confirmSelection(): void
+        + goToSettings(): void
+        + exitGame(): void
+    }
+
+    MainMenuViewModel --> Game
+
     class DialogueManager {
         -currentDialogue: Dialogue
         +startDialogue(dialogue: Dialogue): void
