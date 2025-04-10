@@ -217,6 +217,16 @@ GameObject --|> Entity
         + giveQuest(character: Character) : void
     }
 
+    class NPCListConsoleView {
+        - npcs: List<NPC>
+        + NPCListConsoleView(npcs: List<NPC>)
+        + displayNPCs(): void
+        + displayNPCDetails(npc: NPC): void
+    }
+
+    NPCListConsoleView --> NPC 
+
+
     Action --|> RunAction
     class RunAction{
         -combatManager: CombatManager
